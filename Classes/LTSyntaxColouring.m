@@ -1,7 +1,10 @@
 // LTTextView delegate
 
 /*
-Smultron version 3.6b1, 2009-09-12
+Literate version 1.0, August 2010
+Copyright 2010 Ryan Walklin
+
+Based on Smultron version 3.6b1, 2009-09-12
 Written by Peter Borg, pgw3@mac.com
 Find the latest version at http://smultron.sourceforge.net
 

@@ -452,7 +452,7 @@ static id sharedInstance = nil;
 		NSDictionary *extraMetaData = [self getExtraMetaDataFromPath:path];
 		attributes = [NSMutableDictionary dictionaryWithDictionary:[fileManager attributesOfItemAtPath:path error:nil]];
 		if ([[LTDefaults valueForKey:@"AssignDocumentToLiterateWhenSaving"] boolValue] == YES) {
-			[attributes setObject:[NSNumber numberWithUnsignedLong:'SMUL'] forKey:@"NSFileHFSCreatorCode"];
+			[attributes setObject:[NSNumber numberWithUnsignedLong:'LTRT'] forKey:@"NSFileHFSCreatorCode"];
 			[attributes setObject:[NSNumber numberWithUnsignedLong:'LTd'] forKey:@"NSFileHFSTypeCode"];
 		}
 		[attributes removeObjectForKey:@"NSFileSize"]; // Remove those values which has to be updated 

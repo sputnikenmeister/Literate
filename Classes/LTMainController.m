@@ -213,7 +213,10 @@ static id sharedInstance = nil;
 
 -(void)autosaveTimerFireAction:(NSTimer*)timer
 {
-	[[LTFileMenuController sharedInstance] autosaveAllAction:self];
+	if ([[LTDefaults valueForKey:@"AutosaveInterval"] integerValue] == YES)
+	{
+		[[LTFileMenuController sharedInstance] autosaveAllAction:self];
+	}
 }
 
 #pragma mark -

@@ -65,16 +65,25 @@ static id sharedInstance = nil;
 
 - (void)updateCheckIfAnotherApplicationHasChangedDocumentsTimer
 {
-	if ([[LTDefaults valueForKey:@"CheckIfDocumentHasBeenUpdated"] boolValue] == YES) {
+	if ([[LTDefaults valueForKey:@"CheckIfDocumentHasBeenUpdated"] boolValue] == YES) 
+	{
 		
 		NSInteger interval = [[LTDefaults valueForKey:@"TimeBetweenDocumentUpdateChecks"] integerValue];
-		if (interval < 1) {
+		if (interval < 1) 
+		{
 			interval = 1;
 		}
 		checkIfAnotherApplicationHasChangedDocumentsTimer = 
-			[NSTimer scheduledTimerWithTimeInterval:interval target:LTVarious selector:@selector(checkIfDocumentsHaveBeenUpdatedByAnotherApplication)	userInfo:nil repeats:YES];
-	} else {
-		if (checkIfAnotherApplicationHasChangedDocumentsTimer) {
+			[NSTimer scheduledTimerWithTimeInterval:interval 
+											 target:LTVarious 
+										   selector:@selector(checkIfDocumentsHaveBeenUpdatedByAnotherApplication)	
+										   userInfo:nil 
+											repeats:YES];
+	} 
+	else 
+	{
+		if (checkIfAnotherApplicationHasChangedDocumentsTimer) 
+		{
 			[checkIfAnotherApplicationHasChangedDocumentsTimer invalidate];
 			checkIfAnotherApplicationHasChangedDocumentsTimer = nil;
 		}
@@ -87,10 +96,12 @@ static id sharedInstance = nil;
 	const NSStringEncoding *availableEncodings = [NSString availableStringEncodings];
 	NSStringEncoding encoding;
 	NSArray *activeEncodings = [LTDefaults valueForKey:@"ActiveEncodings"];
-	while (encoding = *availableEncodings++) {
+	while (encoding = *availableEncodings++) 
+	{
 		id item = [LTBasic createNewObjectForEntity:@"Encoding"];
 		NSNumber *encodingObject = [NSNumber numberWithInteger:encoding];
-		if ([activeEncodings containsObject:encodingObject]) {
+		if ([activeEncodings containsObject:encodingObject]) 
+		{
 			[item setValue:[NSNumber numberWithBool:YES] forKey:@"active"];
 		}
 		[item setValue:encodingObject forKey:@"encoding"];

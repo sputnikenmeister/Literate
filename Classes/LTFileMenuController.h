@@ -37,8 +37,9 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (IBAction)closeAction:(id)sender;
 
-- (IBAction)saveAllAction:(id)sender;
-- (void)saveAsInSaveAllForDocument:(id)document;
+-(IBAction)saveAllAction:(id)sender;
+-(IBAction)autosaveAllAction:(id)sender;
+-(void)saveAsInSaveAllForDocument:(id)document;
 
 - (void)printAction:(id)sender;
 

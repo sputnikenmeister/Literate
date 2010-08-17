@@ -340,7 +340,7 @@ static id sharedInstance = nil;
 }
 
 
-- (IBAction)saveAllAction:(id)sender
+-(IBAction)saveAllAction:(id)sender
 {
 	NSArray *array = [LTCurrentProject documents];
 	for (id item in array) {
@@ -354,6 +354,20 @@ static id sharedInstance = nil;
 		}
 	}
 	[LTInterface updateStatusBar]; // Might be needed if the current document has saved with a new name 
+}
+
+-(IBAction)autosaveAllAction:(id)sender
+{
+	NSArray *array = [LTCurrentProject documents];
+	for (id item in array) 
+	{
+		if ([[item valueForKey:@"isEdited"] boolValue] == YES && 
+			[[item valueForKey:@"isNewDocument"] boolValue] == NO) 
+		{
+			// only save named documents
+			[LTOpenSave performSaveOfDocument:item fromSaveAs:NO];
+		}
+	}
 }
 
 

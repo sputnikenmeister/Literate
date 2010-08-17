@@ -124,7 +124,7 @@
 	<key>CFBundleIconFile</key>
 	<string>LTMainIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.smultron.Literate</string>
+	<string>com.testtoast.Literate</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -132,9 +132,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
-	<string>SMUL</string>
+	<string>LTRT</string>
 	<key>CFBundleVersion</key>
-	<string>3.6b1</string>
+	<string>0.0.1</string>
 	<key>ExcludeSyncKeys</key>
 	<array>
 		<string>PreferencesGeneralViewSavedFrame</string>

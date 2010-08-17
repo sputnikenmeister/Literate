@@ -20,16 +20,25 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTMainController.h"
 #import "LTPreferencesController.h"
 #import "LTTextMenuController.h"
+#import "LTFileMenuController.h"
 #import "LTBasicPerformer.h"
 #import "LTVariousPerformer.h"
 #import "LTFontTransformer.h"
 
-#define THISVERSION 3.60
+#define THISVERSION 0.01
+
+@interface LTMainController (Private)
+
+-(NSTimeInterval)timeIntervalForAutosaveIndex:(NSInteger)index;
+-(void)setAutosaveTimerForTimeInterval:(NSTimeInterval)interval;
+-(void)autosaveTimerFireAction:(NSTimer *)timer;
+
+@end
+
 
 @implementation LTMainController
 
 @synthesize isInFullScreenMode, singleDocumentWindowWasOpenBeforeEnteringFullScreen, operationQueue;
-
 
 static id sharedInstance = nil;
 
@@ -69,10 +78,9 @@ static id sharedInstance = nil;
 	[LTBasic insertFetchRequests];
 	
 	[[LTPreferencesController sharedInstance] setDefaults];	
-	
+			
 	NSValueTransformer *fontTransformer = [[LTFontTransformer alloc] init];
     [NSValueTransformer setValueTransformer:fontTransformer forName:@"FontTransformer"];
-	
 	
 }
 
@@ -96,6 +104,15 @@ static id sharedInstance = nil;
 	isInFullScreenMode = NO;
 	
 	[LTVarious updateCheckIfAnotherApplicationHasChangedDocumentsTimer];
+	
+	// enable autosave
+	[[NSUserDefaultsController sharedUserDefaultsController] addObserver:self 
+															  forKeyPath:@"values.AutosaveInterval" 
+																 options:NSKeyValueObservingOptionNew 
+																 context:@"AutosaveIntervalChanged"];
+	
+	NSTimeInterval interval = [self timeIntervalForAutosaveIndex:[[LTDefaults valueForKey:@"AutosaveInterval"] integerValue]];
+	[self setAutosaveTimerForTimeInterval:interval];
 }
 
 
@@ -118,16 +135,25 @@ static id sharedInstance = nil;
 
 - (void)updateInterfaceOnMainThreadAfterCheckForUpdateFoundNewUpdate:(id)sender
 {
-	if (sender != nil && [sender isKindOfClass:[NSDictionary class]]) {
+	if (sender != nil && [sender isKindOfClass:[NSDictionary class]])
+	{
 		NSInteger returnCode = [LTVarious alertWithMessage:[NSString stringWithFormat:NSLocalizedString(@"A newer version (%@) is available. Do you want to download it?", @"A newer version (%@) is available. Do you want to download it? in checkForUpdate"), [sender valueForKey:@"latestVersionString"]] informativeText:@"" defaultButton:NSLocalizedString(@"Download", @"Download") alternateButton:CANCEL_BUTTON otherButton:nil];
-		if (returnCode == NSAlertFirstButtonReturn) {
+		if (returnCode == NSAlertFirstButtonReturn) 
+		{
 			[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[sender valueForKey:@"url"]]];
 		}
 		
-	} else {
-		if ([[[LTPreferencesController sharedInstance] preferencesWindow] isVisible] == YES) {
+	}
+	else 
+	{
+		if ([[[LTPreferencesController sharedInstance] preferencesWindow] isVisible] == YES)
+		{
 			[[[LTPreferencesController sharedInstance] noUpdateAvailableTextField] setHidden:NO];
-			hideNoUpdateAvailableTextFieldTimer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(hideNoUpdateAvailableTextField) userInfo:nil repeats:NO];
+			hideNoUpdateAvailableTextFieldTimer = [NSTimer scheduledTimerWithTimeInterval:30 
+																				   target:self 
+																				 selector:@selector(hideNoUpdateAvailableTextField) 
+																				 userInfo:nil 
+																				  repeats:NO];
 		}
 	}
 	
@@ -142,6 +168,68 @@ static id sharedInstance = nil;
 	}
 	
 	[[[LTPreferencesController sharedInstance] noUpdateAvailableTextField] setHidden:YES];
+}
+
+#pragma mark -
+#pragma mark Autosave
+
+// autosave - 1, 2, 5, 10, 30
+-(NSTimeInterval)timeIntervalForAutosaveIndex:(NSInteger)index
+{
+	NSInteger timeInterval = -1;
+	switch (index)
+	{
+		case 0:
+			timeInterval = 60;
+			break;
+		case 1:
+			timeInterval = 120;
+			break;
+		case 2:
+			timeInterval = 300;
+			break;
+		case 3:
+			timeInterval = 600;
+			break;
+		case 4:
+			timeInterval = 1800;
+			break;
+		default:
+			timeInterval = 300;
+			break;
+	}
+	return timeInterval;
+}
+
+-(void)setAutosaveTimerForTimeInterval:(NSTimeInterval)interval
+{
+	if (_autosaveTimer)
+	{
+		[_autosaveTimer invalidate];
+		_autosaveTimer = nil;
+	}
+	_autosaveTimer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(autosaveTimerFireAction:) userInfo:nil repeats:YES];
+}
+
+-(void)autosaveTimerFireAction:(NSTimer*)timer
+{
+	[[LTFileMenuController sharedInstance] autosaveAllAction:self];
+}
+
+#pragma mark -
+#pragma mark KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	if ([(NSString *)context isEqualToString:@"AutosaveIntervalChanged"]) 
+	{
+		NSTimeInterval interval = [self timeIntervalForAutosaveIndex:[[LTDefaults valueForKey:@"AutosaveInterval"] integerValue]];
+		[self setAutosaveTimerForTimeInterval:interval];
+	}
+	else
+	{
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	}
 }
 
 @end

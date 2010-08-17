@@ -104,6 +104,8 @@ static id sharedInstance = nil;
 	[dictionary setValue:[NSNumber numberWithInteger:LTCheckForUpdatesNever] forKey:@"CheckForUpdatesInterval"];
 	[dictionary setValue:[NSNumber numberWithInteger:LTPreviewHTML] forKey:@"PreviewParser"];
 	[dictionary setValue:[NSNumber numberWithInteger:LTCurrentDocumentScope] forKey:@"AdvancedFindScope"];
+	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"AutosaveEnabled"];
+	[dictionary setValue:[NSNumber numberWithInteger:1] forKey:@"AutosaveInterval"]; // 2 min
 	
 	[dictionary setValue:[NSNumber numberWithFloat:0.5] forKey:@"AutocompleteAfterDelay"];	
 	

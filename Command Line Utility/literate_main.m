@@ -32,9 +32,10 @@ int main (int argc, const char * argv[]) {
 		NSString *path;
 		while (argv[i]) {
 			path = [[NSString alloc] initWithUTF8String:argv[i]];
-			if (![fileManager fileExistsAtPath:path]) { // Check if file exists, otherwise create it
+			if (![fileManager fileExistsAtPath:path]) 
+			{ // Check if file exists, otherwise create it
 				NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
-				NSNumber *creatorCode = [NSNumber numberWithUnsignedLong:'SMUL'];
+				NSNumber *creatorCode = [NSNumber numberWithUnsignedLong:'LTRT'];
 				NSNumber *typeCode = [NSNumber numberWithUnsignedLong:'LTd'];
 				[attributes setObject:creatorCode forKey:@"NSFileHFSCreatorCode"];
 				[attributes setObject:typeCode forKey:@"NSFileHFSTypeCode"];

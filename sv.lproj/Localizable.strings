@@ -1,0 +1,427 @@
+/* (unsaved) */
+"(unsaved)" = "(aldrig sparad)";
+
+/* Advanced Find */
+"Advanced Find" = "Avancerad sökning";
+
+/* Authenticate */
+"Authenticate" = "Autentisera";
+
+/* Cancel-button */
+"Cancel" = "Avbryt";
+
+/* Name for undo Change Encoding */
+"Change Encoding" = "Ändra textkodning";
+
+/* Name for undo Change Line Endings */
+"Change Line Endings" = "Byt radslut";
+
+/* Close */
+"Close" = "Stäng";
+
+/* Close Split */
+"Close Split" = "Slå ihop";
+
+/* Collection */
+"Collection" = "Samling";
+
+/* Commands */
+"Commands" = "Kommandon";
+
+/* Delete-button */
+"Delete" = "Ta bort";
+
+/* Download */
+"Download" = "Ladda ned";
+
+/* Function */
+"Function" = "Funktion";
+
+/* Indicate that if you want you can try to authenticate with an administrators username and password */
+"If you want you can try to authenticate with an administrators username and password" = "Om du vill kan du försöka autentisera med en administratörs användarnamn och lösenord";
+
+/* Info */
+"Info" = "Info";
+
+/* Indicate that it seems as if you do not have permission to save the file %@ in Not-enough-permission-in-data-save sheet */
+"It seems as if you do not have permission to save the file %@" = "Det verkar som att du inte har tillräckligt med rättigheter att öppna filen ”%@”";
+
+/* Live Find */
+"Live Find" = "Direktsök";
+
+/* New */
+"New" = "Ny";
+
+/* OK-button */
+"OK" = "OK";
+
+/* Indicate that they should try to save in a different location */
+"Please save it at a different location" = "Vänligen spara den på ett annat ställe";
+
+/* Preferences */
+"Preferences" = "Inställningar";
+
+/* Show Line Numbers */
+"Show Line Numbers" = "Visa radnummer";
+
+/* Show Syntax Colours */
+"Show Syntax Colours" = "Visa syntaxfärger";
+
+/* Snippets */
+"Snippets" = "Snuttar";
+
+/* Split Window */
+"Split Window" = "Dela fönstret";
+
+/* Indicate that you can not save this file because %@ is now a folder */
+"You can not save this file because %@ is now a folder" = "Du kan inte spara denna fil för ”%@” är numera en mapp";
+
+
+/* A newer version (%@) is available. Do you want to download it? in checkForUpdate */
+"A newer version (%@) is available. Do you want to download it?" = "En nyare version (%@) finns. Vill du ladda ned den?";
+
+/* Advanced preferences toolbar item Label */
+"Advanced" = "Avancerat";
+
+/* The name for the all documents project */
+"All documents" = "Alla dokument";
+
+/* Appearance preferences toolbar item Label */
+"Appearance" = "Utseende";
+
+/* Ask if you are sure that you want to delete %i occurrences of %@ in ask-if-sure-you-want-to-replace-in-advanced-find-sheet */
+"Are you sure that you want to delete %i occurrences of %@?" = "Är du säker på att du vill ta bort %1$i förekomster av ”%2$@”?";
+
+/* Ask if you are sure that you want to delete the one occurrence of %@ in ask-if-sure-you-want-to-replace-in-advanced-find-sheet */
+"Are you sure that you want to delete the one occurrence of %@?" = "Är du säker på att du vill ta bort en förekomst ”%@?”";
+
+/* Ask if you are sure that you want to replace %i occurrences of %@ with %@ in ask-if-sure-you-want-to-replace-in-advanced-find-sheet */
+"Are you sure that you want to replace %i occurrences of %@ with %@?" = "Är du säker på att du vill ersätta %1$i förekomster av ”%2$@” med ”%3$@?”";
+
+/* Ask if you are sure that you want to replace one occurrence of %@ with %@ in ask-if-sure-you-want-to-replace-in-advanced-find-sheet */
+"Are you sure that you want to replace one occurrence of %@ with %@?" = "Är du säker på att du vill ersätta en förekomst av ”%1$@” med ”%2$@?”";
+
+/* Ask if you are sure you want to download preferences for Literate from your iDisk and replace your current settings in Download-preferences-from-iDisk sheet */
+"Are you sure you want to download preferences for Literate from your iDisk and replace your current settings?" = "Är du säker på att du vill ladda ned inställningar för Literate från din iDisk och ersätta dina nuvarande inställningar?";
+
+/* Ask if they are sure they want to install the command-line utility in Install-command-line-utility sheet */
+"Are you sure you want to install the command-line utility?" = "Är du säker på att du vill installera kommandorads-verktyget?";
+
+/* Ask if you are sure you want to revert this document in Revert-sheet */
+"Are you sure you want to revert this document?" = "Är du säker på att du vill återgå till den senast sparade versionen av detta dokument?";
+
+/* The name for bytes in the info window */
+"bytes" = "bytes";
+
+/* Indicate that they should change the preferences to a different encoding or be careful to check the content if you choose to open it in Check-encoding sheet */
+"Change the preferences to a different encoding or be careful to check the content if you choose to open it" = "Ändra inställningarna till en annan textkodning eller kontrollera innehållet noggrant om du väljer att öppna dokumentet";
+
+/* Indicate that they should choose something that is not a folder or change the settings in Preferences so that all items in a folder are opened in Open-file-is-a-directory sheet */
+"Choose something that is not a folder or change the settings in Preferences so that all items in a folder are opened" = "Välj något som inte är en mapp eller ändra inställningarna så att allt i en mapp öppnas";
+
+/* Command ran successfully in runAction */
+"Command ran successfully" = "Kommandot kördes framgångsrikt";
+
+/* The word to indicate that the filename is a copy in Save-A-Copy-As save-panel */
+"copy" = "kopia";
+
+/* Indicate that you could not connect properly to your iDisk in Can't-connect-to-iDisk sheet */
+"Could not connect properly to your iDisk" = "Lyckades inte koppla upp mot din iDisk ordentligt";
+
+/* Could not find a match for search-string %@ in Advanced Find */
+"Could not find a match for search-string %@" = "Kunde inte hitta någon förekomst av ”%@”";
+
+/* Indicate that a Literate preference-file could not be found on your iDisk in Can't-find-iDisk-preferences-file sheet */
+"Could not find a Literate preference-file on your iDisk" = "Kunde inte hitta en inställningsfil till Literate på din iDisk";
+
+/* Indicate that the program could not find the syntax file to match this document in Could-not-find-syntax-file sheet */
+"Could not find the syntax file to match this document" = "Kunde inte hitta en syntaxfil som passsar detta dokument";
+
+/* Indicate that the local Preferences file could not be found in Can't-find-local-preferences-file sheet */
+"Could not find your local preferences file" = "Kunde inte hitta din lokala inställningsfil";
+
+/* Indicate that the program could not overwrite the file %@ because it has been removed in File-has-been-removed sheet */
+"Could not overwrite the file %@ because it has been removed" = "Kunde inte skriva över filen %@ eftersom den har tagits bort";
+
+/* Ask whether they want to ignore the updates the other application has made or reload the document and destroy any changes you have made to this document Document-has-been-updated-alert sheet */
+"Do you want to ignore the updates the other application has made or reload the document and destroy any changes you have made to this document?" = "Vill du ignorera de förändringar det andra programmet har gjort eller ladda in dokumentet igen och förlora de förändringar du har gjort?";
+
+/* Ask whether they want to ignore the updates the other application has made or reload the document Document-has-been-updated-alert sheet */
+"Do you want to ignore the updates the other application has made or reload the document?" = "Vill du ignorera de förändringar det andra programmet har gjort eller ladda in dokumentet igen?";
+
+/* Ask if you want to open %@ as a project or as a text file in Ask-if-project-or-file sheet */
+"Do you want to open %@ as a project or as a text file" = "Vill du öppna %@ som ett projekt eller som en textfil?";
+
+/* Don't Line Wrap Text */
+"Don't Line Wrap Text" = "Radbryt inte";
+
+/* Don't Save-button in Close-sheet */
+"Don't Save" = "Spara inte";
+
+/* Encoding, in the status bar */
+"Encoding" = "Textkodning";
+
+/* Found %i matches for search-string %@ in Advanced Find */
+"Found %i matches for search-string %@" = "Hittade %1$i förekomster av ”%2$@”";
+
+/* Found one match for search-string %@ in Advanced Find */
+"Found one match for search-string %@" = "Hittade en förekomst av ”%@”";
+
+/* General preferences toolbar item Label */
+"General" = "Allmänt";
+
+/* Hide Documents List in View menu */
+"Hide Documents List" = "Göm dokumentlistan";
+
+/* Hide Invisible Characters in View-menu */
+"Hide Invisible Characters" = "Göm osynliga tecken";
+
+/* Hide Line Numbers in View-menu */
+"Hide Line Numbers" = "Göm radnummer";
+
+/* Hide Projects toolbar item Label */
+"Hide Projects" = "Göm projekten";
+
+/* Hide Projects Drawer in View menu */
+"Hide Projects Drawer" = "Göm projektutdragslådan";
+
+/* Hide Status Bar in View-menu */
+"Hide Status Bar" = "Göm statusrad";
+
+/* Hide Syntax Colours in View-menu */
+"Hide Syntax Colours" = "Göm syntaxfärger";
+
+/* Hide Tab Bar in View menu */
+"Hide Tab Bar" = "Göm flikraden";
+
+/* Indicate that if you choose Install smultron will be installed in /usr/bin and its man page in /usr/share/man/man1 and you can use it directly in the Terminal (you may need to authenticate twice with an administrators username and password). Otherwise you can choose to place all the files you need on the desktop and install it manually. in Install-command-line-utility sheet */
+"If you choose Install smultron will be installed in /usr/bin and its man page in /usr/share/man/man1 and you can use it directly in the Terminal (you may need to authenticate twice with an administrators username and password). Otherwise you can choose to place all the files you need on the Desktop and install it manually." = "Om du väljer Installera kommer smultron att installeras i /usr/bin och dess ”man page” i /usr/share/man/man1 och du kan använda den direkt i Terminalen (du kan behöva autentisera två gånger med en administratörs användarnamn och lösenord). Annars kan du välja att placera filerna du behöver på skrivbordet och installera dem manuellt.";
+
+/* Ignore-button in Document-has-been-updated-alert sheet */
+"Ignore" = "Ignorera";
+
+/* The name for the collection that holds the snippets that are imported from version 1 */
+"Imported Snippets" = "Importerade snuttar";
+
+/* Install-button in Install-command-line-utility sheet */
+"Install" = "Installera";
+
+/* Indicate that it seems as if you do not have permission to open the file %@ in Not-enough-permission-to-open sheet */
+"It seems as if you do not have permission to open the file %@" = "Det verkar som att du inte har tillräckligt med behörigheter att öppna filen %@";
+
+/* Saved, in the status bar */
+"Saved" = "Sparad";
+
+/* Length, in the status bar */
+"Length" = "Längd";
+
+/* Line Wrap Text */
+"Line Wrap Text" = "Radbryt";
+
+/* Line Wrap / Don't Line Wrap toolbar item Palette Label */
+"Line Wrap / Don't Line Wrap" = "Radbryt / Radbryt inte";
+
+/* Indicate that no document is selected for the dummy view */
+"No document selected" = "Inget dokument valt";
+
+/* Not applicable in insertAllFunctionsIntoMenu */
+"Not applicable" = "Icke tillämplig";
+
+/* The name for the collection that holds the old snippets that are imported from version 1 */
+"Old Snippets" = "Gamla snuttar";
+
+/* Open-button in Check-encoding sheet */
+"Open" = "Öppna";
+
+/* OpenSave preferences toolbar item Label */
+"Open & Save" = "Öppna & Spara";
+
+/* Please be patient. It could take a while. in preparing to print */
+"Please be patient. It could take a while." = "Vänligen vänta. Det kan ta en stund.";
+
+/* Indicate that they should please change the preferences if you want any information in the bar in Show-status-bar-action */
+"Please change the preferences if you want any information in the bar" = "Ändra inställningarna om du vill se något i statusraden";
+
+/* Indicate that they should please check if you've moved or deleted the original file in Revert-file-doesn't-exist sheet */
+"Please check if you've moved or deleted the original file" = "Kontrolllera om du har flyttat eller tagit bort den ursprungliga filen";
+
+/* Indicate that they should please check the installation of Literate and that they have a preference-file at <your home folder>/Library/Preferences/org.smultron.Literate.plist in Can't-find-local-preferences-file sheet */
+"Please check the installation of Literate and that you have a preference-file at <your home folder>/Library/Preferences/org.smultron.Literate.plist" = "Kontrollera installationen av Literate samt att du har en inställningsfil i <din hemkatalog>/Library/Preferences som heter org.smultron.Literate.plist";
+
+/* Indicate that they should Please check the installation of the application and the preferences in Could-not-find-syntax-file sheet */
+"Please check the installation of the application and the preferences" = "Kontrollera installationen av programmet samt inställningarna";
+
+/* Indicate that they should please check the permissions for the file and the enclosing folder and try again in Unknown-error-when-opening-with-authentication sheet */
+"Please check the permissions for the file and the enclosing folder and try again" = "Vänligen kontrollera rättigheterna för filen och dess mapp och försök igen";
+
+/* Please consider exporting the snippets first. There is no undo available. when deleting a collection */
+"Please consider exporting the snippets first. There is no undo available." = "Vänligen fundera på att exportera snuttarna först. Det går inte att ångra.";
+
+/* Indicate that they should find it at different location by choosing Open%C in the File menu Open-file-does-not-exist sheet */
+"Please find it at a different location by choosing Open%C in the File menu" = "Vänligen sök efter den på något annat ställe genom att välja Öppna%C i Arkiv-menyn";
+
+/* Indicate that they should try to save at a different location with Save As%C in File menu in Path-is-a-directory sheet */
+"Please save it at a different location with Save As%C in the File menu" = "Vänligen spara den på ett annat ställe med Spara som%C i Arkiv-menyn";
+
+/* Indicate that you should try a different location with Save As%C in the File menu in Unknown-error-when-saving-with-authentication sheet */
+"Please try a different location with Save As%C in the File menu" = "Vänligen spara den på ett annat ställe med Spara som%C i Arkiv-menyn";
+
+/* Indicate that you should try a different location with Save As%C in the File menu or check the permissions of the file and the enclosing folder and try again in Unknown-error-when-saving sheet */
+"Please try a different location with Save As%C in the File menu or check the permissions of the file and the enclosing folder and try again" = "Vänligen försök spara den på ett annat ställe med Spara som%C i Arkiv-menyn eller kontrollera rättighterna på filen och dess mapp och försök igen";
+
+/* Indicate that they should try to save in a different location with in Unknown-error-when-data-saving sheet */
+"Please try to save in a different location" = "Vänligen försök spara den på ett annat ställe";
+
+/* Indicate that they should please use Save As%C in the File menu in File-has-been-removed sheet */
+"Please use Save As%C in the File menu" = "Vänligen använd Spara som%C i Arkiv-menyn";
+
+/* Position, in the status bar */
+"Position" = "Position";
+
+/* Preparing the document for printing in preparing to print */
+"Preparing the document for printing" = "Förbereder dokumentet för utskrift";
+
+/* Press the Escape-button on the keyboard to return from the full screen mode in Show Document In Full Screen */
+"Press the Escape-button on the keyboard to return from the full screen mode" = "Tryck på Escape-tangenten för att återgå från fullskärmsläge";
+
+/* Name for preview in title of Preview window */
+"Preview" = "Förhandsvisning";
+
+/* Project-button in Ask-if-project-or-file sheet */
+"Project" = "Projekt";
+
+/* Put On Desktop-button in Install-command-line-utility sheet */
+"Put On Desktop" = "Placera på skrivbordet";
+
+/* Reload-button in Document-has-been-updated-alert sheet */
+"Reload" = "Ladda om";
+
+/* Remember that you can always Undo any changes in ask-if-sure-you-want-to-replace-in-advanced-find-sheet */
+"Remember that you can always Undo any changes" = "Kom ihåg att du alltid kan ångra förändringar";
+
+/* Replace-button in ask-if-sure-you-want-to-replace-in-advanced-find-sheet */
+"Replace" = "Ersätt";
+
+/* Indicate that we replaced %i occurrences of %@ with %@ in update-search-textField-after-replace */
+"Replaced %i occurrences of %@ with %@" = "Ersatte %1$i förekomster av ”%2$@” med ”%3$@”";
+
+/* Indicate that we replaced one occurrence of %@ with %@ in update-search-textField-after-replace */
+"Replaced one occurrence of %@ with %@" = "Ersatte en förekomst av ”%1$@” med ”%2$@”";
+
+/* Revert-button in Revert-sheet */
+"Revert" = "Återgå";
+
+/* Save-button in Close-sheet */
+"Save" = "Spara";
+
+/* Selection, in the status bar */
+"Selection" = "Markering";
+
+/* Show Documents List in View menu */
+"Show Documents List" = "Visa dokumentlistan";
+
+/* Show Invisible Characters in View-menu */
+"Show Invisible Characters" = "Visa osynliga tecken";
+
+/* Show Projects toolbar item Label */
+"Show Projects" = "Visa projekt";
+
+/* Show/Hide Projects toolbar item Palette Label */
+"Show/Hide Projects" = "Visa/Göm projekt";
+
+/* Show Projects Drawer in View menu */
+"Show Projects Drawer" = "Visa projektutdragslådan";
+
+/* Show Status Bar in View-menu */
+"Show Status Bar" = "Visa statusraden";
+
+/* Show Tab Bar in View menu */
+"Show Tab Bar" = "Visa flikraden";
+
+/* Show/Hide Line Numbers toolbar item Palette Label */
+"Show/Hide Line Numbers" = "Visa/Göm radnummer";
+
+/* Show/Hide Syntax Colours toolbar item Palette Label */
+"Show/Hide Syntax Colours" = "Visa/Göm syntaxfärger";
+
+/* Split Window / Close Split toolbar item Palette Label */
+"Split Window / Close Split" = "Dela fönstret / Slå ihop delningen";
+
+/* Syntax, in the status bar */
+"Syntax" = "Syntax";
+
+/* Syntax colours preferences toolbar item Label */
+"Syntax Colours" = "Syntaxfärger";
+
+/* Syntax definitions preferences toolbar item Label */
+"Syntax Definitions" = "Syntaxdefinitioner";
+
+/* Text File-button in Ask-if-project-or-file sheet */
+"Text File" = "Textfil";
+
+/* Indicate that the document %@ has been updated by another application in Document-has-been-updated-alert sheet */
+"The document %@ has been updated by another application" = "Dokumentet ”%@” har uppdaterats av ett annat program";
+
+/* Indicate in Close-sheet that the document %@ has not been saved. */
+"The document %@ has not been saved" = "Dokumentet ”%@” har inte sparats";
+
+/* Indicate that the document %@ is no longer open in Document-is-no-longer-opened-after-selection-in-advanced-find-sheet */
+"The document %@ is no longer open" = "Dokumentet ”%@” är inte längre öppet";
+
+/* Indicate that the file %@ does not exist Open-file-does-not-exist sheet */
+"The file %@ does not exist" = "Filen ”%@” finns inte mer";
+
+/* Indicate that there was a problem opening the document with the encoding %@. And ask if you want to open it anyway? */
+"There was a problem opening the document with the encoding %@. Do you want to try to open it anyway?" = "Det uppkom ett problem när dokumentet öppnades med textkodningen ”%@”. Vill du försöka öppna det ändå?";
+
+/* Indicate that there was a unknown error when trying to install the command-linbe utility in Unknown-error-when-installing-comman-line-utility sheet */
+"There was a unknown error when trying to install the command-line utility" = "Det uppkom ett okänt problem när kommandorads-verktyget installerades";
+
+/* Indicate that there was a unknown error when trying to open the file %@ with authentication in Unknown-error-when-opening-with-authentication sheet */
+"There was a unknown error when trying to open the file %@ with authentication" = "Det uppkom ett okänt problem när filen ”%@” skulle öppnas med autentisering";
+
+/* Indicate that there was a unknown error when trying to save the file %@ in Unknown-error-when-saving sheet */
+"There was a unknown error when trying to save the file %@" = "Det uppkom ett okänt problem när filen ”%@” skulle sparas";
+
+/* Indicate that there was a unknown error when trying to save the file %@ with authentication in Unknown-error-when-saving-with-authentication sheet */
+"There was a unknown error when trying to save the file %@ with authentication" = "Det uppkom ett okänt problem när filen ”%@” skulle öppnas med autentisering";
+
+/* This message will NOT appear again so try to remember it:-) in Show Document In Full Screen */
+"This message will NOT appear again so try to remember it:-)" = "Det här meddelandet kommer INTE upprepas så försök kom ihåg det:-)";
+
+/* This will delete all snippets that exists in the collection %@. Are you sure you want to continue? when deleting a collection */
+"This will delete all snippets that exists in the collection %@. Are you sure you want to continue?" = "Detta kommer ta bort alla snuttar som finns i samlingen ”%@”. Är du säker på att du vill fortsätta?";
+
+/* Unknown error when running the command in performCommand */
+"Unknown error when running the command" = "Okänt fel när kommandot kördes";
+
+/* Name for untitled document */
+"untitled" = "namnlös";
+
+/* Untitled project */
+"Untitled project" = "Namnlöst projekt";
+
+/* Upload-button in Upload-preferences-to-iDisk sheet */
+"Upload" = "Ladda upp";
+
+/* Use settings from Preferences in openAction */
+"Use settings from Preferences" = "Använd inställningen";
+
+/* Indicate that you cannot open %@ because it is a folder in Open-file-is-a-directory sheet */
+"You cannot open %@ because it is a folder" = "Du kan inte öppna ”%@” eftersom det är en mapp";
+
+/* Indicate that you cannot revert this document because the file %@ doesn't exist anymore Revert-file-doesn't-exist sheet */
+"You cannot revert this document because the file %@ doesn't exist anymore" = "Du kan inte återgå till den tidigare sparade versionen för filen ”%@” finns inte kvar";
+
+/* Indicate that they have set the preferences to not show anything in the status bar in Show-status-bar-action */
+"You have set the preferences to not show anything in the status bar" = "Du har ställt inställningarna så att det inte visas något i statusraden";
+
+/* You need Mac OS X 10.4.5 Tiger or later to run this version of Literate in Check-system-version */
+"You need Mac OS X 10.4.5 Tiger or later to run this version of Literate" = "Du behöver Mac OS X 10.4.5 Tiger eller senare för att köra denna version av Literate";
+
+/* Your changes will be lost if you close the document without saving in Close-sheet */
+"Your changes will be lost if you close the document without saving." = "Dina förändringar kommer att försvinna om du stänger dokumentet utan att spara.";
+
+/* Warn that changes will be lost if you revert in Revert-sheet */
+"Your changes will be lost if you revert the document" = "Dina förändringar kommer att försvinna om du återgår till den tidigare sparade versionen";
+

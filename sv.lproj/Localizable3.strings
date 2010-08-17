@@ -1,0 +1,69 @@
+/* %@ is not a valid regular expression */
+"%@ is not a valid regular expression" = "%@ är inte ett reguljärt uttryck";
+
+/* All documents */
+"All documents" = "Alla dokument";
+
+/* Command Result - Literate */
+"Command Result - Literate" = "Kommandoresultat - Literate";
+
+/* Current document */
+"Current document" = "Aktuellt dokument";
+
+/* Current project */
+"Current project" = "Aktuellt projekt";
+
+/* Filter */
+"Filter" = "Filter";
+
+/* Go to the web site (http://smultron.sourceforge.net) to download another version for an earlier Mac OS X system */
+"Go to the web site (http://smultron.sourceforge.net) to download another version for an earlier Mac OS X system" = "Gå till webbsiten (http://smultron.sourceforge.net) för att ladda ner en annan version för ett tidigare Mac OS X system";
+
+/* Hide Size Slider */
+"Hide Size Slider" = "Göm storleksändraren";
+
+/* It seems as if the file is unwritable or that you do not have permission to save the file %@ */
+"It seems as if the file is unwritable or that you do not have permission to save the file %@" = "Det verkar som att filen inte går att skriva till eller så har du inte tillräckligt med behörighet att spara filen %@";
+
+/* New Collection */
+"New Collection" = "Ny samling";
+
+/* New Command */
+"New Command" = "Nytt kommando";
+
+/* New Snippet */
+"New Snippet" = "Ny snutt";
+
+/* Old Commands */
+"Old Commands" = "Gamla kommandon";
+
+/* Please check if the file is locked, on a media that is unwritable or if you can save it in another location */
+"Please check if the file is locked, on a media that is unwritable or if you can save it in another location" = "Var vänlig kolla om filen är låst, på en skiva som det inte går att skriva till eller om du kan spara den på ett annat ställe";
+
+/* Please consider exporting the commands first. There is no undo available */
+"Please consider exporting the commands first. There is no undo available" = "Vänligen fundera på att exportera kommandona först. Det går inte att ångra.";
+
+/* Preferences - Literate */
+"Preferences - Literate" = "Inställningar - Literate";
+
+/* Run */
+"Run" = "Kör";
+
+/* Show Size Slider */
+"Show Size Slider" = "Visa storleksändraren";
+
+/* Split Window Vertically */
+"Split Window Vertically" = "Dela fönstret vertikalt";
+
+/* This will delete all items in the collection %@. Are you sure you want to continue? */
+"This will delete all items in the collection %@. Are you sure you want to continue?" = "Detta kommer radera allt i samlingen %@. Är du säker på att du vill fortsätta?";
+
+/* You need %@ or later to run this version of Literate */
+"You need %@ or later to run this version of Literate" = "Du behöver %@ eller senare för att köra denna version av Literate";
+
+/* Title of alert panel informing user that the file's string encoding needs to be changed. */
+"This document can no longer be saved using its original %@ encoding." = "Dokumentet kan inte längre sparas i dess ursprungliga %@-format.";
+
+/* Subtitle of alert panel informing user that the file's string encoding needs to be changed */
+"Please choose another encoding (such as UTF-8)." = "Välj en annan kodning (t.ex. UTF-8).";
+

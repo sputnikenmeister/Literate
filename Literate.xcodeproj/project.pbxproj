@@ -1,0 +1,1248 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F69A1BE0BB0406800D23876 /* LTDocumentsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F69A1BD0BB0406800D23876 /* LTDocumentsListCell.m */; };
+		2F6CF2E20B848515008B0386 /* DefaultCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6CF2E10B848515008B0386 /* DefaultCommands.plist */; };
+		2F7040F90BBBE07F00D43CAF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2F7040F80BBBE07F00D43CAF /* Credits.rtf */; };
+		2F8C9F030B8054E100C6502F /* LTDummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C9F020B8054E100C6502F /* LTDummyView.m */; };
+		2F8CCC130BA8158E00BA791C /* NSStringICUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CCC110BA8158E00BA791C /* NSStringICUAdditions.m */; };
+		2FC46AFE0BD608C500F209AA /* LTCommandsIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2FC46AFC0BD608C500F209AA /* LTCommandsIcon.icns */; };
+		2FC46AFF0BD608C500F209AA /* LTSnippetsIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2FC46AFD0BD608C500F209AA /* LTSnippetsIcon.icns */; };
+		2FCFEBC20B820D0F00E635EE /* LTCommandCollectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEBC10B820D0F00E635EE /* LTCommandCollectionManagedObject.m */; };
+		2FE2F8400B985D0500ADCF8A /* LTProject+DocumentViewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2F83F0B985D0500ADCF8A /* LTProject+DocumentViewsController.m */; };
+		2FEC50CB0B96DB86000CF1AD /* MultiMarkdown.pl in Resources */ = {isa = PBXBuildFile; fileRef = 2FEC50CA0B96DB86000CF1AD /* MultiMarkdown.pl */; };
+		2FF0FC2D0BA6C8FF00B21D83 /* LTGradientBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0FC2C0BA6C8FF00B21D83 /* LTGradientBackgroundView.m */; };
+		7F08532F0B77B55D009544AD /* LTExtraInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08532E0B77B55D009544AD /* LTExtraInterfaceController.m */; };
+		7F2B7E330D9463A100C60435 /* LTSearchField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B7E320D9463A100C60435 /* LTSearchField.m */; };
+		7F2B7FBD0C27272E0058BC55 /* LTSingleDocumentPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B7FBB0C27272E0058BC55 /* LTSingleDocumentPanel.m */; };
+		7F3443260B74CC3500790653 /* LTDocumentManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3443240B74CC3500790653 /* LTDocumentManagedObject.m */; };
+		7F5097710D95A65500D62D67 /* LTDefaultUnsavedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F50976F0D95A65500D62D67 /* LTDefaultUnsavedIcon.png */; };
+		7F5097720D95A65500D62D67 /* LTDefaultIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F5097700D95A65500D62D67 /* LTDefaultIcon.png */; };
+		7F51225C0BA72E7E00183863 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F51225B0BA72E7E00183863 /* QuartzCore.framework */; };
+		7F5C266C0B73BF5C00D2EDDC /* literate_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980A8A0B73B629000A9140 /* literate_main.m */; };
+		7F5C266D0B73BF6C00D2EDDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		7F5C26740B73BF9B00D2EDDC /* literate in Resources */ = {isa = PBXBuildFile; fileRef = 7F5C26650B73BF2200D2EDDC /* literate */; };
+		7F5C26B10B73C03A00D2EDDC /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5C26B00B73C03A00D2EDDC /* Carbon.framework */; };
+		7F5C26B30B73C04800D2EDDC /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5C26B20B73C04800D2EDDC /* ApplicationServices.framework */; };
+		7F5C26B50B73C05100D2EDDC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5C26B40B73C05100D2EDDC /* WebKit.framework */; };
+		7F5C26B90B73C06D00D2EDDC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5C26B80B73C06D00D2EDDC /* SystemConfiguration.framework */; };
+		7F5C287A0B73C49700D2EDDC /* LTBasicPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C28780B73C49700D2EDDC /* LTBasicPerformer.m */; };
+		7F5C287E0B73C4AA00D2EDDC /* LTInterfacePerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C287C0B73C4AA00D2EDDC /* LTInterfacePerformer.m */; };
+		7F6C9C680B75F23000531EF9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6C9C670B75F23000531EF9 /* libicucore.dylib */; };
+		7F7444C90CF8DDEC00C947C1 /* LTAdvancedFindPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7444C80CF8DDEC00C947C1 /* LTAdvancedFindPanel.m */; };
+		7F79EE370D93D5500034017B /* NSString+Literate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F79EE360D93D5500034017B /* NSString+Literate.m */; };
+		7F79EE3A0D93D5760034017B /* NSImage+Literate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F79EE390D93D5760034017B /* NSImage+Literate.m */; };
+		7F79EE3D0D93D58C0034017B /* NSToolbarItem+Literate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F79EE3C0D93D58C0034017B /* NSToolbarItem+Literate.m */; };
+		7F81FEDC0BA9DDCD00549CDB /* Tab Bar in Resources */ = {isa = PBXBuildFile; fileRef = 7F81FED50BA9DDCD00549CDB /* Tab Bar */; };
+		7F81FF030BA9DDF600549CDB /* PSMOverflowPopUpButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FEF40BA9DDF600549CDB /* PSMOverflowPopUpButton.m */; };
+		7F81FF050BA9DDF600549CDB /* PSMRolloverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FEF80BA9DDF600549CDB /* PSMRolloverButton.m */; };
+		7F81FF060BA9DDF600549CDB /* PSMTabBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FEFA0BA9DDF600549CDB /* PSMTabBarCell.m */; };
+		7F81FF070BA9DDF600549CDB /* PSMTabBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FEFC0BA9DDF600549CDB /* PSMTabBarControl.m */; };
+		7F81FF080BA9DDF600549CDB /* PSMTabDragAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FEFE0BA9DDF600549CDB /* PSMTabDragAssistant.m */; };
+		7F81FF090BA9DDF600549CDB /* PSMUnifiedTabStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FF010BA9DDF600549CDB /* PSMUnifiedTabStyle.m */; };
+		7F85E0740B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F85E0730B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.m */; };
+		7F85E07B0B7C8AC900DAC8B2 /* LTSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F85E07A0B7C8AC900DAC8B2 /* LTSplitView.m */; };
+		7F961E950B7A7CE1001E9189 /* LTEncodingManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F961E940B7A7CE1001E9189 /* LTEncodingManagedObject.m */; };
+		7F961E980B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F961E970B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.m */; };
+		7F961E9B0B7A7DAD001E9189 /* LTSnippetManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F961E9A0B7A7DAD001E9189 /* LTSnippetManagedObject.m */; };
+		7F961E9E0B7A7DBF001E9189 /* LTCommandManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F961E9D0B7A7DBF001E9189 /* LTCommandManagedObject.m */; };
+		7F9809D20B73B4E1000A9140 /* LTDocumentIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F9809BC0B73B4E1000A9140 /* LTDocumentIcon.icns */; };
+		7F9809D80B73B4E1000A9140 /* LTMainIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F9809C20B73B4E1000A9140 /* LTMainIcon.icns */; };
+		7F9809DB0B73B4E1000A9140 /* LTProjectIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F9809C50B73B4E1000A9140 /* LTProjectIcon.icns */; };
+		7F980A410B73B4F4000A9140 /* Syntax Definitions in Resources */ = {isa = PBXBuildFile; fileRef = 7F9809E70B73B4F4000A9140 /* Syntax Definitions */; };
+		7F980A420B73B4F4000A9140 /* Toolbar Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A230B73B4F4000A9140 /* Toolbar Icons */; };
+		7F980A610B73B5B9000A9140 /* Preferences Icons in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A510B73B5B9000A9140 /* Preferences Icons */; };
+		7F980A8B0B73B629000A9140 /* literate.1 in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A890B73B629000A9140 /* literate.1 */; };
+		7F980A920B73B652000A9140 /* LTDataModel3.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 7F980A910B73B652000A9140 /* LTDataModel3.xcdatamodel */; };
+		7F980A970B73B660000A9140 /* SyntaxDefinitions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A930B73B660000A9140 /* SyntaxDefinitions.plist */; };
+		7F980A980B73B660000A9140 /* DefaultSnippets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A940B73B660000A9140 /* DefaultSnippets.plist */; };
+		7F980A990B73B660000A9140 /* Literate.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A950B73B660000A9140 /* Literate.sdef */; };
+		7F980A9A0B73B660000A9140 /* Markdown.pl in Resources */ = {isa = PBXBuildFile; fileRef = 7F980A960B73B660000A9140 /* Markdown.pl */; };
+		7F980B0A0B73B6A2000A9140 /* LTAdvancedFindController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AA90B73B6A2000A9140 /* LTAdvancedFindController.m */; };
+		7F980B0B0B73B6A2000A9140 /* LTApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AAB0B73B6A2000A9140 /* LTApplication.m */; };
+		7F980B0C0B73B6A2000A9140 /* LTApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AAD0B73B6A2000A9140 /* LTApplicationDelegate.m */; };
+		7F980B0D0B73B6A2000A9140 /* LTApplicationMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AAF0B73B6A2000A9140 /* LTApplicationMenuController.m */; };
+		7F980B0E0B73B6A2000A9140 /* LTAuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AB10B73B6A2000A9140 /* LTAuthenticationController.m */; };
+		7F980B100B73B6A2000A9140 /* LTCommandsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AB50B73B6A2000A9140 /* LTCommandsController.m */; };
+		7F980B120B73B6A2000A9140 /* LTDocumentsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AB90B73B6A2000A9140 /* LTDocumentsMenuController.m */; };
+		7F980B130B73B6A2000A9140 /* LTDragAndDropController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ABB0B73B6A2000A9140 /* LTDragAndDropController.m */; };
+		7F980B150B73B6A2000A9140 /* LTEditMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ABF0B73B6A2000A9140 /* LTEditMenuController.m */; };
+		7F980B160B73B6A2000A9140 /* LTFileMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AC10B73B6A2000A9140 /* LTFileMenuController.m */; };
+		7F980B180B73B6A2000A9140 /* LTFontTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AC50B73B6A2000A9140 /* LTFontTransformer.m */; };
+		7F980B190B73B6A2000A9140 /* LTFullScreenWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AC70B73B6A2000A9140 /* LTFullScreenWindow.m */; };
+		7F980B1A0B73B6A2000A9140 /* LTGutterTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AC90B73B6A2000A9140 /* LTGutterTextView.m */; };
+		7F980B1B0B73B6A2000A9140 /* LTHelpMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ACB0B73B6A2000A9140 /* LTHelpMenuController.m */; };
+		7F980B1C0B73B6A2000A9140 /* LTInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ACD0B73B6A2000A9140 /* LTInfoController.m */; };
+		7F980B1D0B73B6A2000A9140 /* LTLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ACF0B73B6A2000A9140 /* LTLayoutManager.m */; };
+		7F980B1E0B73B6A2000A9140 /* LTLineNumbers.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AD10B73B6A2000A9140 /* LTLineNumbers.m */; };
+		7F980B1F0B73B6A2000A9140 /* LTMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AD30B73B6A2000A9140 /* LTMainController.m */; };
+		7F980B230B73B6A2000A9140 /* LTPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ADB0B73B6A2000A9140 /* LTPreferencesController.m */; };
+		7F980B240B73B6A2000A9140 /* LTPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ADD0B73B6A2000A9140 /* LTPreviewController.m */; };
+		7F980B250B73B6A2000A9140 /* LTPrintTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980ADF0B73B6A2000A9140 /* LTPrintTextView.m */; };
+		7F980B260B73B6A2000A9140 /* LTProjectsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AE10B73B6A2000A9140 /* LTProjectsController.m */; };
+		7F980B280B73B6A2000A9140 /* LTServicesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AE50B73B6A2000A9140 /* LTServicesController.m */; };
+		7F980B290B73B6A2000A9140 /* LTShortcutsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AE70B73B6A2000A9140 /* LTShortcutsController.m */; };
+		7F980B2A0B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AE90B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.m */; };
+		7F980B2B0B73B6A2000A9140 /* LTSnippetsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AEB0B73B6A2000A9140 /* LTSnippetsController.m */; };
+		7F980B2F0B73B6A2000A9140 /* LTSyntaxColouring.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AF40B73B6A2000A9140 /* LTSyntaxColouring.m */; };
+		7F980B310B73B6A2000A9140 /* LTTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AF80B73B6A2000A9140 /* LTTableView.m */; };
+		7F980B320B73B6A2000A9140 /* LTProject+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AFA0B73B6A2000A9140 /* LTProject+TableViewDelegate.m */; };
+		7F980B330B73B6A2000A9140 /* LTTextPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AFC0B73B6A2000A9140 /* LTTextPerformer.m */; };
+		7F980B340B73B6A2000A9140 /* LTTextMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980AFE0B73B6A2000A9140 /* LTTextMenuController.m */; };
+		7F980B350B73B6A2000A9140 /* LTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B000B73B6A2000A9140 /* LTTextView.m */; };
+		7F980B360B73B6A2000A9140 /* LTProject+ToolbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B020B73B6A2000A9140 /* LTProject+ToolbarController.m */; };
+		7F980B370B73B6A2000A9140 /* LTToolsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B040B73B6A2000A9140 /* LTToolsMenuController.m */; };
+		7F980B380B73B6A2000A9140 /* LTVariousPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B060B73B6A2000A9140 /* LTVariousPerformer.m */; };
+		7F980B390B73B6A2000A9140 /* LTViewMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B080B73B6A2000A9140 /* LTViewMenuController.m */; };
+		7FA2666E0B7796BE00AEA870 /* ICUMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA266690B7796BE00AEA870 /* ICUMatcher.m */; };
+		7FA2666F0B7796BE00AEA870 /* ICUPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2666B0B7796BE00AEA870 /* ICUPattern.m */; };
+		7FAD46800D9E43A600ECD508 /* LTPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD467F0D9E43A600ECD508 /* LTPrintViewController.m */; };
+		7FB41E060B7A2A43006ADB1E /* LTOpenSavePerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB41E050B7A2A43006ADB1E /* LTOpenSavePerformer.m */; };
+		7FB91155101E61B6008DB1DA /* LTAdvancedFind.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7C20D9276DF005225AB /* LTAdvancedFind.xib */; };
+		7FB91156101E61C3008DB1DA /* LTCommandResult.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510C3F900D92755B005F475A /* LTCommandResult.xib */; };
+		7FB91157101E61CD008DB1DA /* LTProject.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7357180D91D2F800F1398B /* LTProject.xib */; };
+		7FB91158101E61D4008DB1DA /* LTPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7DA0D92772B005225AB /* LTPreferences.xib */; };
+		7FB91159101E61D9008DB1DA /* LTSingleDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510C3F930D927566005F475A /* LTSingleDocument.xib */; };
+		7FB9115A101E61DF008DB1DA /* LTCommands.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7C50D9276FA005225AB /* LTCommands.xib */; };
+		7FB9115B101E61E4008DB1DA /* LTDetab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7C80D927700005225AB /* LTDetab.xib */; };
+		7FB9115C101E61EA008DB1DA /* LTEntab.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7CB0D927705005225AB /* LTEntab.xib */; };
+		7FB9115D101E61EF008DB1DA /* LTGoToLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7CE0D927708005225AB /* LTGoToLine.xib */; };
+		7FB9115E101E61F4008DB1DA /* LTInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7D10D92770E005225AB /* LTInfo.xib */; };
+		7FB9115F101E61F9008DB1DA /* LTMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7AE0D9276AE005225AB /* LTMainMenu.xib */; };
+		7FB91160101E61FE008DB1DA /* LTNewProject.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7D40D927717005225AB /* LTNewProject.xib */; };
+		7FB91161101E6203008DB1DA /* LTOpenPanelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7D70D927721005225AB /* LTOpenPanelAccessoryView.xib */; };
+		7FB91162101E6209008DB1DA /* LTPreferencesAdvanced.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7DD0D927735005225AB /* LTPreferencesAdvanced.xib */; };
+		7FB91163101E620E008DB1DA /* LTPreferencesAppearance.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7E00D927748005225AB /* LTPreferencesAppearance.xib */; };
+		7FB91164101E6213008DB1DA /* LTPreferencesGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7E30D92774E005225AB /* LTPreferencesGeneral.xib */; };
+		7FB91165101E6218008DB1DA /* LTPreferencesOpenSave.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7E60D927761005225AB /* LTPreferencesOpenSave.xib */; };
+		7FB91166101E621C008DB1DA /* LTPreview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7E90D927768005225AB /* LTPreview.xib */; };
+		7FB91167101E6222008DB1DA /* LTPrintAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7EC0D92776F005225AB /* LTPrintAccessoryView.xib */; };
+		7FB91168101E6226008DB1DA /* LTRegularExpressionHelp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7EF0D927775005225AB /* LTRegularExpressionHelp.xib */; };
+		7FB91169101E622B008DB1DA /* LTSnippets.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7F20D92777B005225AB /* LTSnippets.xib */; };
+		7FB9116A101E623F008DB1DA /* Literate-Manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7FD53F120D91A8F30071054F /* Literate-Manual.pdf */; };
+		7FB9116B101E6245008DB1DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1660FE840EACC02AAC07 /* InfoPlist.strings */; };
+		7FB9116C101E6249008DB1DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F9809970B73B42F000A9140 /* Localizable.strings */; };
+		7FB9116D101E624E008DB1DA /* Localizable3.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F897CFC0BD82D7E009B7216 /* Localizable3.strings */; };
+		7FBDDEFC0CF794F8003BAFB5 /* LTProjectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDDEFB0CF794F8003BAFB5 /* LTProjectWindow.m */; };
+		7FBDDF360CF79C7D003BAFB5 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBDDF350CF79C7D003BAFB5 /* QuickLook.framework */; };
+		8D15AC310486D014006FF6A4 /* LTProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* LTProject.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7F5C26720B73BF7A00D2EDDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F5C26640B73BF2200D2EDDC;
+			remoteInfo = smultron;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7F1DE28F0BD198FA00AD5707 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ../Library/Spotlight;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2A37F4ACFDCFA73011CA2CEA /* LTProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTProject.m; path = Classes/LTProject.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* LTProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTProject.h; path = Classes/LTProject.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2F3E1E460BB19C5F00F8AF91 /* PSMTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMTabStyle.h; path = PSMTabBar/PSMTabStyle.h; sourceTree = "<group>"; };
+		2F69A1BC0BB0406800D23876 /* LTDocumentsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTDocumentsListCell.h; path = Classes/LTDocumentsListCell.h; sourceTree = "<group>"; };
+		2F69A1BD0BB0406800D23876 /* LTDocumentsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTDocumentsListCell.m; path = Classes/LTDocumentsListCell.m; sourceTree = "<group>"; };
+		2F6CF2E10B848515008B0386 /* DefaultCommands.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DefaultCommands.plist; path = Other/DefaultCommands.plist; sourceTree = "<group>"; };
+		2F7040F80BBBE07F00D43CAF /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Other/Credits.rtf; sourceTree = "<group>"; };
+		2F8C9F010B8054E100C6502F /* LTDummyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTDummyView.h; path = Classes/LTDummyView.h; sourceTree = "<group>"; };
+		2F8C9F020B8054E100C6502F /* LTDummyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTDummyView.m; path = Classes/LTDummyView.m; sourceTree = "<group>"; };
+		2F8CCC110BA8158E00BA791C /* NSStringICUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringICUAdditions.m; path = ICU/NSStringICUAdditions.m; sourceTree = "<group>"; };
+		2F8CCC120BA8158E00BA791C /* NSStringICUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringICUAdditions.h; path = ICU/NSStringICUAdditions.h; sourceTree = "<group>"; };
+		2FC46AFC0BD608C500F209AA /* LTCommandsIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTCommandsIcon.icns; path = Graphics/LTCommandsIcon.icns; sourceTree = "<group>"; };
+		2FC46AFD0BD608C500F209AA /* LTSnippetsIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTSnippetsIcon.icns; path = Graphics/LTSnippetsIcon.icns; sourceTree = "<group>"; };
+		2FCFEBC00B820D0F00E635EE /* LTCommandCollectionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTCommandCollectionManagedObject.h; path = Classes/LTCommandCollectionManagedObject.h; sourceTree = "<group>"; };
+		2FCFEBC10B820D0F00E635EE /* LTCommandCollectionManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTCommandCollectionManagedObject.m; path = Classes/LTCommandCollectionManagedObject.m; sourceTree = "<group>"; };
+		2FE2F83E0B985D0500ADCF8A /* LTProject+DocumentViewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LTProject+DocumentViewsController.h"; path = "Classes/LTProject+DocumentViewsController.h"; sourceTree = "<group>"; };
+		2FE2F83F0B985D0500ADCF8A /* LTProject+DocumentViewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LTProject+DocumentViewsController.m"; path = "Classes/LTProject+DocumentViewsController.m"; sourceTree = "<group>"; };
+		2FEC50CA0B96DB86000CF1AD /* MultiMarkdown.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; name = MultiMarkdown.pl; path = Other/MultiMarkdown.pl; sourceTree = "<group>"; };
+		2FF0FC2B0BA6C8FF00B21D83 /* LTGradientBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTGradientBackgroundView.h; path = Classes/LTGradientBackgroundView.h; sourceTree = "<group>"; };
+		2FF0FC2C0BA6C8FF00B21D83 /* LTGradientBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTGradientBackgroundView.m; path = Classes/LTGradientBackgroundView.m; sourceTree = "<group>"; };
+		510C3F900D92755B005F475A /* LTCommandResult.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTCommandResult.xib; sourceTree = "<group>"; };
+		510C3F930D927566005F475A /* LTSingleDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTSingleDocument.xib; sourceTree = "<group>"; };
+		5168D7AE0D9276AE005225AB /* LTMainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTMainMenu.xib; sourceTree = "<group>"; };
+		5168D7C20D9276DF005225AB /* LTAdvancedFind.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTAdvancedFind.xib; sourceTree = "<group>"; };
+		5168D7C50D9276FA005225AB /* LTCommands.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTCommands.xib; sourceTree = "<group>"; };
+		5168D7C80D927700005225AB /* LTDetab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTDetab.xib; sourceTree = "<group>"; };
+		5168D7CB0D927705005225AB /* LTEntab.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTEntab.xib; sourceTree = "<group>"; };
+		5168D7CE0D927708005225AB /* LTGoToLine.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTGoToLine.xib; sourceTree = "<group>"; };
+		5168D7D10D92770E005225AB /* LTInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTInfo.xib; sourceTree = "<group>"; };
+		5168D7D40D927717005225AB /* LTNewProject.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTNewProject.xib; sourceTree = "<group>"; };
+		5168D7D70D927721005225AB /* LTOpenPanelAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTOpenPanelAccessoryView.xib; sourceTree = "<group>"; };
+		5168D7DA0D92772B005225AB /* LTPreferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPreferences.xib; sourceTree = "<group>"; };
+		5168D7DD0D927735005225AB /* LTPreferencesAdvanced.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPreferencesAdvanced.xib; sourceTree = "<group>"; };
+		5168D7E00D927748005225AB /* LTPreferencesAppearance.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPreferencesAppearance.xib; sourceTree = "<group>"; };
+		5168D7E30D92774E005225AB /* LTPreferencesGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPreferencesGeneral.xib; sourceTree = "<group>"; };
+		5168D7E60D927761005225AB /* LTPreferencesOpenSave.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPreferencesOpenSave.xib; sourceTree = "<group>"; };
+		5168D7E90D927768005225AB /* LTPreview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPreview.xib; sourceTree = "<group>"; };
+		5168D7EC0D92776F005225AB /* LTPrintAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTPrintAccessoryView.xib; sourceTree = "<group>"; };
+		5168D7EF0D927775005225AB /* LTRegularExpressionHelp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTRegularExpressionHelp.xib; sourceTree = "<group>"; };
+		5168D7F20D92777B005225AB /* LTSnippets.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTSnippets.xib; sourceTree = "<group>"; };
+		7F08532D0B77B55D009544AD /* LTExtraInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTExtraInterfaceController.h; path = Classes/LTExtraInterfaceController.h; sourceTree = "<group>"; };
+		7F08532E0B77B55D009544AD /* LTExtraInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTExtraInterfaceController.m; path = Classes/LTExtraInterfaceController.m; sourceTree = "<group>"; };
+		7F1DE27A0BD1984700AD5707 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		7F1DE27C0BD1985B00AD5707 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		7F2B7E310D9463A100C60435 /* LTSearchField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSearchField.h; path = Classes/LTSearchField.h; sourceTree = "<group>"; };
+		7F2B7E320D9463A100C60435 /* LTSearchField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSearchField.m; path = Classes/LTSearchField.m; sourceTree = "<group>"; };
+		7F2B7FBA0C27272E0058BC55 /* LTSingleDocumentPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSingleDocumentPanel.h; path = Classes/LTSingleDocumentPanel.h; sourceTree = "<group>"; };
+		7F2B7FBB0C27272E0058BC55 /* LTSingleDocumentPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSingleDocumentPanel.m; path = Classes/LTSingleDocumentPanel.m; sourceTree = "<group>"; };
+		7F3443230B74CC3500790653 /* LTDocumentManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTDocumentManagedObject.h; path = Classes/LTDocumentManagedObject.h; sourceTree = "<group>"; };
+		7F3443240B74CC3500790653 /* LTDocumentManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTDocumentManagedObject.m; path = Classes/LTDocumentManagedObject.m; sourceTree = "<group>"; };
+		7F50976F0D95A65500D62D67 /* LTDefaultUnsavedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LTDefaultUnsavedIcon.png; path = Graphics/LTDefaultUnsavedIcon.png; sourceTree = "<group>"; };
+		7F5097700D95A65500D62D67 /* LTDefaultIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LTDefaultIcon.png; path = Graphics/LTDefaultIcon.png; sourceTree = "<group>"; };
+		7F51225B0BA72E7E00183863 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		7F5C26650B73BF2200D2EDDC /* literate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = literate; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F5C26B00B73C03A00D2EDDC /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		7F5C26B20B73C04800D2EDDC /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		7F5C26B40B73C05100D2EDDC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		7F5C26B80B73C06D00D2EDDC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		7F5C28770B73C49700D2EDDC /* LTBasicPerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTBasicPerformer.h; path = Classes/LTBasicPerformer.h; sourceTree = "<group>"; };
+		7F5C28780B73C49700D2EDDC /* LTBasicPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTBasicPerformer.m; path = Classes/LTBasicPerformer.m; sourceTree = "<group>"; };
+		7F5C287B0B73C4AA00D2EDDC /* LTInterfacePerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTInterfacePerformer.h; path = Classes/LTInterfacePerformer.h; sourceTree = "<group>"; };
+		7F5C287C0B73C4AA00D2EDDC /* LTInterfacePerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTInterfacePerformer.m; path = Classes/LTInterfacePerformer.m; sourceTree = "<group>"; };
+		7F6C9C670B75F23000531EF9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
+		7F7357180D91D2F800F1398B /* LTProject.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTProject.xib; sourceTree = "<group>"; };
+		7F7444C70CF8DDEC00C947C1 /* LTAdvancedFindPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTAdvancedFindPanel.h; path = Classes/LTAdvancedFindPanel.h; sourceTree = "<group>"; };
+		7F7444C80CF8DDEC00C947C1 /* LTAdvancedFindPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTAdvancedFindPanel.m; path = Classes/LTAdvancedFindPanel.m; sourceTree = "<group>"; };
+		7F79EE350D93D5500034017B /* NSString+Literate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Literate.h"; path = "Classes/NSString+Literate.h"; sourceTree = "<group>"; };
+		7F79EE360D93D5500034017B /* NSString+Literate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Literate.m"; path = "Classes/NSString+Literate.m"; sourceTree = "<group>"; };
+		7F79EE380D93D5760034017B /* NSImage+Literate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+Literate.h"; path = "Classes/NSImage+Literate.h"; sourceTree = "<group>"; };
+		7F79EE390D93D5760034017B /* NSImage+Literate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Literate.m"; path = "Classes/NSImage+Literate.m"; sourceTree = "<group>"; };
+		7F79EE3B0D93D58C0034017B /* NSToolbarItem+Literate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSToolbarItem+Literate.h"; path = "Classes/NSToolbarItem+Literate.h"; sourceTree = "<group>"; };
+		7F79EE3C0D93D58C0034017B /* NSToolbarItem+Literate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSToolbarItem+Literate.m"; path = "Classes/NSToolbarItem+Literate.m"; sourceTree = "<group>"; };
+		7F81FED50BA9DDCD00549CDB /* Tab Bar */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Tab Bar"; path = "Graphics/Tab Bar"; sourceTree = "<group>"; };
+		7F81FEF30BA9DDF600549CDB /* PSMOverflowPopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMOverflowPopUpButton.h; path = PSMTabBar/PSMOverflowPopUpButton.h; sourceTree = "<group>"; };
+		7F81FEF40BA9DDF600549CDB /* PSMOverflowPopUpButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMOverflowPopUpButton.m; path = PSMTabBar/PSMOverflowPopUpButton.m; sourceTree = "<group>"; };
+		7F81FEF70BA9DDF600549CDB /* PSMRolloverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMRolloverButton.h; path = PSMTabBar/PSMRolloverButton.h; sourceTree = "<group>"; };
+		7F81FEF80BA9DDF600549CDB /* PSMRolloverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMRolloverButton.m; path = PSMTabBar/PSMRolloverButton.m; sourceTree = "<group>"; };
+		7F81FEF90BA9DDF600549CDB /* PSMTabBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMTabBarCell.h; path = PSMTabBar/PSMTabBarCell.h; sourceTree = "<group>"; };
+		7F81FEFA0BA9DDF600549CDB /* PSMTabBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMTabBarCell.m; path = PSMTabBar/PSMTabBarCell.m; sourceTree = "<group>"; };
+		7F81FEFB0BA9DDF600549CDB /* PSMTabBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMTabBarControl.h; path = PSMTabBar/PSMTabBarControl.h; sourceTree = "<group>"; };
+		7F81FEFC0BA9DDF600549CDB /* PSMTabBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMTabBarControl.m; path = PSMTabBar/PSMTabBarControl.m; sourceTree = "<group>"; };
+		7F81FEFD0BA9DDF600549CDB /* PSMTabDragAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMTabDragAssistant.h; path = PSMTabBar/PSMTabDragAssistant.h; sourceTree = "<group>"; };
+		7F81FEFE0BA9DDF600549CDB /* PSMTabDragAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMTabDragAssistant.m; path = PSMTabBar/PSMTabDragAssistant.m; sourceTree = "<group>"; };
+		7F81FF000BA9DDF600549CDB /* PSMUnifiedTabStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSMUnifiedTabStyle.h; path = PSMTabBar/PSMUnifiedTabStyle.h; sourceTree = "<group>"; };
+		7F81FF010BA9DDF600549CDB /* PSMUnifiedTabStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSMUnifiedTabStyle.m; path = PSMTabBar/PSMUnifiedTabStyle.m; sourceTree = "<group>"; };
+		7F85E0720B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSnippetCollectionManagedObject.h; path = Classes/LTSnippetCollectionManagedObject.h; sourceTree = "<group>"; };
+		7F85E0730B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSnippetCollectionManagedObject.m; path = Classes/LTSnippetCollectionManagedObject.m; sourceTree = "<group>"; };
+		7F85E0790B7C8AC900DAC8B2 /* LTSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSplitView.h; path = Classes/LTSplitView.h; sourceTree = "<group>"; };
+		7F85E07A0B7C8AC900DAC8B2 /* LTSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSplitView.m; path = Classes/LTSplitView.m; sourceTree = "<group>"; };
+		7F897CFC0BD82D7E009B7216 /* Localizable3.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable3.strings; sourceTree = "<group>"; };
+		7F961E930B7A7CE1001E9189 /* LTEncodingManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTEncodingManagedObject.h; path = Classes/LTEncodingManagedObject.h; sourceTree = "<group>"; };
+		7F961E940B7A7CE1001E9189 /* LTEncodingManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTEncodingManagedObject.m; path = Classes/LTEncodingManagedObject.m; sourceTree = "<group>"; };
+		7F961E960B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSyntaxDefinitionManagedObject.h; path = Classes/LTSyntaxDefinitionManagedObject.h; sourceTree = "<group>"; };
+		7F961E970B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSyntaxDefinitionManagedObject.m; path = Classes/LTSyntaxDefinitionManagedObject.m; sourceTree = "<group>"; };
+		7F961E990B7A7DAD001E9189 /* LTSnippetManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSnippetManagedObject.h; path = Classes/LTSnippetManagedObject.h; sourceTree = "<group>"; };
+		7F961E9A0B7A7DAD001E9189 /* LTSnippetManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSnippetManagedObject.m; path = Classes/LTSnippetManagedObject.m; sourceTree = "<group>"; };
+		7F961E9C0B7A7DBF001E9189 /* LTCommandManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTCommandManagedObject.h; path = Classes/LTCommandManagedObject.h; sourceTree = "<group>"; };
+		7F961E9D0B7A7DBF001E9189 /* LTCommandManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTCommandManagedObject.m; path = Classes/LTCommandManagedObject.m; sourceTree = "<group>"; };
+		7F9809970B73B42F000A9140 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7F9809BC0B73B4E1000A9140 /* LTDocumentIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTDocumentIcon.icns; path = Graphics/LTDocumentIcon.icns; sourceTree = "<group>"; };
+		7F9809C20B73B4E1000A9140 /* LTMainIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTMainIcon.icns; path = Graphics/LTMainIcon.icns; sourceTree = "<group>"; };
+		7F9809C50B73B4E1000A9140 /* LTProjectIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTProjectIcon.icns; path = Graphics/LTProjectIcon.icns; sourceTree = "<group>"; };
+		7F9809E70B73B4F4000A9140 /* Syntax Definitions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Syntax Definitions"; sourceTree = "<group>"; };
+		7F980A230B73B4F4000A9140 /* Toolbar Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Toolbar Icons"; path = "Graphics/Toolbar Icons"; sourceTree = "<group>"; };
+		7F980A510B73B5B9000A9140 /* Preferences Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Preferences Icons"; path = "Graphics/Preferences Icons"; sourceTree = "<group>"; };
+		7F980A890B73B629000A9140 /* literate.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; name = literate.1; path = "Command Line Utility/literate.1"; sourceTree = "<group>"; };
+		7F980A8A0B73B629000A9140 /* literate_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = literate_main.m; path = "Command Line Utility/literate_main.m"; sourceTree = "<group>"; };
+		7F980A8F0B73B641000A9140 /* ODBEditorSuite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ODBEditorSuite.h; path = Other/ODBEditorSuite.h; sourceTree = "<group>"; };
+		7F980A910B73B652000A9140 /* LTDataModel3.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = LTDataModel3.xcdatamodel; path = Other/LTDataModel3.xcdatamodel; sourceTree = "<group>"; };
+		7F980A930B73B660000A9140 /* SyntaxDefinitions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SyntaxDefinitions.plist; path = Other/SyntaxDefinitions.plist; sourceTree = "<group>"; };
+		7F980A940B73B660000A9140 /* DefaultSnippets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DefaultSnippets.plist; path = Other/DefaultSnippets.plist; sourceTree = "<group>"; };
+		7F980A950B73B660000A9140 /* Literate.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.sdef; name = Literate.sdef; path = Other/Literate.sdef; sourceTree = "<group>"; };
+		7F980A960B73B660000A9140 /* Markdown.pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; name = Markdown.pl; path = Other/Markdown.pl; sourceTree = "<group>"; };
+		7F980AA80B73B6A2000A9140 /* LTAdvancedFindController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTAdvancedFindController.h; path = Classes/LTAdvancedFindController.h; sourceTree = "<group>"; };
+		7F980AA90B73B6A2000A9140 /* LTAdvancedFindController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTAdvancedFindController.m; path = Classes/LTAdvancedFindController.m; sourceTree = "<group>"; };
+		7F980AAA0B73B6A2000A9140 /* LTApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTApplication.h; path = Classes/LTApplication.h; sourceTree = "<group>"; };
+		7F980AAB0B73B6A2000A9140 /* LTApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTApplication.m; path = Classes/LTApplication.m; sourceTree = "<group>"; };
+		7F980AAC0B73B6A2000A9140 /* LTApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTApplicationDelegate.h; path = Classes/LTApplicationDelegate.h; sourceTree = "<group>"; };
+		7F980AAD0B73B6A2000A9140 /* LTApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTApplicationDelegate.m; path = Classes/LTApplicationDelegate.m; sourceTree = "<group>"; wrapsLines = 1; };
+		7F980AAE0B73B6A2000A9140 /* LTApplicationMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTApplicationMenuController.h; path = Classes/LTApplicationMenuController.h; sourceTree = "<group>"; };
+		7F980AAF0B73B6A2000A9140 /* LTApplicationMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTApplicationMenuController.m; path = Classes/LTApplicationMenuController.m; sourceTree = "<group>"; };
+		7F980AB00B73B6A2000A9140 /* LTAuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTAuthenticationController.h; path = Classes/LTAuthenticationController.h; sourceTree = "<group>"; };
+		7F980AB10B73B6A2000A9140 /* LTAuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTAuthenticationController.m; path = Classes/LTAuthenticationController.m; sourceTree = "<group>"; };
+		7F980AB40B73B6A2000A9140 /* LTCommandsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTCommandsController.h; path = Classes/LTCommandsController.h; sourceTree = "<group>"; };
+		7F980AB50B73B6A2000A9140 /* LTCommandsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTCommandsController.m; path = Classes/LTCommandsController.m; sourceTree = "<group>"; };
+		7F980AB80B73B6A2000A9140 /* LTDocumentsMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTDocumentsMenuController.h; path = Classes/LTDocumentsMenuController.h; sourceTree = "<group>"; };
+		7F980AB90B73B6A2000A9140 /* LTDocumentsMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTDocumentsMenuController.m; path = Classes/LTDocumentsMenuController.m; sourceTree = "<group>"; };
+		7F980ABA0B73B6A2000A9140 /* LTDragAndDropController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTDragAndDropController.h; path = Classes/LTDragAndDropController.h; sourceTree = "<group>"; };
+		7F980ABB0B73B6A2000A9140 /* LTDragAndDropController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTDragAndDropController.m; path = Classes/LTDragAndDropController.m; sourceTree = "<group>"; };
+		7F980ABE0B73B6A2000A9140 /* LTEditMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTEditMenuController.h; path = Classes/LTEditMenuController.h; sourceTree = "<group>"; };
+		7F980ABF0B73B6A2000A9140 /* LTEditMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTEditMenuController.m; path = Classes/LTEditMenuController.m; sourceTree = "<group>"; };
+		7F980AC00B73B6A2000A9140 /* LTFileMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTFileMenuController.h; path = Classes/LTFileMenuController.h; sourceTree = "<group>"; };
+		7F980AC10B73B6A2000A9140 /* LTFileMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTFileMenuController.m; path = Classes/LTFileMenuController.m; sourceTree = "<group>"; };
+		7F980AC40B73B6A2000A9140 /* LTFontTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTFontTransformer.h; path = Classes/LTFontTransformer.h; sourceTree = "<group>"; };
+		7F980AC50B73B6A2000A9140 /* LTFontTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTFontTransformer.m; path = Classes/LTFontTransformer.m; sourceTree = "<group>"; };
+		7F980AC60B73B6A2000A9140 /* LTFullScreenWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTFullScreenWindow.h; path = Classes/LTFullScreenWindow.h; sourceTree = "<group>"; };
+		7F980AC70B73B6A2000A9140 /* LTFullScreenWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTFullScreenWindow.m; path = Classes/LTFullScreenWindow.m; sourceTree = "<group>"; };
+		7F980AC80B73B6A2000A9140 /* LTGutterTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTGutterTextView.h; path = Classes/LTGutterTextView.h; sourceTree = "<group>"; };
+		7F980AC90B73B6A2000A9140 /* LTGutterTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTGutterTextView.m; path = Classes/LTGutterTextView.m; sourceTree = "<group>"; };
+		7F980ACA0B73B6A2000A9140 /* LTHelpMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTHelpMenuController.h; path = Classes/LTHelpMenuController.h; sourceTree = "<group>"; };
+		7F980ACB0B73B6A2000A9140 /* LTHelpMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTHelpMenuController.m; path = Classes/LTHelpMenuController.m; sourceTree = "<group>"; };
+		7F980ACC0B73B6A2000A9140 /* LTInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTInfoController.h; path = Classes/LTInfoController.h; sourceTree = "<group>"; };
+		7F980ACD0B73B6A2000A9140 /* LTInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTInfoController.m; path = Classes/LTInfoController.m; sourceTree = "<group>"; };
+		7F980ACE0B73B6A2000A9140 /* LTLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTLayoutManager.h; path = Classes/LTLayoutManager.h; sourceTree = "<group>"; };
+		7F980ACF0B73B6A2000A9140 /* LTLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTLayoutManager.m; path = Classes/LTLayoutManager.m; sourceTree = "<group>"; };
+		7F980AD00B73B6A2000A9140 /* LTLineNumbers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTLineNumbers.h; path = Classes/LTLineNumbers.h; sourceTree = "<group>"; };
+		7F980AD10B73B6A2000A9140 /* LTLineNumbers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTLineNumbers.m; path = Classes/LTLineNumbers.m; sourceTree = "<group>"; };
+		7F980AD20B73B6A2000A9140 /* LTMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTMainController.h; path = Classes/LTMainController.h; sourceTree = "<group>"; };
+		7F980AD30B73B6A2000A9140 /* LTMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTMainController.m; path = Classes/LTMainController.m; sourceTree = "<group>"; };
+		7F980ADA0B73B6A2000A9140 /* LTPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPreferencesController.h; path = Classes/LTPreferencesController.h; sourceTree = "<group>"; };
+		7F980ADB0B73B6A2000A9140 /* LTPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPreferencesController.m; path = Classes/LTPreferencesController.m; sourceTree = "<group>"; };
+		7F980ADC0B73B6A2000A9140 /* LTPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPreviewController.h; path = Classes/LTPreviewController.h; sourceTree = "<group>"; };
+		7F980ADD0B73B6A2000A9140 /* LTPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPreviewController.m; path = Classes/LTPreviewController.m; sourceTree = "<group>"; };
+		7F980ADE0B73B6A2000A9140 /* LTPrintTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPrintTextView.h; path = Classes/LTPrintTextView.h; sourceTree = "<group>"; };
+		7F980ADF0B73B6A2000A9140 /* LTPrintTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPrintTextView.m; path = Classes/LTPrintTextView.m; sourceTree = "<group>"; };
+		7F980AE00B73B6A2000A9140 /* LTProjectsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTProjectsController.h; path = Classes/LTProjectsController.h; sourceTree = "<group>"; };
+		7F980AE10B73B6A2000A9140 /* LTProjectsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTProjectsController.m; path = Classes/LTProjectsController.m; sourceTree = "<group>"; };
+		7F980AE40B73B6A2000A9140 /* LTServicesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTServicesController.h; path = Classes/LTServicesController.h; sourceTree = "<group>"; };
+		7F980AE50B73B6A2000A9140 /* LTServicesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTServicesController.m; path = Classes/LTServicesController.m; sourceTree = "<group>"; };
+		7F980AE60B73B6A2000A9140 /* LTShortcutsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTShortcutsController.h; path = Classes/LTShortcutsController.h; sourceTree = "<group>"; };
+		7F980AE70B73B6A2000A9140 /* LTShortcutsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTShortcutsController.m; path = Classes/LTShortcutsController.m; sourceTree = "<group>"; };
+		7F980AE80B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSingleDocumentWindowDelegate.h; path = Classes/LTSingleDocumentWindowDelegate.h; sourceTree = "<group>"; };
+		7F980AE90B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSingleDocumentWindowDelegate.m; path = Classes/LTSingleDocumentWindowDelegate.m; sourceTree = "<group>"; };
+		7F980AEA0B73B6A2000A9140 /* LTSnippetsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSnippetsController.h; path = Classes/LTSnippetsController.h; sourceTree = "<group>"; };
+		7F980AEB0B73B6A2000A9140 /* LTSnippetsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSnippetsController.m; path = Classes/LTSnippetsController.m; sourceTree = "<group>"; };
+		7F980AEE0B73B6A2000A9140 /* LTStandardHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTStandardHeader.h; path = Classes/LTStandardHeader.h; sourceTree = "<group>"; };
+		7F980AF30B73B6A2000A9140 /* LTSyntaxColouring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTSyntaxColouring.h; path = Classes/LTSyntaxColouring.h; sourceTree = "<group>"; };
+		7F980AF40B73B6A2000A9140 /* LTSyntaxColouring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTSyntaxColouring.m; path = Classes/LTSyntaxColouring.m; sourceTree = "<group>"; };
+		7F980AF70B73B6A2000A9140 /* LTTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTTableView.h; path = Classes/LTTableView.h; sourceTree = "<group>"; };
+		7F980AF80B73B6A2000A9140 /* LTTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTTableView.m; path = Classes/LTTableView.m; sourceTree = "<group>"; };
+		7F980AF90B73B6A2000A9140 /* LTProject+TableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LTProject+TableViewDelegate.h"; path = "Classes/LTProject+TableViewDelegate.h"; sourceTree = "<group>"; };
+		7F980AFA0B73B6A2000A9140 /* LTProject+TableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LTProject+TableViewDelegate.m"; path = "Classes/LTProject+TableViewDelegate.m"; sourceTree = "<group>"; };
+		7F980AFB0B73B6A2000A9140 /* LTTextPerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTTextPerformer.h; path = Classes/LTTextPerformer.h; sourceTree = "<group>"; };
+		7F980AFC0B73B6A2000A9140 /* LTTextPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTTextPerformer.m; path = Classes/LTTextPerformer.m; sourceTree = "<group>"; };
+		7F980AFD0B73B6A2000A9140 /* LTTextMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTTextMenuController.h; path = Classes/LTTextMenuController.h; sourceTree = "<group>"; };
+		7F980AFE0B73B6A2000A9140 /* LTTextMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTTextMenuController.m; path = Classes/LTTextMenuController.m; sourceTree = "<group>"; };
+		7F980AFF0B73B6A2000A9140 /* LTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTTextView.h; path = Classes/LTTextView.h; sourceTree = "<group>"; };
+		7F980B000B73B6A2000A9140 /* LTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTTextView.m; path = Classes/LTTextView.m; sourceTree = "<group>"; };
+		7F980B010B73B6A2000A9140 /* LTProject+ToolbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LTProject+ToolbarController.h"; path = "Classes/LTProject+ToolbarController.h"; sourceTree = "<group>"; };
+		7F980B020B73B6A2000A9140 /* LTProject+ToolbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LTProject+ToolbarController.m"; path = "Classes/LTProject+ToolbarController.m"; sourceTree = "<group>"; };
+		7F980B030B73B6A2000A9140 /* LTToolsMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTToolsMenuController.h; path = Classes/LTToolsMenuController.h; sourceTree = "<group>"; };
+		7F980B040B73B6A2000A9140 /* LTToolsMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTToolsMenuController.m; path = Classes/LTToolsMenuController.m; sourceTree = "<group>"; };
+		7F980B050B73B6A2000A9140 /* LTVariousPerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTVariousPerformer.h; path = Classes/LTVariousPerformer.h; sourceTree = "<group>"; };
+		7F980B060B73B6A2000A9140 /* LTVariousPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTVariousPerformer.m; path = Classes/LTVariousPerformer.m; sourceTree = "<group>"; };
+		7F980B070B73B6A2000A9140 /* LTViewMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTViewMenuController.h; path = Classes/LTViewMenuController.h; sourceTree = "<group>"; };
+		7F980B080B73B6A2000A9140 /* LTViewMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTViewMenuController.m; path = Classes/LTViewMenuController.m; sourceTree = "<group>"; };
+		7FA266680B7796BE00AEA870 /* ICUMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICUMatcher.h; path = ICU/ICUMatcher.h; sourceTree = "<group>"; };
+		7FA266690B7796BE00AEA870 /* ICUMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUMatcher.m; path = ICU/ICUMatcher.m; sourceTree = "<group>"; };
+		7FA2666A0B7796BE00AEA870 /* ICUPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICUPattern.h; path = ICU/ICUPattern.h; sourceTree = "<group>"; };
+		7FA2666B0B7796BE00AEA870 /* ICUPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUPattern.m; path = ICU/ICUPattern.m; sourceTree = "<group>"; };
+		7FAD467E0D9E43A600ECD508 /* LTPrintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPrintViewController.h; path = Classes/LTPrintViewController.h; sourceTree = "<group>"; };
+		7FAD467F0D9E43A600ECD508 /* LTPrintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPrintViewController.m; path = Classes/LTPrintViewController.m; sourceTree = "<group>"; };
+		7FB41E040B7A2A43006ADB1E /* LTOpenSavePerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTOpenSavePerformer.h; path = Classes/LTOpenSavePerformer.h; sourceTree = "<group>"; };
+		7FB41E050B7A2A43006ADB1E /* LTOpenSavePerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTOpenSavePerformer.m; path = Classes/LTOpenSavePerformer.m; sourceTree = "<group>"; };
+		7FBDDEFA0CF794F8003BAFB5 /* LTProjectWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTProjectWindow.h; path = Classes/LTProjectWindow.h; sourceTree = "<group>"; };
+		7FBDDEFB0CF794F8003BAFB5 /* LTProjectWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTProjectWindow.m; path = Classes/LTProjectWindow.m; sourceTree = "<group>"; };
+		7FBDDF350CF79C7D003BAFB5 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = /System/Library/Frameworks/QuickLook.framework; sourceTree = "<absolute>"; };
+		7FD53F120D91A8F30071054F /* Literate-Manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Literate-Manual.pdf"; sourceTree = "<group>"; };
+		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* Literate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Literate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7F5C26630B73BF2200D2EDDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F5C266D0B73BF6C00D2EDDC /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+				7F5C26B10B73C03A00D2EDDC /* Carbon.framework in Frameworks */,
+				7F5C26B30B73C04800D2EDDC /* ApplicationServices.framework in Frameworks */,
+				7F5C26B50B73C05100D2EDDC /* WebKit.framework in Frameworks */,
+				7F5C26B90B73C06D00D2EDDC /* SystemConfiguration.framework in Frameworks */,
+				7F6C9C680B75F23000531EF9 /* libicucore.dylib in Frameworks */,
+				7F51225C0BA72E7E00183863 /* QuartzCore.framework in Frameworks */,
+				7FBDDF360CF79C7D003BAFB5 /* QuickLook.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FBDDF350CF79C7D003BAFB5 /* QuickLook.framework */,
+				7F1DE27C0BD1985B00AD5707 /* CoreServices.framework */,
+				7F1DE27A0BD1984700AD5707 /* CoreFoundation.framework */,
+				7F51225B0BA72E7E00183863 /* QuartzCore.framework */,
+				7F6C9C670B75F23000531EF9 /* libicucore.dylib */,
+				7F5C26B80B73C06D00D2EDDC /* SystemConfiguration.framework */,
+				7F5C26B40B73C05100D2EDDC /* WebKit.framework */,
+				7F5C26B20B73C04800D2EDDC /* ApplicationServices.framework */,
+				7F5C26B00B73C03A00D2EDDC /* Carbon.framework */,
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* Literate.app */,
+				7F5C26650B73BF2200D2EDDC /* literate */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* Literate */ = {
+			isa = PBXGroup;
+			children = (
+				7F980A900B73B649000A9140 /* Models */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = Literate;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7F980AEE0B73B6A2000A9140 /* LTStandardHeader.h */,
+				7F5C248D0B73B85900D2EDDC /* Controllers */,
+				7F5C248E0B73B86100D2EDDC /* Performers */,
+				7F5C24910B73B87F00D2EDDC /* Menu Controllers */,
+				7F5C24A40B73B9CC00D2EDDC /* Others */,
+				7F5C24900B73B87500D2EDDC /* Delegates */,
+				7F5C248F0B73B86B00D2EDDC /* Subclasses */,
+				7F79EE330D93D4F40034017B /* Categories */,
+				7FC80B920B9C65CF002C3C38 /* Project Categories */,
+				7F3443210B74CBBB00790653 /* Managed Objects */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7F980A860B73B619000A9140 /* Command Line Utility */,
+				7F980A8F0B73B641000A9140 /* ODBEditorSuite.h */,
+				7F81FEDD0BA9DDE100549CDB /* PSMTabBar */,
+				7FD7C3CE0B76561A0097747A /* ICU */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24D90B73BCF200D2EDDC /* Xibs */,
+				7F9809B40B73B4C8000A9140 /* Graphics */,
+				2FEC50CD0B96DB8D000CF1AD /* Other */,
+				7F980A930B73B660000A9140 /* SyntaxDefinitions.plist */,
+				7F9809E70B73B4F4000A9140 /* Syntax Definitions */,
+				7F980A940B73B660000A9140 /* DefaultSnippets.plist */,
+				2F6CF2E10B848515008B0386 /* DefaultCommands.plist */,
+				7F980A950B73B660000A9140 /* Literate.sdef */,
+				7FD53F120D91A8F30071054F /* Literate-Manual.pdf */,
+				8D15AC360486D014006FF6A4 /* Info.plist */,
+				089C1660FE840EACC02AAC07 /* InfoPlist.strings */,
+				7F9809970B73B42F000A9140 /* Localizable.strings */,
+				7F897CFC0BD82D7E009B7216 /* Localizable3.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FEC50CD0B96DB8D000CF1AD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2F7040F80BBBE07F00D43CAF /* Credits.rtf */,
+				7F980A960B73B660000A9140 /* Markdown.pl */,
+				2FEC50CA0B96DB86000CF1AD /* MultiMarkdown.pl */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		7F3443210B74CBBB00790653 /* Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7F3443220B74CBFB00790653 /* Headers */,
+				7F961E9D0B7A7DBF001E9189 /* LTCommandManagedObject.m */,
+				2FCFEBC10B820D0F00E635EE /* LTCommandCollectionManagedObject.m */,
+				7F3443240B74CC3500790653 /* LTDocumentManagedObject.m */,
+				7F961E940B7A7CE1001E9189 /* LTEncodingManagedObject.m */,
+				7F961E9A0B7A7DAD001E9189 /* LTSnippetManagedObject.m */,
+				7F85E0730B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.m */,
+				7F961E970B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.m */,
+			);
+			name = "Managed Objects";
+			sourceTree = "<group>";
+		};
+		7F3443220B74CBFB00790653 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F961E9C0B7A7DBF001E9189 /* LTCommandManagedObject.h */,
+				2FCFEBC00B820D0F00E635EE /* LTCommandCollectionManagedObject.h */,
+				7F3443230B74CC3500790653 /* LTDocumentManagedObject.h */,
+				7F961E930B7A7CE1001E9189 /* LTEncodingManagedObject.h */,
+				7F961E990B7A7DAD001E9189 /* LTSnippetManagedObject.h */,
+				7F85E0720B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.h */,
+				7F961E960B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C248D0B73B85900D2EDDC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24960B73B8B500D2EDDC /* Headers */,
+				7F980AA90B73B6A2000A9140 /* LTAdvancedFindController.m */,
+				7F980AB10B73B6A2000A9140 /* LTAuthenticationController.m */,
+				7F980AB50B73B6A2000A9140 /* LTCommandsController.m */,
+				7F980ABB0B73B6A2000A9140 /* LTDragAndDropController.m */,
+				7F08532E0B77B55D009544AD /* LTExtraInterfaceController.m */,
+				7F980ACD0B73B6A2000A9140 /* LTInfoController.m */,
+				7F980AD30B73B6A2000A9140 /* LTMainController.m */,
+				7F980ADB0B73B6A2000A9140 /* LTPreferencesController.m */,
+				7F980ADD0B73B6A2000A9140 /* LTPreviewController.m */,
+				7F980AE10B73B6A2000A9140 /* LTProjectsController.m */,
+				7F980AE50B73B6A2000A9140 /* LTServicesController.m */,
+				7F980AE70B73B6A2000A9140 /* LTShortcutsController.m */,
+				7F980AEB0B73B6A2000A9140 /* LTSnippetsController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7F5C248E0B73B86100D2EDDC /* Performers */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24950B73B8AF00D2EDDC /* Headers */,
+				7F5C28780B73C49700D2EDDC /* LTBasicPerformer.m */,
+				7F5C287C0B73C4AA00D2EDDC /* LTInterfacePerformer.m */,
+				7FB41E050B7A2A43006ADB1E /* LTOpenSavePerformer.m */,
+				7F980AFC0B73B6A2000A9140 /* LTTextPerformer.m */,
+				7F980B060B73B6A2000A9140 /* LTVariousPerformer.m */,
+			);
+			name = Performers;
+			sourceTree = "<group>";
+		};
+		7F5C248F0B73B86B00D2EDDC /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24940B73B8AB00D2EDDC /* Headers */,
+				7F7444C80CF8DDEC00C947C1 /* LTAdvancedFindPanel.m */,
+				7F980AAB0B73B6A2000A9140 /* LTApplication.m */,
+				2F69A1BD0BB0406800D23876 /* LTDocumentsListCell.m */,
+				2F8C9F020B8054E100C6502F /* LTDummyView.m */,
+				7F980AC70B73B6A2000A9140 /* LTFullScreenWindow.m */,
+				2FF0FC2C0BA6C8FF00B21D83 /* LTGradientBackgroundView.m */,
+				7F980AC90B73B6A2000A9140 /* LTGutterTextView.m */,
+				7F980ACF0B73B6A2000A9140 /* LTLayoutManager.m */,
+				7F980ADF0B73B6A2000A9140 /* LTPrintTextView.m */,
+				7FAD467F0D9E43A600ECD508 /* LTPrintViewController.m */,
+				2A37F4ACFDCFA73011CA2CEA /* LTProject.m */,
+				7FBDDEFB0CF794F8003BAFB5 /* LTProjectWindow.m */,
+				7F2B7E320D9463A100C60435 /* LTSearchField.m */,
+				7F2B7FBB0C27272E0058BC55 /* LTSingleDocumentPanel.m */,
+				7F85E07A0B7C8AC900DAC8B2 /* LTSplitView.m */,
+				7F980AF80B73B6A2000A9140 /* LTTableView.m */,
+				7F980B000B73B6A2000A9140 /* LTTextView.m */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		7F5C24900B73B87500D2EDDC /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24930B73B8A700D2EDDC /* Headers */,
+				7F980AAD0B73B6A2000A9140 /* LTApplicationDelegate.m */,
+				7F980AE90B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.m */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		7F5C24910B73B87F00D2EDDC /* Menu Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24920B73B89E00D2EDDC /* Headers */,
+				7F980AAF0B73B6A2000A9140 /* LTApplicationMenuController.m */,
+				7F980AC10B73B6A2000A9140 /* LTFileMenuController.m */,
+				7F980ABF0B73B6A2000A9140 /* LTEditMenuController.m */,
+				7F980B080B73B6A2000A9140 /* LTViewMenuController.m */,
+				7F980AFE0B73B6A2000A9140 /* LTTextMenuController.m */,
+				7F980B040B73B6A2000A9140 /* LTToolsMenuController.m */,
+				7F980AB90B73B6A2000A9140 /* LTDocumentsMenuController.m */,
+				7F980ACB0B73B6A2000A9140 /* LTHelpMenuController.m */,
+			);
+			name = "Menu Controllers";
+			sourceTree = "<group>";
+		};
+		7F5C24920B73B89E00D2EDDC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F980AAE0B73B6A2000A9140 /* LTApplicationMenuController.h */,
+				7F980AC00B73B6A2000A9140 /* LTFileMenuController.h */,
+				7F980ABE0B73B6A2000A9140 /* LTEditMenuController.h */,
+				7F980B070B73B6A2000A9140 /* LTViewMenuController.h */,
+				7F980AFD0B73B6A2000A9140 /* LTTextMenuController.h */,
+				7F980B030B73B6A2000A9140 /* LTToolsMenuController.h */,
+				7F980AB80B73B6A2000A9140 /* LTDocumentsMenuController.h */,
+				7F980ACA0B73B6A2000A9140 /* LTHelpMenuController.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C24930B73B8A700D2EDDC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F980AAC0B73B6A2000A9140 /* LTApplicationDelegate.h */,
+				7F980AE80B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C24940B73B8AB00D2EDDC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F7444C70CF8DDEC00C947C1 /* LTAdvancedFindPanel.h */,
+				7F980AAA0B73B6A2000A9140 /* LTApplication.h */,
+				2F69A1BC0BB0406800D23876 /* LTDocumentsListCell.h */,
+				2F8C9F010B8054E100C6502F /* LTDummyView.h */,
+				7F980AC60B73B6A2000A9140 /* LTFullScreenWindow.h */,
+				2FF0FC2B0BA6C8FF00B21D83 /* LTGradientBackgroundView.h */,
+				7F980AC80B73B6A2000A9140 /* LTGutterTextView.h */,
+				7F980ACE0B73B6A2000A9140 /* LTLayoutManager.h */,
+				7F980ADE0B73B6A2000A9140 /* LTPrintTextView.h */,
+				7FAD467E0D9E43A600ECD508 /* LTPrintViewController.h */,
+				2A37F4AEFDCFA73011CA2CEA /* LTProject.h */,
+				7FBDDEFA0CF794F8003BAFB5 /* LTProjectWindow.h */,
+				7F2B7E310D9463A100C60435 /* LTSearchField.h */,
+				7F2B7FBA0C27272E0058BC55 /* LTSingleDocumentPanel.h */,
+				7F85E0790B7C8AC900DAC8B2 /* LTSplitView.h */,
+				7F980AF70B73B6A2000A9140 /* LTTableView.h */,
+				7F980AFF0B73B6A2000A9140 /* LTTextView.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C24950B73B8AF00D2EDDC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C28770B73C49700D2EDDC /* LTBasicPerformer.h */,
+				7F5C287B0B73C4AA00D2EDDC /* LTInterfacePerformer.h */,
+				7FB41E040B7A2A43006ADB1E /* LTOpenSavePerformer.h */,
+				7F980AFB0B73B6A2000A9140 /* LTTextPerformer.h */,
+				7F980B050B73B6A2000A9140 /* LTVariousPerformer.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C24960B73B8B500D2EDDC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F980AA80B73B6A2000A9140 /* LTAdvancedFindController.h */,
+				7F980AB00B73B6A2000A9140 /* LTAuthenticationController.h */,
+				7F980AB40B73B6A2000A9140 /* LTCommandsController.h */,
+				7F980ABA0B73B6A2000A9140 /* LTDragAndDropController.h */,
+				7F08532D0B77B55D009544AD /* LTExtraInterfaceController.h */,
+				7F980ACC0B73B6A2000A9140 /* LTInfoController.h */,
+				7F980AD20B73B6A2000A9140 /* LTMainController.h */,
+				7F980ADA0B73B6A2000A9140 /* LTPreferencesController.h */,
+				7F980ADC0B73B6A2000A9140 /* LTPreviewController.h */,
+				7F980AE00B73B6A2000A9140 /* LTProjectsController.h */,
+				7F980AE40B73B6A2000A9140 /* LTServicesController.h */,
+				7F980AE60B73B6A2000A9140 /* LTShortcutsController.h */,
+				7F980AEA0B73B6A2000A9140 /* LTSnippetsController.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C24A40B73B9CC00D2EDDC /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C24A50B73B9EC00D2EDDC /* Headers */,
+				7F980AC50B73B6A2000A9140 /* LTFontTransformer.m */,
+				7F980AD10B73B6A2000A9140 /* LTLineNumbers.m */,
+				7F980AF40B73B6A2000A9140 /* LTSyntaxColouring.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		7F5C24A50B73B9EC00D2EDDC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F980AC40B73B6A2000A9140 /* LTFontTransformer.h */,
+				7F980AD00B73B6A2000A9140 /* LTLineNumbers.h */,
+				7F980AF30B73B6A2000A9140 /* LTSyntaxColouring.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F5C24D90B73BCF200D2EDDC /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				7F7357180D91D2F800F1398B /* LTProject.xib */,
+				510C3F900D92755B005F475A /* LTCommandResult.xib */,
+				5168D7DA0D92772B005225AB /* LTPreferences.xib */,
+				510C3F930D927566005F475A /* LTSingleDocument.xib */,
+				5168D7C20D9276DF005225AB /* LTAdvancedFind.xib */,
+				5168D7C50D9276FA005225AB /* LTCommands.xib */,
+				5168D7C80D927700005225AB /* LTDetab.xib */,
+				5168D7CB0D927705005225AB /* LTEntab.xib */,
+				5168D7CE0D927708005225AB /* LTGoToLine.xib */,
+				5168D7D10D92770E005225AB /* LTInfo.xib */,
+				5168D7AE0D9276AE005225AB /* LTMainMenu.xib */,
+				5168D7D40D927717005225AB /* LTNewProject.xib */,
+				5168D7D70D927721005225AB /* LTOpenPanelAccessoryView.xib */,
+				5168D7DD0D927735005225AB /* LTPreferencesAdvanced.xib */,
+				5168D7E00D927748005225AB /* LTPreferencesAppearance.xib */,
+				5168D7E30D92774E005225AB /* LTPreferencesGeneral.xib */,
+				5168D7E60D927761005225AB /* LTPreferencesOpenSave.xib */,
+				5168D7E90D927768005225AB /* LTPreview.xib */,
+				5168D7EC0D92776F005225AB /* LTPrintAccessoryView.xib */,
+				5168D7EF0D927775005225AB /* LTRegularExpressionHelp.xib */,
+				5168D7F20D92777B005225AB /* LTSnippets.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		7F79EE330D93D4F40034017B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7F79EE340D93D5090034017B /* Headers */,
+				7F79EE390D93D5760034017B /* NSImage+Literate.m */,
+				7F79EE360D93D5500034017B /* NSString+Literate.m */,
+				7F79EE3C0D93D58C0034017B /* NSToolbarItem+Literate.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		7F79EE340D93D5090034017B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F79EE380D93D5760034017B /* NSImage+Literate.h */,
+				7F79EE350D93D5500034017B /* NSString+Literate.h */,
+				7F79EE3B0D93D58C0034017B /* NSToolbarItem+Literate.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F81FEDD0BA9DDE100549CDB /* PSMTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7F81FF0A0BA9DDFD00549CDB /* Headers */,
+				7F81FEF40BA9DDF600549CDB /* PSMOverflowPopUpButton.m */,
+				7F81FEF80BA9DDF600549CDB /* PSMRolloverButton.m */,
+				7F81FEFA0BA9DDF600549CDB /* PSMTabBarCell.m */,
+				7F81FEFC0BA9DDF600549CDB /* PSMTabBarControl.m */,
+				7F81FEFE0BA9DDF600549CDB /* PSMTabDragAssistant.m */,
+				7F81FF010BA9DDF600549CDB /* PSMUnifiedTabStyle.m */,
+			);
+			name = PSMTabBar;
+			sourceTree = "<group>";
+		};
+		7F81FF0A0BA9DDFD00549CDB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				7F81FEF30BA9DDF600549CDB /* PSMOverflowPopUpButton.h */,
+				7F81FEF70BA9DDF600549CDB /* PSMRolloverButton.h */,
+				7F81FEF90BA9DDF600549CDB /* PSMTabBarCell.h */,
+				7F81FEFB0BA9DDF600549CDB /* PSMTabBarControl.h */,
+				7F81FEFD0BA9DDF600549CDB /* PSMTabDragAssistant.h */,
+				2F3E1E460BB19C5F00F8AF91 /* PSMTabStyle.h */,
+				7F81FF000BA9DDF600549CDB /* PSMUnifiedTabStyle.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7F9809B40B73B4C8000A9140 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				7F980A510B73B5B9000A9140 /* Preferences Icons */,
+				7F980A230B73B4F4000A9140 /* Toolbar Icons */,
+				7F81FED50BA9DDCD00549CDB /* Tab Bar */,
+				7F9809BC0B73B4E1000A9140 /* LTDocumentIcon.icns */,
+				7F9809C20B73B4E1000A9140 /* LTMainIcon.icns */,
+				7F9809C50B73B4E1000A9140 /* LTProjectIcon.icns */,
+				2FC46AFC0BD608C500F209AA /* LTCommandsIcon.icns */,
+				2FC46AFD0BD608C500F209AA /* LTSnippetsIcon.icns */,
+				7F5097700D95A65500D62D67 /* LTDefaultIcon.png */,
+				7F50976F0D95A65500D62D67 /* LTDefaultUnsavedIcon.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
+		7F980A860B73B619000A9140 /* Command Line Utility */ = {
+			isa = PBXGroup;
+			children = (
+				7F980A890B73B629000A9140 /* literate.1 */,
+				7F980A8A0B73B629000A9140 /* literate_main.m */,
+			);
+			name = "Command Line Utility";
+			sourceTree = "<group>";
+		};
+		7F980A900B73B649000A9140 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F980A910B73B652000A9140 /* LTDataModel3.xcdatamodel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7FC80B920B9C65CF002C3C38 /* Project Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7FC80B960B9C65DF002C3C38 /* Headers */,
+				2FE2F83F0B985D0500ADCF8A /* LTProject+DocumentViewsController.m */,
+				7F980AFA0B73B6A2000A9140 /* LTProject+TableViewDelegate.m */,
+				7F980B020B73B6A2000A9140 /* LTProject+ToolbarController.m */,
+			);
+			name = "Project Categories";
+			sourceTree = "<group>";
+		};
+		7FC80B960B9C65DF002C3C38 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2FE2F83E0B985D0500ADCF8A /* LTProject+DocumentViewsController.h */,
+				7F980AF90B73B6A2000A9140 /* LTProject+TableViewDelegate.h */,
+				7F980B010B73B6A2000A9140 /* LTProject+ToolbarController.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		7FD7C3CE0B76561A0097747A /* ICU */ = {
+			isa = PBXGroup;
+			children = (
+				7FA266680B7796BE00AEA870 /* ICUMatcher.h */,
+				7FA266690B7796BE00AEA870 /* ICUMatcher.m */,
+				7FA2666A0B7796BE00AEA870 /* ICUPattern.h */,
+				7FA2666B0B7796BE00AEA870 /* ICUPattern.m */,
+				2F8CCC120BA8158E00BA791C /* NSStringICUAdditions.h */,
+				2F8CCC110BA8158E00BA791C /* NSStringICUAdditions.m */,
+			);
+			name = ICU;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7F5C26640B73BF2200D2EDDC /* literate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F5C26690B73BF4000D2EDDC /* Build configuration list for PBXNativeTarget "literate" */;
+			buildPhases = (
+				7F5C26620B73BF2200D2EDDC /* Sources */,
+				7F5C26630B73BF2200D2EDDC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = literate;
+			productName = smultron;
+			productReference = 7F5C26650B73BF2200D2EDDC /* literate */;
+			productType = "com.apple.product-type.tool";
+		};
+		8D15AC270486D014006FF6A4 /* Literate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "Literate" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+				7F1DE28F0BD198FA00AD5707 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F5C26730B73BF7A00D2EDDC /* PBXTargetDependency */,
+			);
+			name = Literate;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Literate;
+			productReference = 8D15AC370486D014006FF6A4 /* Literate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Literate" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				sv,
+				Czech,
+				Finnish,
+				Hungarian,
+				Spanish,
+				Italian,
+				Dutch,
+				zh_CN,
+				zh_TW,
+				Greek,
+				Catalan,
+				Korean,
+			);
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* Literate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* Literate */,
+				7F5C26640B73BF2200D2EDDC /* literate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F5C26740B73BF9B00D2EDDC /* literate in Resources */,
+				7F980A8B0B73B629000A9140 /* literate.1 in Resources */,
+				7FB9116B101E6245008DB1DA /* InfoPlist.strings in Resources */,
+				7FB9116C101E6249008DB1DA /* Localizable.strings in Resources */,
+				7F9809D20B73B4E1000A9140 /* LTDocumentIcon.icns in Resources */,
+				7F9809D80B73B4E1000A9140 /* LTMainIcon.icns in Resources */,
+				7F9809DB0B73B4E1000A9140 /* LTProjectIcon.icns in Resources */,
+				7F980A410B73B4F4000A9140 /* Syntax Definitions in Resources */,
+				7F980A420B73B4F4000A9140 /* Toolbar Icons in Resources */,
+				7F980A610B73B5B9000A9140 /* Preferences Icons in Resources */,
+				7F980A970B73B660000A9140 /* SyntaxDefinitions.plist in Resources */,
+				7F980A980B73B660000A9140 /* DefaultSnippets.plist in Resources */,
+				7F980A990B73B660000A9140 /* Literate.sdef in Resources */,
+				7F980A9A0B73B660000A9140 /* Markdown.pl in Resources */,
+				2F6CF2E20B848515008B0386 /* DefaultCommands.plist in Resources */,
+				2FEC50CB0B96DB86000CF1AD /* MultiMarkdown.pl in Resources */,
+				7F81FEDC0BA9DDCD00549CDB /* Tab Bar in Resources */,
+				2F7040F90BBBE07F00D43CAF /* Credits.rtf in Resources */,
+				2FC46AFE0BD608C500F209AA /* LTCommandsIcon.icns in Resources */,
+				2FC46AFF0BD608C500F209AA /* LTSnippetsIcon.icns in Resources */,
+				7FB9116D101E624E008DB1DA /* Localizable3.strings in Resources */,
+				7FB9116A101E623F008DB1DA /* Literate-Manual.pdf in Resources */,
+				7FB91157101E61CD008DB1DA /* LTProject.xib in Resources */,
+				7FB91156101E61C3008DB1DA /* LTCommandResult.xib in Resources */,
+				7FB91159101E61D9008DB1DA /* LTSingleDocument.xib in Resources */,
+				7FB9115F101E61F9008DB1DA /* LTMainMenu.xib in Resources */,
+				7FB91155101E61B6008DB1DA /* LTAdvancedFind.xib in Resources */,
+				7FB9115A101E61DF008DB1DA /* LTCommands.xib in Resources */,
+				7FB9115B101E61E4008DB1DA /* LTDetab.xib in Resources */,
+				7FB9115C101E61EA008DB1DA /* LTEntab.xib in Resources */,
+				7FB9115D101E61EF008DB1DA /* LTGoToLine.xib in Resources */,
+				7FB9115E101E61F4008DB1DA /* LTInfo.xib in Resources */,
+				7FB91160101E61FE008DB1DA /* LTNewProject.xib in Resources */,
+				7FB91161101E6203008DB1DA /* LTOpenPanelAccessoryView.xib in Resources */,
+				7FB91158101E61D4008DB1DA /* LTPreferences.xib in Resources */,
+				7FB91162101E6209008DB1DA /* LTPreferencesAdvanced.xib in Resources */,
+				7FB91163101E620E008DB1DA /* LTPreferencesAppearance.xib in Resources */,
+				7FB91164101E6213008DB1DA /* LTPreferencesGeneral.xib in Resources */,
+				7FB91165101E6218008DB1DA /* LTPreferencesOpenSave.xib in Resources */,
+				7FB91166101E621C008DB1DA /* LTPreview.xib in Resources */,
+				7FB91167101E6222008DB1DA /* LTPrintAccessoryView.xib in Resources */,
+				7FB91168101E6226008DB1DA /* LTRegularExpressionHelp.xib in Resources */,
+				7FB91169101E622B008DB1DA /* LTSnippets.xib in Resources */,
+				7F5097710D95A65500D62D67 /* LTDefaultUnsavedIcon.png in Resources */,
+				7F5097720D95A65500D62D67 /* LTDefaultIcon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7F5C26620B73BF2200D2EDDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F5C266C0B73BF5C00D2EDDC /* literate_main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC310486D014006FF6A4 /* LTProject.m in Sources */,
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				7F980A920B73B652000A9140 /* LTDataModel3.xcdatamodel in Sources */,
+				7F980B0A0B73B6A2000A9140 /* LTAdvancedFindController.m in Sources */,
+				7F980B0B0B73B6A2000A9140 /* LTApplication.m in Sources */,
+				7F980B0C0B73B6A2000A9140 /* LTApplicationDelegate.m in Sources */,
+				7F980B0D0B73B6A2000A9140 /* LTApplicationMenuController.m in Sources */,
+				7F980B0E0B73B6A2000A9140 /* LTAuthenticationController.m in Sources */,
+				7F980B100B73B6A2000A9140 /* LTCommandsController.m in Sources */,
+				7F980B120B73B6A2000A9140 /* LTDocumentsMenuController.m in Sources */,
+				7F980B130B73B6A2000A9140 /* LTDragAndDropController.m in Sources */,
+				7F980B150B73B6A2000A9140 /* LTEditMenuController.m in Sources */,
+				7F980B160B73B6A2000A9140 /* LTFileMenuController.m in Sources */,
+				7F980B180B73B6A2000A9140 /* LTFontTransformer.m in Sources */,
+				7F980B190B73B6A2000A9140 /* LTFullScreenWindow.m in Sources */,
+				7F980B1A0B73B6A2000A9140 /* LTGutterTextView.m in Sources */,
+				7F980B1B0B73B6A2000A9140 /* LTHelpMenuController.m in Sources */,
+				7F980B1C0B73B6A2000A9140 /* LTInfoController.m in Sources */,
+				7F980B1D0B73B6A2000A9140 /* LTLayoutManager.m in Sources */,
+				7F980B1E0B73B6A2000A9140 /* LTLineNumbers.m in Sources */,
+				7F980B1F0B73B6A2000A9140 /* LTMainController.m in Sources */,
+				7F980B230B73B6A2000A9140 /* LTPreferencesController.m in Sources */,
+				7F980B240B73B6A2000A9140 /* LTPreviewController.m in Sources */,
+				7F980B250B73B6A2000A9140 /* LTPrintTextView.m in Sources */,
+				7F980B260B73B6A2000A9140 /* LTProjectsController.m in Sources */,
+				7F980B280B73B6A2000A9140 /* LTServicesController.m in Sources */,
+				7F980B290B73B6A2000A9140 /* LTShortcutsController.m in Sources */,
+				7F980B2A0B73B6A2000A9140 /* LTSingleDocumentWindowDelegate.m in Sources */,
+				7F980B2B0B73B6A2000A9140 /* LTSnippetsController.m in Sources */,
+				7F980B2F0B73B6A2000A9140 /* LTSyntaxColouring.m in Sources */,
+				7F980B310B73B6A2000A9140 /* LTTableView.m in Sources */,
+				7F980B320B73B6A2000A9140 /* LTProject+TableViewDelegate.m in Sources */,
+				7F980B330B73B6A2000A9140 /* LTTextPerformer.m in Sources */,
+				7F980B340B73B6A2000A9140 /* LTTextMenuController.m in Sources */,
+				7F980B350B73B6A2000A9140 /* LTTextView.m in Sources */,
+				7F980B360B73B6A2000A9140 /* LTProject+ToolbarController.m in Sources */,
+				7F980B370B73B6A2000A9140 /* LTToolsMenuController.m in Sources */,
+				7F980B380B73B6A2000A9140 /* LTVariousPerformer.m in Sources */,
+				7F980B390B73B6A2000A9140 /* LTViewMenuController.m in Sources */,
+				7F5C287A0B73C49700D2EDDC /* LTBasicPerformer.m in Sources */,
+				7F5C287E0B73C4AA00D2EDDC /* LTInterfacePerformer.m in Sources */,
+				7F3443260B74CC3500790653 /* LTDocumentManagedObject.m in Sources */,
+				7FA2666E0B7796BE00AEA870 /* ICUMatcher.m in Sources */,
+				7FA2666F0B7796BE00AEA870 /* ICUPattern.m in Sources */,
+				7F08532F0B77B55D009544AD /* LTExtraInterfaceController.m in Sources */,
+				7FB41E060B7A2A43006ADB1E /* LTOpenSavePerformer.m in Sources */,
+				7F961E950B7A7CE1001E9189 /* LTEncodingManagedObject.m in Sources */,
+				7F961E980B7A7D65001E9189 /* LTSyntaxDefinitionManagedObject.m in Sources */,
+				7F961E9B0B7A7DAD001E9189 /* LTSnippetManagedObject.m in Sources */,
+				7F961E9E0B7A7DBF001E9189 /* LTCommandManagedObject.m in Sources */,
+				7F85E0740B7C8A0800DAC8B2 /* LTSnippetCollectionManagedObject.m in Sources */,
+				7F85E07B0B7C8AC900DAC8B2 /* LTSplitView.m in Sources */,
+				2F8C9F030B8054E100C6502F /* LTDummyView.m in Sources */,
+				2FCFEBC20B820D0F00E635EE /* LTCommandCollectionManagedObject.m in Sources */,
+				2FE2F8400B985D0500ADCF8A /* LTProject+DocumentViewsController.m in Sources */,
+				2FF0FC2D0BA6C8FF00B21D83 /* LTGradientBackgroundView.m in Sources */,
+				2F8CCC130BA8158E00BA791C /* NSStringICUAdditions.m in Sources */,
+				7F81FF030BA9DDF600549CDB /* PSMOverflowPopUpButton.m in Sources */,
+				7F81FF050BA9DDF600549CDB /* PSMRolloverButton.m in Sources */,
+				7F81FF060BA9DDF600549CDB /* PSMTabBarCell.m in Sources */,
+				7F81FF070BA9DDF600549CDB /* PSMTabBarControl.m in Sources */,
+				7F81FF080BA9DDF600549CDB /* PSMTabDragAssistant.m in Sources */,
+				7F81FF090BA9DDF600549CDB /* PSMUnifiedTabStyle.m in Sources */,
+				2F69A1BE0BB0406800D23876 /* LTDocumentsListCell.m in Sources */,
+				7F2B7FBD0C27272E0058BC55 /* LTSingleDocumentPanel.m in Sources */,
+				7FBDDEFC0CF794F8003BAFB5 /* LTProjectWindow.m in Sources */,
+				7F7444C90CF8DDEC00C947C1 /* LTAdvancedFindPanel.m in Sources */,
+				7F79EE370D93D5500034017B /* NSString+Literate.m in Sources */,
+				7F79EE3A0D93D5760034017B /* NSImage+Literate.m in Sources */,
+				7F79EE3D0D93D58C0034017B /* NSToolbarItem+Literate.m in Sources */,
+				7F2B7E330D9463A100C60435 /* LTSearchField.m in Sources */,
+				7FAD46800D9E43A600ECD508 /* LTPrintViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7F5C26730B73BF7A00D2EDDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7F5C26640B73BF2200D2EDDC /* literate */;
+			targetProxy = 7F5C26720B73BF7A00D2EDDC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7F5C266A0B73BF4000D2EDDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = "$(HOME)/bin";
+				PREBINDING = NO;
+				PRODUCT_NAME = literate;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		7F5C266B0B73BF4000D2EDDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				INSTALL_PATH = "$(HOME)/bin";
+				PREBINDING = NO;
+				PRODUCT_NAME = literate;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Literate;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../LiterateSource\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Literate;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1 = "\"$(SRCROOT)/ICU/icu/\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CFLAGS = "-DDEVELOPMENT_STYLE_BUILD";
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+				);
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1)",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS_QUOTED_FOR_PROJECT_1 = "\"$(SRCROOT)/ICU/icu/\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F5C26690B73BF4000D2EDDC /* Build configuration list for PBXNativeTarget "literate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F5C266A0B73BF4000D2EDDC /* Debug */,
+				7F5C266B0B73BF4000D2EDDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "Literate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Literate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}

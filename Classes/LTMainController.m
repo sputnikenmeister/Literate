@@ -58,9 +58,9 @@ static id sharedInstance = nil;
 {
 	SInt32 systemVersion;
 	if (Gestalt(gestaltSystemVersion, &systemVersion) == noErr) {
-		if (systemVersion < 0x1050) {
+		if (systemVersion < 0x1060) {
 			[NSApp activateIgnoringOtherApps:YES];
-			[LTVarious alertWithMessage:[NSString stringWithFormat:NSLocalizedStringFromTable(@"You need %@ or later to run this version of Literate", @"Localizable3", @"You need %@ or later to run this version of Literate"), @"Mac OS X 10.5 Leopard"] informativeText:NSLocalizedStringFromTable(@"Go to the web site (http://smultron.sourceforge.net) to download another version for an earlier Mac OS X system", @"Localizable3", @"Go to the web site (http://smultron.sourceforge.net) to download another version for an earlier Mac OS X system") defaultButton:OK_BUTTON alternateButton:nil otherButton:nil];
+			[LTVarious alertWithMessage:[NSString stringWithFormat:NSLocalizedStringFromTable(@"You need %@ or later to run this version of Literate", @"Localizable3", @"You need %@ or later to run Literate"), @"Mac OS X 10.6 Snow Leopard"] informativeText:NSLocalizedStringFromTable(@"Try Smultron (http://smultron.sourceforge.net) if you are running an earlier Mac OS X system", @"Localizable3", @"Go to the web site (http://smultron.sourceforge.net) to download another version for an earlier Mac OS X system") defaultButton:OK_BUTTON alternateButton:nil otherButton:nil];
 			
 			[NSApp terminate:nil];
 		}

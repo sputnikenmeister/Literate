@@ -22,6 +22,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 {
 	NSTimer *checkForUpdateTimer;
 	NSTimer *hideNoUpdateAvailableTextFieldTimer;
+	NSTimer *_autosaveTimer;
 
 	BOOL isInFullScreenMode;
 	BOOL singleDocumentWindowWasOpenBeforeEnteringFullScreen;

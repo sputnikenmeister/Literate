@@ -109,7 +109,7 @@ static id sharedInstance = nil;
 	
 	[dictionary setValue:[NSNumber numberWithFloat:0.5] forKey:@"AutocompleteAfterDelay"];	
 	
-	[dictionary setValue:[NSArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Menlo" size:11]] forKey:@"TextFont"];
+	[dictionary setValue:[NSArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Monaco" size:12]] forKey:@"TextFont"];
 	[dictionary setValue:[[NSString localizedStringWithFormat:@"%@/%@", NSHomeDirectory(), @"Desktop"] stringByAbbreviatingWithTildeInPath] forKey:@"OpenAlwaysUseTextField"];
 	[dictionary setValue:[[NSString localizedStringWithFormat:@"%@/%@", NSHomeDirectory(), @"Desktop"] stringByAbbreviatingWithTildeInPath] forKey:@"SaveAsAlwaysUseTextField"];
 	

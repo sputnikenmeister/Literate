@@ -381,18 +381,24 @@ static id sharedInstance = nil;
 		[commandToWrite writeToFile:commandPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 		[temporaryFilesArray addObject:commandPath];
 		
-		if ([command valueForKey:@"interpreter"] != nil && ![[command valueForKey:@"interpreter"] isEqualToString:@""]) {
+		if ([command valueForKey:@"interpreter"] != nil && ![[command valueForKey:@"interpreter"] isEqualToString:@""]) 
+		{
 			[LTVarious performCommandAsynchronously:[NSString stringWithFormat:@"%@ %@", [command valueForKey:@"interpreter"], commandPath]];
-		} else {
+		} 
+		else 
+		{
 			[LTVarious performCommandAsynchronously:[NSString stringWithFormat:@"%@ %@", [LTDefaults valueForKey:@"RunText"], commandPath]];
 		}
 		
-		if (checkIfTemporaryFilesCanBeDeletedTimer != nil) {
+		if (checkIfTemporaryFilesCanBeDeletedTimer != nil) 
+		{
 			[checkIfTemporaryFilesCanBeDeletedTimer invalidate];
 		}
 		checkIfTemporaryFilesCanBeDeletedTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(checkIfTemporaryFilesCanBeDeleted) userInfo:nil repeats:YES];
 		
-	} else {
+	} 
+	else 
+	{
 		[LTVarious performCommandAsynchronously:[self commandToRunFromString:commandString]];
 	}
 }

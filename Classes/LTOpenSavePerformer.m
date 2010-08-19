@@ -332,6 +332,12 @@ static id sharedInstance = nil;
 	[LTCurrentProject selectionDidChange];
 	
 	[self performSelector:@selector(updateLineNumbers) withObject:nil afterDelay:0.0];
+	
+	// Bring the window in front if Smultron is not on the current displayed space.
+	if (![LTCurrentWindow isOnActiveSpace]) 
+	{
+		[LTCurrentWindow orderFront:self];
+	}
 }
 
 

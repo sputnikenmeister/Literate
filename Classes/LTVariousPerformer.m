@@ -18,6 +18,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTStandardHeader.h"
 
 #import "LTVariousPerformer.h"
+#import "LTOpenSavePerformer.h"
 #import "NSString+Literate.h"
 #import "LTBasicPerformer.h"
 #import "LTProjectsController.h"
@@ -438,7 +439,15 @@ static id sharedInstance = nil;
 	
 	asynchronousTask = [[NSTask alloc] init];
 	
-	if (LTCurrentDocument != nil && [LTCurrentDocument valueForKey:@"path"] != nil) {
+	if (LTCurrentDocument != nil && [LTCurrentDocument valueForKey:@"path"] != nil) 
+	{
+		if ([[LTCurrentDocument valueForKey:@"isEdited"] boolValue] == YES && 
+			[[LTCurrentDocument valueForKey:@"isNewDocument"] boolValue] == NO) 
+		{
+			// only save named documents
+			[LTOpenSave performSaveOfDocument:LTCurrentDocument fromSaveAs:NO];
+		}
+				
 		NSMutableDictionary *defaultEnvironment = [NSMutableDictionary dictionaryWithDictionary:[[NSProcessInfo processInfo] environment]];
 		NSString *envPath = [NSString stringWithCString:getenv("PATH") encoding:NSUTF8StringEncoding];
 		NSString *directory = [[LTCurrentDocument valueForKey:@"path"] stringByDeletingLastPathComponent];
@@ -638,85 +647,4 @@ static id sharedInstance = nil;
 	}
 }
 
-
-//- (LTPrintTextView *)printView
-//{
-//	Pos;
-//	NSPrintInfo *printInfo = [LTCurrentProject printInfo];
-//	
-//	LTPrintTextView *printTextView = [[LTPrintTextView alloc] initWithFrame:NSMakeRect([printInfo leftMargin], [printInfo bottomMargin], [printInfo paperSize].width - [printInfo leftMargin] - [printInfo rightMargin], [printInfo paperSize].height - [printInfo topMargin] - [printInfo bottomMargin])];
-//	
-//	
-//	// Set the tabs
-//	NSMutableString *sizeString = [NSMutableString string];
-//	NSUInteger numberOfSpaces = [[LTDefaults valueForKey:@"TabWidth"] integerValue];
-//	while (numberOfSpaces--) {
-//		[sizeString appendString:@" "];
-//	}
-//	NSDictionary *sizeAttribute = [[NSDictionary alloc] initWithObjectsAndKeys:[NSUnarchiver unarchiveObjectWithData:[LTDefaults valueForKey:@"PrintFont"]], NSFontAttributeName, nil];
-//	CGFloat sizeOfTab = [sizeString sizeWithAttributes:sizeAttribute].width;
-//	
-//	NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-//	NSArray *array = [style tabStops];
-//	for (id item in array) {
-//		[style removeTabStop:item];
-//	}
-//	
-//	[style setDefaultTabInterval:sizeOfTab];
-//	NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys:style, NSParagraphStyleAttributeName, nil];
-//	[printTextView setTypingAttributes:attributes];
-//	
-//	BOOL printOnlySelection = NO;
-//	NSInteger selectionLocation = 0;
-//	
-//	if ([LTCurrentProject areThereAnyDocuments]) {
-//		if ([[LTDefaults valueForKey:@"OnlyPrintSelection"] boolValue] == YES && [LTCurrentTextView selectedRange].length > 0) {
-//			[printTextView setString:[LTCurrentText substringWithRange:[LTCurrentTextView selectedRange]]];
-//			printOnlySelection = YES;
-//			selectionLocation = [LTCurrentTextView selectedRange].location;
-//		} else {
-//			[printTextView setString:LTCurrentText];
-//		}
-//		
-//		if ([[LTCurrentDocument valueForKey:@"isSyntaxColoured"] boolValue] == YES && [[LTDefaults valueForKey:@"PrintSyntaxColours"] boolValue] == YES) {
-//			LTTextView *textView = [LTCurrentDocument valueForKey:@"firstTextView"];
-//			LTLayoutManager *layoutManager = (LTLayoutManager *)[textView layoutManager];
-//			NSTextStorage *textStorage = [printTextView textStorage];
-//			NSInteger lastCharacter = [[textView string] length];
-//			[layoutManager removeTemporaryAttribute:NSBackgroundColorAttributeName forCharacterRange:NSMakeRange(0, lastCharacter)];
-//			NSInteger index = 0;
-//			if (printOnlySelection == YES) {
-//				index = [LTCurrentTextView selectedRange].location;
-//				lastCharacter = NSMaxRange([LTCurrentTextView selectedRange]);
-//				[[LTCurrentDocument valueForKey:@"syntaxColouring"] recolourRange:[LTCurrentTextView selectedRange]];
-//			} else {
-//				[[LTCurrentDocument valueForKey:@"syntaxColouring"] recolourRange:NSMakeRange(0, lastCharacter)];
-//			}
-//			NSRange range;
-//			NSDictionary *attributes;
-//			NSInteger rangeLength = 0;
-//			while (index < lastCharacter) {
-//				attributes = [layoutManager temporaryAttributesAtCharacterIndex:index effectiveRange:&range];
-//				rangeLength = range.length;
-//				if ([attributes count] != 0) {
-//					if (printOnlySelection == YES) {
-//						[textStorage setAttributes:attributes range:NSMakeRange(range.location - selectionLocation, rangeLength)];
-//					} else {
-//						[textStorage setAttributes:attributes range:range];
-//					}
-//				}
-//				if (rangeLength != 0) {
-//					index = index + rangeLength;
-//				} else {
-//					index++;
-//				}
-//			}
-//		}
-//	}
-//	
-//	[printTextView setFont:[NSUnarchiver unarchiveObjectWithData:[LTDefaults valueForKey:@"PrintFont"]]];
-//	
-//	return printTextView;
-//	
-//}
 @end

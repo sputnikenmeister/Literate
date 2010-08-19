@@ -38,7 +38,7 @@
 			<string>Editor</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>org.smultron.smultron.document</string>
+				<string>com.testtoast.literate.document</string>
 				<string>public.plain-text</string>
 				<string>public.html</string>
 				<string>public.xml</string>

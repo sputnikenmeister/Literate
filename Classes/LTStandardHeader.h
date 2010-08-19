@@ -26,6 +26,21 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	#define Pos NSLog(@"File=%s line=%d proc=%s", strrchr("/" __FILE__,'/')+1, __LINE__, __PRETTY_FUNCTION__)
 #endif
 
+<<<<<<< HEAD
+=======
+#define SMULTRON_ERROR_DOMAIN @"org.TestToast.Literate.ErrorDomain"
+
+#import <Cocoa/Cocoa.h>
+#warning Carbon
+#import <Carbon/Carbon.h>
+#import <SystemConfiguration/SCNetwork.h>
+#import <ApplicationServices/ApplicationServices.h>
+#import <WebKit/WebKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <QuickLook/QuickLook.h>
+
+#import <unistd.h>
+>>>>>>> 51db2d5... Remove obselete code, XeTeX actions
 
 typedef enum {
 	LTDefaultsLineEndings = 0,

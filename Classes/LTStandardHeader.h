@@ -26,7 +26,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	#define Pos NSLog(@"File=%s line=%d proc=%s", strrchr("/" __FILE__,'/')+1, __LINE__, __PRETTY_FUNCTION__)
 #endif
 
-#define SMULTRON_ERROR_DOMAIN @"org.smultron.Literate.ErrorDomain"
+#define SMULTRON_ERROR_DOMAIN @"org.TestToast.Literate.ErrorDomain"
 
 #import <Cocoa/Cocoa.h>
 #warning Carbon

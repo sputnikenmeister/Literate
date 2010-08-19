@@ -96,7 +96,7 @@ static id sharedInstance = nil;
         [fileManager createDirectoryAtPath:applicationSupportFolder withIntermediateDirectories:YES attributes:nil error:nil];
     }
 
-	NSString *storePath = [applicationSupportFolder stringByAppendingPathComponent: @"Literate3.smultron"];
+	NSString *storePath = [applicationSupportFolder stringByAppendingPathComponent: @"Literate.literate"];
 	
 	NSURL *url = [NSURL fileURLWithPath:storePath];
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -368,91 +368,6 @@ static id sharedInstance = nil;
 {
 	if ([[LTDefaults valueForKey:@"CheckIfDocumentHasBeenUpdated"] boolValue] == YES) { // Check for updates directly when Literate gets focus
 		[LTVarious checkIfDocumentsHaveBeenUpdatedByAnotherApplication];
-	}
-}
-
-
-#pragma mark
-#pragma mark Import from version 2
-
-- (void)importFromVersion2
-{
-	[LTDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"HasImportedFromVersion2"];
-	
-	@try {
-		NSManagedObjectModel *managedObjectModelVersion2 = [[NSManagedObjectModel alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"LTDataModel2" ofType:@"mom"]]];
-		
-		NSFileManager *fileManager = [NSFileManager defaultManager];
-		NSString *applicationSupportFolder = [self applicationSupportFolder];
-		if (![fileManager fileExistsAtPath:[applicationSupportFolder stringByAppendingPathComponent:@"Literate.smultron"] isDirectory:NULL]) {
-			return;
-		}
-		
-		NSURL *url = [NSURL fileURLWithPath:[applicationSupportFolder stringByAppendingPathComponent:@"Literate.smultron"]];
-		NSPersistentStoreCoordinator *persistentStoreCoordinatorVersion2 = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModelVersion2];
-		if (![persistentStoreCoordinatorVersion2 addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:url options:nil error:nil]){
-			return;
-		}  
-		
-		NSManagedObjectContext *managedObjectContextVersion2 = [[NSManagedObjectContext alloc] init];
-		[managedObjectContextVersion2 setPersistentStoreCoordinator:persistentStoreCoordinatorVersion2];
-		
-		NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Command" inManagedObjectContext:managedObjectContextVersion2];
-		NSFetchRequest *request = [[NSFetchRequest alloc] init];
-		[request setEntity:entityDescription];
-		
-		// Commands
-		NSArray *oldCommands = [managedObjectContextVersion2 executeFetchRequest:request error:nil];
-		if ([oldCommands count] != 0) {			
-			id newCollection = [LTBasic createNewObjectForEntity:@"CommandCollection"];
-			[newCollection setValue:NSLocalizedStringFromTable(@"Old Commands", @"Localizable3", @"Old Commands") forKey:@"name"];			
-			
-			id command;
-			for (command in oldCommands) {
-				id newCommand = [LTBasic createNewObjectForEntity:@"Command"];
-				[newCommand setValue:[command valueForKey:@"command"] forKey:@"name"];
-				[newCommand setValue:[command valueForKey:@"command"] forKey:@"text"];			
-				[newCommand setValue:[command valueForKey:@"shortcutDisplayString"] forKey:@"shortcutDisplayString"];
-				[newCommand setValue:[command valueForKey:@"shortcutMenuItemKeyString"] forKey:@"shortcutMenuItemKeyString"];
-				[newCommand setValue:[command valueForKey:@"shortcutModifier"] forKey:@"shortcutModifier"];
-				[newCommand setValue:[command valueForKey:@"sortOrder"] forKey:@"sortOrder"];
-				[newCommand setValue:[NSNumber numberWithInteger:3] forKey:@"version"];
-				[[newCollection mutableSetValueForKey:@"commands"] addObject:newCommand];
-			}
-		}
-		
-		
-		// Snippets
-		entityDescription = [NSEntityDescription entityForName:@"SnippetCollection" inManagedObjectContext:managedObjectContextVersion2];
-		request = [[NSFetchRequest alloc] init];
-		[request setEntity:entityDescription];
-		
-		NSArray *collections = [managedObjectContextVersion2 executeFetchRequest:request error:nil];
-		for (id collection in collections) {
-			id newCollection = [LTBasic createNewObjectForEntity:@"SnippetCollection"];
-			[newCollection setValue:[collection valueForKey:@"name"] forKey:@"name"];
-			
-			NSEntityDescription *entityDescriptionSnippet = [NSEntityDescription entityForName:@"Snippet" inManagedObjectContext:managedObjectContextVersion2];
-			NSFetchRequest *requestSnippet = [[NSFetchRequest alloc] init];
-			[requestSnippet setEntity:entityDescriptionSnippet];
-			NSPredicate *predicate = [NSPredicate predicateWithFormat:@"collectionUUID == %@", [collection valueForKey:@"uuid"]];
-			[requestSnippet setPredicate:predicate];
-			
-			NSArray *snippets = [managedObjectContextVersion2 executeFetchRequest:requestSnippet error:nil];
-			for (id oldSnippet in snippets) {
-				id snippet = [LTBasic createNewObjectForEntity:@"Snippet"];
-				[snippet setValue:[oldSnippet valueForKey:@"name"] forKey:@"name"];
-				[snippet setValue:[oldSnippet valueForKey:@"text"] forKey:@"text"];			
-				[snippet setValue:[oldSnippet valueForKey:@"shortcutDisplayString"] forKey:@"shortcutDisplayString"];
-				[snippet setValue:[oldSnippet valueForKey:@"shortcutMenuItemKeyString"] forKey:@"shortcutMenuItemKeyString"];
-				[snippet setValue:[oldSnippet valueForKey:@"shortcutModifier"] forKey:@"shortcutModifier"];
-				[snippet setValue:[oldSnippet valueForKey:@"sortOrder"] forKey:@"sortOrder"];
-				[[newCollection mutableSetValueForKey:@"snippets"] addObject:snippet];
-			}			
-		}
-		
-	}
-	@catch (NSException *exception) {
 	}
 }
 

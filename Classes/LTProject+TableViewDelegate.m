@@ -77,7 +77,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 				image = [document valueForKey:@"icon"];
 			}
 
-			[(LTDocumentsListCell *)aCell setHeightAndWidth:[[[self valueForKey:@"project"] valueForKey:@"viewSize"] floatValue]];
+			[(LTDocumentsListCell *)aCell setHeightAndWidth:[[[self valueForKey:@"project"] valueForKey:@"viewSize"] doubleValue]];
 			[(LTDocumentsListCell *)aCell setImage:image];
 			
 			if ([[LTDefaults valueForKey:@"ShowFullPathInDocumentsList"] boolValue] == YES) {

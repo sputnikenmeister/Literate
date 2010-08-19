@@ -178,7 +178,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 {
     NSPrintInfo *printInfo = [super printInfo];
 	
-	CGFloat marginsMin = [[LTDefaults valueForKey:@"MarginsMin"] floatValue];
+	CGFloat marginsMin = [[LTDefaults valueForKey:@"MarginsMin"] doubleValue];
 	if ([[LTDefaults valueForKey:@"PrintHeader"] boolValue] == YES) {
 		[printInfo setTopMargin:(marginsMin + 22)];
 	} else {
@@ -742,7 +742,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (CGFloat)mainSplitViewFraction
 {
-	float fraction;
+	CGFloat fraction;
 	if ([contentSplitView bounds].size.width + [leftDocumentsView bounds].size.width + [mainSplitView dividerThickness] != 0) {
 		fraction = [leftDocumentsView bounds].size.width / ([contentSplitView bounds].size.width + [leftDocumentsView bounds].size.width + [mainSplitView dividerThickness]);
 	} else {
@@ -758,7 +758,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	NSRect leftDocumentsViewFrame = [[[mainSplitView subviews] objectAtIndex:0] frame];
     NSRect contentViewFrame = [[[mainSplitView subviews] objectAtIndex:1] frame];
 	CGFloat totalWidth = leftDocumentsViewFrame.size.width + contentViewFrame.size.width + [mainSplitView dividerThickness];
-    leftDocumentsViewFrame.size.width = [[project valueForKey:@"dividerPosition"] floatValue] * totalWidth;
+    leftDocumentsViewFrame.size.width = [[project valueForKey:@"dividerPosition"] doubleValue] * totalWidth;
     contentViewFrame.size.width = totalWidth - leftDocumentsViewFrame.size.width - [mainSplitView dividerThickness];
 	
     [[[mainSplitView subviews] objectAtIndex:0] setFrame:leftDocumentsViewFrame];
@@ -770,7 +770,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (void)saveMainSplitViewFraction
 {
-	NSNumber *fraction = [NSNumber numberWithFloat:[self mainSplitViewFraction]];
+	NSNumber *fraction = [NSNumber numberWithDouble:[self mainSplitViewFraction]];
 	[project setValue:fraction forKey:@"dividerPosition"];
 	[LTDefaults setValue:fraction forKey:@"DividerPosition"];
 }

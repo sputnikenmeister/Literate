@@ -1096,15 +1096,15 @@ beginInstruction:@"";
 	}
 	
 	if (autocompleteWordsTimer != nil) {
-		[autocompleteWordsTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:[[LTDefaults valueForKey:@"AutocompleteAfterDelay"] floatValue]]];
+		[autocompleteWordsTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:[[LTDefaults valueForKey:@"AutocompleteAfterDelay"] doubleValue]]];
 	} else if ([[LTDefaults valueForKey:@"AutocompleteSuggestAutomatically"] boolValue] == YES) {
-		autocompleteWordsTimer = [NSTimer scheduledTimerWithTimeInterval:[[LTDefaults valueForKey:@"AutocompleteAfterDelay"] floatValue] target:self selector:@selector(autocompleteWordsTimerSelector:) userInfo:textView repeats:NO];
+		autocompleteWordsTimer = [NSTimer scheduledTimerWithTimeInterval:[[LTDefaults valueForKey:@"AutocompleteAfterDelay"] doubleValue] target:self selector:@selector(autocompleteWordsTimerSelector:) userInfo:textView repeats:NO];
 	}
 	
 	if (liveUpdatePreviewTimer != nil) {
-		[liveUpdatePreviewTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:[[LTDefaults valueForKey:@"LiveUpdatePreviewDelay"] floatValue]]];
+		[liveUpdatePreviewTimer setFireDate:[NSDate dateWithTimeIntervalSinceNow:[[LTDefaults valueForKey:@"LiveUpdatePreviewDelay"] doubleValue]]];
 	} else if ([[LTDefaults valueForKey:@"LiveUpdatePreview"] boolValue] == YES) {
-		liveUpdatePreviewTimer = [NSTimer scheduledTimerWithTimeInterval:[[LTDefaults valueForKey:@"LiveUpdatePreviewDelay"] floatValue] target:self selector:@selector(liveUpdatePreviewTimerSelector:) userInfo:textView repeats:NO];
+		liveUpdatePreviewTimer = [NSTimer scheduledTimerWithTimeInterval:[[LTDefaults valueForKey:@"LiveUpdatePreviewDelay"] doubleValue] target:self selector:@selector(liveUpdatePreviewTimerSelector:) userInfo:textView repeats:NO];
 	}
 	
 	[[document valueForKey:@"lineNumbers"] updateLineNumbersCheckWidth:NO recolour:NO];
@@ -1219,7 +1219,7 @@ beginInstruction:@"";
 }
 
 
-- (NSArray *)textView:theTextView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(int *)index
+- (NSArray *)textView:theTextView completions:(NSArray *)words forPartialWordRange:(NSRange)charRange indexOfSelectedItem:(NSInteger *)index
 {
 	if ([keywordsAndAutocompleteWords count] == 0) {
 		if ([[LTDefaults valueForKey:@"AutocompleteIncludeStandardWords"] boolValue] == NO) {

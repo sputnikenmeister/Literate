@@ -26,49 +26,73 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	#define Pos NSLog(@"File=%s line=%d proc=%s", strrchr("/" __FILE__,'/')+1, __LINE__, __PRETTY_FUNCTION__)
 #endif
 
+#define SMULTRON_ERROR_DOMAIN @"org.smultron.Literate.ErrorDomain"
 
-typedef enum {
+#import <Cocoa/Cocoa.h>
+#warning Carbon
+#import <Carbon/Carbon.h>
+#import <SystemConfiguration/SCNetwork.h>
+#import <ApplicationServices/ApplicationServices.h>
+#import <WebKit/WebKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <QuickLook/QuickLook.h>
+
+#import <unistd.h>
+
+#import <sys/param.h>
+#import <sys/mount.h>
+#import <sys/xattr.h>
+
+enum {
 	LTDefaultsLineEndings = 0,
 	LTUnixLineEndings = 1,
 	LTMacLineEndings = 2,
 	LTDarkSideLineEndings = 3,
 	LTLeaveLineEndingsUnchanged = 6
-} LTLineEndings;
+};
+typedef NSUInteger LTLineEndings;
 
-
-typedef enum {
+enum {
 	LTCurrentDocumentScope = 0,
 	LTCurrentProjectScope = 1,
 	LTAllDocumentsScope = 2
-} LTAdvancedFindScope;
+};
+typedef NSUInteger LTAdvancedFindScope;
 
-typedef enum {
+enum {
 	LTListView = 0
-} LTView;
+};
+typedef NSUInteger LTView;
 
-typedef enum {
+enum {
 	LTVirtualProject = 0,
 	LTPermantProject = 1
-} LTWhatKindOfProject;
+};
+typedef NSUInteger LTWhatKindOfProject;
 
-typedef enum {
+enum {
 	LTCheckForUpdatesNever = 0,
 	LTCheckForUpdatesDaily = 1,
 	LTCheckForUpdatesWeekly = 2,
 	LTCheckForUpdatesMonthly = 3
-} LTCheckForUpdatesInterval;
+};
+typedef NSUInteger LTCheckForUpdatesInterval;
 
-typedef enum {
+
+enum {
 	LTPreviewHTML = 0,
 	LTPreviewMarkdown = 1,
 	LTPreviewMultiMarkdown = 2,
-} LTPreviewParser;
+};
+typedef NSUInteger LTPreviewParser;
 
-typedef enum {
+
+enum {
 	LTOpenSaveRemember = 0,
 	LTOpenSaveCurrent = 1,
 	LTOpenSaveAlways = 2
-} LTOpenSaveMatrix;
+};
+typedef NSUInteger LTOpenSaveMatrix;
 
 typedef struct _AppleEventSelectionRange {
 	short unused1; // 0 (not used)
@@ -79,34 +103,10 @@ typedef struct _AppleEventSelectionRange {
 	long theDate; // modification date/time
 } AppleEventSelectionRange;
 
-typedef enum {
+enum {
     LiterateSaveErrorEncodingInapplicable = 1,
-} LTErrors;
-
-#define SMULTRON_ERROR_DOMAIN @"org.smultron.Literate.ErrorDomain"
-
-#import <Cocoa/Cocoa.h>
-#import <Carbon/Carbon.h>
-
-#import <SystemConfiguration/SCNetwork.h>
-
-#import <ApplicationServices/ApplicationServices.h>
-
-#import <WebKit/WebKit.h>
-
-#import <QuartzCore/QuartzCore.h>
-
-#import <QuickLook/QuickLook.h>
-
-
-
-#import <unistd.h>
-
-#import <unistd.h>
-#import <sys/param.h>
-#import <sys/mount.h>
-#import <sys/xattr.h>
-
+};
+typedef NSUInteger LTErrors;
 
 
 #define OK_BUTTON NSLocalizedString(@"OK", @"OK-button")

@@ -94,21 +94,24 @@ static id sharedInstance = nil;
 	LTLineNumbers *lineNumbers = [[LTLineNumbers alloc] initWithDocument:document];
 	[[NSNotificationCenter defaultCenter] addObserver:lineNumbers selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	[document setValue:lineNumbers forKey:@"lineNumbers"];
-	
+#warning bug here for text wrap?
 	LTTextView *textView;
-	if ([[LTDefaults valueForKey:@"LineWrapNewDocuments"] boolValue] == YES) {
+	if ([[LTDefaults valueForKey:@"LineWrapNewDocuments"] boolValue] == YES) 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, contentSize.width, contentSize.height)];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:YES];
 		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
+		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
+	} 
+	else 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, contentSize.width, contentSize.height)];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
 	}
 	
@@ -161,19 +164,22 @@ static id sharedInstance = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	
 	LTTextView *textView;
-	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
+	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width - 2, contentSize.height) textContainer:container]; // - 2 to remove slight movement left and right
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
+		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
+	} 
+	else 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
 	}
 	[textView setDefaults];
@@ -256,19 +262,22 @@ static id sharedInstance = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	
 	LTTextView *textView;
-	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
+	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
+		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
+	} 
+	else 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
 	}
 	[textView setDefaults];
@@ -327,19 +336,22 @@ static id sharedInstance = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	
 	LTTextView *textView;
-	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
+	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
+		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
+	} 
+	else 
+	{
 		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
 		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
 	}
 	[textView setDefaults];
@@ -489,7 +501,7 @@ static id sharedInstance = nil;
 - (void)enterFullScreenForDocument:(id)document
 {
 	savedMainMenu = [NSApp mainMenu];
-	
+#warning set max margins?
 	fullScreenRect = [[NSScreen mainScreen] frame];	
 	CGFloat width;
 	if ([LTMain singleDocumentWindowWasOpenBeforeEnteringFullScreen] == YES) {
@@ -497,11 +509,19 @@ static id sharedInstance = nil;
 	} else {
 		width = [[document valueForKey:@"firstTextView"] bounds].size.width * [[NSScreen mainScreen] userSpaceScaleFactor];
 	}
-	fullScreenRect = NSMakeRect(fullScreenRect.origin.x - ((width - fullScreenRect.size.width + [[document valueForKey:@"gutterWidth"] floatValue]) / 2), fullScreenRect.origin.y, width + [[document valueForKey:@"gutterWidth"] floatValue], fullScreenRect.size.height);
+	fullScreenRect = NSMakeRect(fullScreenRect.origin.x - ((width - fullScreenRect.size.width + [[document valueForKey:@"gutterWidth"] doubleValue]) / 2), 
+								fullScreenRect.origin.y, 
+								width + [[document valueForKey:@"gutterWidth"] doubleValue], 
+								fullScreenRect.size.height);
 
-	fullScreenWindow = [[LTFullScreenWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame] styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO screen:[NSScreen mainScreen]];
+	fullScreenWindow = [[LTFullScreenWindow alloc] initWithContentRect:[[NSScreen mainScreen] frame] 
+															 styleMask:NSBorderlessWindowMask 
+															   backing:NSBackingStoreBuffered 
+																 defer:NO 
+																screen:[NSScreen mainScreen]];
 	
-	if ([LTMain singleDocumentWindowWasOpenBeforeEnteringFullScreen] == NO) {
+	if ([LTMain singleDocumentWindowWasOpenBeforeEnteringFullScreen] == NO) 
+	{
 		NSRange sell = [[document valueForKey:@"firstTextView"] selectedRange];
 		[[document valueForKey:@"thirdTextView"] scrollRangeToVisible:sell];
 		[[document valueForKey:@"thirdTextView"] setSelectedRange:sell];
@@ -555,8 +575,11 @@ static id sharedInstance = nil;
 {
 	NSArray *allFunctions = [self allFunctions];
 
-	if ([allFunctions count] == 0) {
-		NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Not applicable", @"Not applicable in insertAllFunctionsIntoMenu") action:nil keyEquivalent:@""];
+	if ([allFunctions count] == 0) 
+	{
+		NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:NSLocalizedString(@"Not applicable", @"Not applicable in insertAllFunctionsIntoMenu") 
+														  action:nil 
+												   keyEquivalent:@""];
 		[menuItem setState:NSOffState];
 		[menu insertItem:menuItem atIndex:0];
 		return;
@@ -566,19 +589,26 @@ static id sharedInstance = nil;
 	NSInteger index = [allFunctions count] - 1;
 	NSInteger currentFunctionIndex = [self currentFunctionIndexForFunctions:allFunctions];
 	NSString *spaceBetween;
-	if ([allFunctions count] != 0) {
-		if ([[[allFunctions lastObject] valueForKey:@"lineNumber"] integerValue] > 999) {
+	if ([allFunctions count] != 0) 
+	{
+		if ([[[allFunctions lastObject] valueForKey:@"lineNumber"] integerValue] > 999) 
+		{
 			spaceBetween = @"\t\t ";
-		} else {
+		}
+		else
+		{
 			spaceBetween = @"\t ";
 		}
-	} else {
+	}
+	else 
+	{
 		spaceBetween = @"";
 	}
-	for (id item in enumerator) {
+	for (id item in enumerator) 
+	{
 		NSMenuItem *menuItem = [[NSMenuItem alloc] init];
 		NSInteger lineNumber = [[item valueForKey:@"lineNumber"] integerValue];
-		NSString *title = [NSString stringWithFormat:@"%d%@%@", lineNumber, spaceBetween, [item valueForKey:@"name"]];
+		NSString *title = [NSString stringWithFormat:@"%ld%@%@", lineNumber, spaceBetween, [item valueForKey:@"name"]];
 		[menuItem setTitle:title];
 		[menuItem setTarget:LTInterface];
 		[menuItem setAction:@selector(goToFunctionOnLine:)];

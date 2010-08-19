@@ -107,11 +107,13 @@ static id sharedInstance = nil;
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"AutosaveEnabled"];
 	[dictionary setValue:[NSNumber numberWithInteger:1] forKey:@"AutosaveInterval"]; // 2 min
 	
-	[dictionary setValue:[NSNumber numberWithFloat:0.5] forKey:@"AutocompleteAfterDelay"];	
+	[dictionary setValue:[NSNumber numberWithDouble:0.5] forKey:@"AutocompleteAfterDelay"];	
 	
 	[dictionary setValue:[NSArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Monaco" size:12]] forKey:@"TextFont"];
-	[dictionary setValue:[[NSString localizedStringWithFormat:@"%@/%@", NSHomeDirectory(), @"Desktop"] stringByAbbreviatingWithTildeInPath] forKey:@"OpenAlwaysUseTextField"];
-	[dictionary setValue:[[NSString localizedStringWithFormat:@"%@/%@", NSHomeDirectory(), @"Desktop"] stringByAbbreviatingWithTildeInPath] forKey:@"SaveAsAlwaysUseTextField"];
+	[dictionary setValue:[[NSString localizedStringWithFormat:@"%@/%@", NSHomeDirectory(), @"Desktop"] stringByAbbreviatingWithTildeInPath] 
+				  forKey:@"OpenAlwaysUseTextField"];
+	[dictionary setValue:[[NSString localizedStringWithFormat:@"%@/%@", NSHomeDirectory(), @"Desktop"] stringByAbbreviatingWithTildeInPath] 
+				  forKey:@"SaveAsAlwaysUseTextField"];
 	
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"NewDocumentAtStartup"];
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"ShowFullPathInWindowTitle"];
@@ -193,8 +195,8 @@ static id sharedInstance = nil;
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"SuppressReplaceWarning"];
 	[dictionary setValue:[NSNumber numberWithInteger:LTVirtualProject] forKey:@"WhatKindOfProject"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"LiveUpdatePreview"];
-	[dictionary setValue:[NSNumber numberWithFloat:1.0] forKey:@"LiveUpdatePreviewDelay"];
-	[dictionary setValue:[NSNumber numberWithFloat:0.2] forKey:@"DividerPosition"];
+	[dictionary setValue:[NSNumber numberWithDouble:1.0] forKey:@"LiveUpdatePreviewDelay"];
+	[dictionary setValue:[NSNumber numberWithDouble:0.2] forKey:@"DividerPosition"];
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"ShowSizeSlider"];
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"PutQuotesAroundDirectory"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"FocusOnTextInAdvancedFind"];

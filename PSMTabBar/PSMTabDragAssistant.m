@@ -81,12 +81,12 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
     _draggedCell = cell;
 }
 
-- (int)draggedCellIndex
+- (NSInteger)draggedCellIndex
 {
     return _draggedCellIndex;
 }
 
-- (void)setDraggedCellIndex:(int)value
+- (void)setDraggedCellIndex:(NSInteger)value
 {
     _draggedCellIndex = value;
 }
@@ -135,11 +135,12 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
     
     NSRect cellFrame = [cell frame];
     // list of widths for animation
-    int i;
+    NSInteger i;
     float cellWidth = cellFrame.size.width;
-    for(i = 0; i < kPSMTabDragAnimationSteps; i++){
-        int thisWidth;
-        thisWidth = (int)(cellWidth - ((cellWidth/2.0) + ((sin((PI/2.0) + ((float)i/(float)kPSMTabDragAnimationSteps)*PI) * cellWidth) / 2.0)));
+    for (i = 0; i < kPSMTabDragAnimationSteps; i++)
+	{
+        NSInteger thisWidth;
+        thisWidth = (NSInteger)(cellWidth - ((cellWidth/2.0) + ((sin((PI/2.0) + ((CGFloat)i/(CGFloat)kPSMTabDragAnimationSteps)*PI) * cellWidth) / 2.0)));
         [_sineCurveWidths addObject:[NSNumber numberWithInteger:thisWidth]];
     }
     
@@ -154,7 +155,8 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
     [[cell indicator] removeFromSuperview];
     [self distributePlaceholdersInTabBar:control withDraggedCell:cell];
 
-    if([control isFlipped]){
+    if([control isFlipped])
+	{
         cellFrame.origin.y += cellFrame.size.height;
     }
     [cell setHighlighted:NO];
@@ -204,12 +206,14 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
 		NSArray *array = [[LTProjectsController sharedDocumentController] documents];
 		id destinationProject = nil;
 		for (destinationProject in array) {
-			if ([self destinationTabBar] == [destinationProject tabBarControl]) {
+			if ([self destinationTabBar] == [destinationProject tabBarControl]) 
+			{
 				break;
 			}
 		}
 		
-		if (destinationProject != nil) {
+		if (destinationProject != nil) 
+		{
 			//NSArrayController *destinationArrayController = [destinationProject documentsArrayController];
 			
 			id document = [[[self draggedCell] representedObject] identifier];
@@ -229,13 +233,16 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
 			}
 		}
 		
-		if (sourceProject != nil) {
+		if (sourceProject != nil) 
+		{
 			//NSArrayController *destinationArrayController = [sourceProject documentsArrayController];
 			[sourceProject selectionDidChange];//updateDocumentOrderFromCells:[[self sourceTabBar] cells]];
 			//[sourceProject documentsListHasUpdated];
 		}
 		
-    } else {
+    } 
+	else 
+	{
 		[LTCurrentProject updateDocumentOrderFromCells:[[self destinationTabBar] cells]]; 
 	}
 	
@@ -244,7 +251,8 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
 
 - (void)draggedImageEndedAt:(NSPoint)aPoint operation:(NSDragOperation)operation
 {
-    if([self isDragging]){  // means there was not a successful drop (performDragOperation)
+    if([self isDragging])
+	{  // means there was not a successful drop (performDragOperation)
         // put cell back
         [[[self sourceTabBar] cells] insertObject:[self draggedCell] atIndex:[self draggedCellIndex]];
         [self finishDrag];
@@ -278,9 +286,14 @@ static PSMTabDragAssistant *sharedDragAssistant = nil;
 {
     PSMTabBarControl *tabBar;
 	NSArray *array = [NSArray arrayWithArray:[_participatingTabBars allObjects]];
-    for(tabBar in array){
+    for(tabBar in array)
+	{
         [self calculateDragAnimationForTabBar:tabBar];
-        [[NSRunLoop currentRunLoop] performSelector:@selector(display) target:tabBar argument:nil order:1 modes:[NSArray arrayWithObjects:@"NSEventTrackingRunLoopMode", @"NSDefaultRunLoopMode", nil]];
+        [[NSRunLoop currentRunLoop] performSelector:@selector(display) 
+											 target:tabBar 
+										   argument:nil 
+											  order:1 
+											  modes:[NSArray arrayWithObjects:@"NSEventTrackingRunLoopMode", @"NSDefaultRunLoopMode", nil]];
     }
 }
 
@@ -376,16 +389,20 @@ layout:
 
 - (void)distributePlaceholdersInTabBar:(PSMTabBarControl *)control
 {
-    int i, numVisibleTabs = [control numberOfVisibleTabs];
-    for(i = 0; i < numVisibleTabs; i++){
+    NSInteger i, numVisibleTabs = [control numberOfVisibleTabs];
+    for (i = 0; i < numVisibleTabs; i++)
+	{
         PSMTabBarCell *pc = [[PSMTabBarCell alloc] initPlaceholderWithFrame:[[self draggedCell] frame] expanded:NO inControlView:control]; 
         [[control cells] insertObject:pc atIndex:(2 * i)];
     }
-    if(numVisibleTabs > 0){
+    if(numVisibleTabs > 0)
+	{
         PSMTabBarCell *pc = [[PSMTabBarCell alloc] initPlaceholderWithFrame:[[self draggedCell] frame] expanded:NO inControlView:control];
         if([[control cells] count] > (2 * numVisibleTabs)){
             [[control cells] insertObject:pc atIndex:(2 * numVisibleTabs)];
-        } else {
+        } 
+		else 
+		{
             [[control cells] addObject:pc];
         }
     }
@@ -393,8 +410,9 @@ layout:
 
 - (void)removeAllPlaceholdersFromTabBar:(PSMTabBarControl *)control
 {
-    int i, cellCount = [[control cells] count];
-    for(i = (cellCount - 1); i >= 0; i--){
+    NSInteger i, cellCount = [[control cells] count];
+    for(i = (cellCount - 1); i >= 0; i--)
+	{
         PSMTabBarCell *cell = [[control cells] objectAtIndex:i];
         if([cell isPlaceholder])
             [[control cells] removeObject:cell];

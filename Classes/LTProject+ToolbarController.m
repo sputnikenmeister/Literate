@@ -134,7 +134,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 		[functionButton setImage:functionImage];
 		[functionButton setTarget:self];
 		[functionButton setAction:@selector(functionToolbarItemAction:)];
-		//[[functionButton cell] setImageScaling:NSImageScaleProportionallyDown];
 		[functionButton setImagePosition:NSImageOnly];
 		
 		[functionToolbarItem setLabel:FUNCTION_STRING];
@@ -144,15 +143,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 		[view addSubview:functionButton];
 		
 		[functionToolbarItem setView:view];
-		
-//		[functionToolbarItem setLabel:FUNCTION_STRING];
-//		[functionToolbarItem setToolTip:FUNCTION_STRING];
-//		[functionToolbarItem setPaletteLabel:FUNCTION_STRING];
-//		[functionToolbarItem setView:functionButton];
-//		[functionToolbarItem setMinSize:NSMakeSize(32.0, 32.0)];
-//		[functionToolbarItem setMaxSize:NSMakeSize(32.0, 32.0)];
-//		[functionButton setImage:functionImage];
-		
+				
 		menuFormRepresentation = [[NSMenuItem alloc] init];
 		NSMenu *functionTextOnlyMenu = [[NSMenu alloc] initWithTitle:@""];
 		[functionTextOnlyMenu setDelegate:self];

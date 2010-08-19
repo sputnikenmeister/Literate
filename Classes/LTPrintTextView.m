@@ -27,8 +27,9 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (id)initWithFrame:(NSRect)frame
 {
-	if (self = [super initWithFrame:frame]) {
-		//[self setupView];
+	if (self = [super initWithFrame:frame]) 
+	{
+		[self setupView];
 	}
 	return self;
 }
@@ -38,17 +39,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 {
 	return [LTCurrentDocument valueForKey:@"name"];
 }
-
-
-- (void)drawRect:(NSRect)rect
-{
-	[self setupView];
-	
-	[super drawRect:rect];
-	
-}
-
-
 
 - (void)drawPageBorderWithSize:(NSSize)borderSize
 {	
@@ -83,7 +73,10 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	return YES;
 }
 
-
+/**
+ * Setup the view used for printing regarding current application settings specified by the
+ * user.
+ **/
 - (void)setupView
 {
 	NSPrintInfo *printInfo = [LTCurrentProject printInfo];

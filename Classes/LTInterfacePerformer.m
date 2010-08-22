@@ -82,9 +82,13 @@ static id sharedInstance = nil;
 
 - (void)createFirstViewForDocument:(id)document
 {
+	CGFloat gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;
+	
 	NSView *firstContentView = [LTCurrentProject firstContentView];
-	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, [firstContentView bounds].size.width - [[LTDefaults valueForKey:@"GutterWidth"] integerValue], [firstContentView bounds].size.height)];
-	NSSize contentSize = [textScrollView contentSize];
+	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(gutterWidth, 
+																				  0, 
+																				  [firstContentView bounds].size.width - [[LTDefaults valueForKey:@"GutterWidth"] floatValue], 
+																				  [firstContentView bounds].size.height)];
 	[textScrollView setBorderType:NSNoBorder];
 	[textScrollView setHasVerticalScroller:YES];
 	[textScrollView setAutohidesScrollers:YES];
@@ -94,37 +98,40 @@ static id sharedInstance = nil;
 	LTLineNumbers *lineNumbers = [[LTLineNumbers alloc] initWithDocument:document];
 	[[NSNotificationCenter defaultCenter] addObserver:lineNumbers selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	[document setValue:lineNumbers forKey:@"lineNumbers"];
-#warning bug here for text wrap?
-	LTTextView *textView;
+	
+	NSSize contentSize = [textScrollView contentSize];
+	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height)];
+	
 	if ([[LTDefaults valueForKey:@"LineWrapNewDocuments"] boolValue] == YES) 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, contentSize.width, contentSize.height)];
-		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:NO];
-		[textView setHorizontallyResizable:YES];
+		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
 		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
 	} 
 	else 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, contentSize.width, contentSize.height)];
-		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 	}
 	
 	[textScrollView setDocumentView:textView];
 
-	NSScrollView *gutterScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, [[LTDefaults valueForKey:@"GutterWidth"] integerValue], contentSize.height)];
+	NSScrollView *gutterScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 
+																					0, 
+																					gutterWidth,
+																					contentSize.height)];
 	[gutterScrollView setBorderType:NSNoBorder];
 	[gutterScrollView setHasVerticalScroller:NO];
 	[gutterScrollView setHasHorizontalScroller:NO];
 	[gutterScrollView setAutoresizingMask:NSViewHeightSizable];
 	[[gutterScrollView contentView] setAutoresizesSubviews:YES];
 	
-	LTGutterTextView *gutterTextView = [[LTGutterTextView alloc] initWithFrame:NSMakeRect(0, 0, [[LTDefaults valueForKey:@"GutterWidth"] integerValue], contentSize.height - 50)];
+	LTGutterTextView *gutterTextView = [[LTGutterTextView alloc] initWithFrame:NSMakeRect(0, 0, 
+																						  gutterWidth, 
+																						  contentSize.height - 50)];
 	[gutterScrollView setDocumentView:gutterTextView];
 	
 	[document setValue:textView forKey:@"firstTextView"];
@@ -144,43 +151,50 @@ static id sharedInstance = nil;
 	[textStorage addLayoutManager:layoutManager];
 	[[document valueForKey:@"syntaxColouring"] setSecondLayoutManager:layoutManager];
 	
-	NSInteger gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;
+	CGFloat gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;
 	
 	NSView *secondContentViewNavigationBar = [LTCurrentProject secondContentViewNavigationBar];
 	CGFloat secondContentViewNavigationBarHeight = [secondContentViewNavigationBar bounds].size.height;
 	
-	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(gutterWidth, secondContentViewNavigationBarHeight, [secondContentView bounds].size.width - gutterWidth, [secondContentView bounds].size.height - secondContentViewNavigationBarHeight - secondContentViewNavigationBarHeight)];
-	NSSize contentSize = [textScrollView contentSize];
-	
-	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:contentSize];
-	[layoutManager addTextContainer:container];
-	
+	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(gutterWidth, 
+																				  secondContentViewNavigationBarHeight, 
+																				  [secondContentView bounds].size.width - gutterWidth, 
+																				  [secondContentView bounds].size.height - secondContentViewNavigationBarHeight - secondContentViewNavigationBarHeight)];
 	[textScrollView setBorderType:NSNoBorder];
 	[textScrollView setHasVerticalScroller:YES];
 	[textScrollView setAutohidesScrollers:YES];
 	[textScrollView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
 	[[textScrollView contentView] setAutoresizesSubviews:YES];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
+	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] 
+											 selector:@selector(viewBoundsDidChange:) 
+												 name:NSViewBoundsDidChangeNotification 
+											   object:[textScrollView contentView]];
 	
-	LTTextView *textView;
+	NSSize contentSize = [textScrollView contentSize];
+	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:contentSize];
+	[layoutManager addTextContainer:container];
+	
+	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height) 
+											   textContainer:container];
+	
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width - 2, contentSize.height) textContainer:container]; // - 2 to remove slight movement left and right
-		[textView setMinSize:contentSize];
+		//textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width/* - 2*/, contentSize.height) 
+		//							   textContainer:container]; // - 2 to remove slight movement left and right
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
+		NSLog(@"%.0f w", [textScrollView contentSize].width);
+		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width/* - 2*/, CGFLOAT_MAX)];		 
 		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
+		NSLog(@"%.0f w", [[textView textContainer] containerSize].width);
 	} 
 	else 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 	}
 	[textView setDefaults];
 	
@@ -208,7 +222,8 @@ static id sharedInstance = nil;
 	[secondContentView addSubview:secondContentViewNavigationBar];
 	
 	NSRect visibleRect = [[[[document valueForKey:@"firstTextView"] enclosingScrollView] contentView] documentVisibleRect];
-	NSRange visibleRange = [[[document valueForKey:@"firstTextView"] layoutManager] glyphRangeForBoundingRect:visibleRect inTextContainer:[[document valueForKey:@"firstTextView"] textContainer]];
+	NSRange visibleRange = [[[document valueForKey:@"firstTextView"] layoutManager] glyphRangeForBoundingRect:visibleRect 
+																							  inTextContainer:[[document valueForKey:@"firstTextView"] textContainer]];
 	[textView scrollRangeToVisible:visibleRange];
 	
 	[LTCurrentProject resizeViewsForDocument:document]; // To properly set the width of the line number gutter and to recolour the document
@@ -246,7 +261,7 @@ static id sharedInstance = nil;
 	[textStorage addLayoutManager:layoutManager];
 	[[document valueForKey:@"syntaxColouring"] setThirdLayoutManager:layoutManager];
 	
-	NSInteger gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;	
+	CGFloat gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;	
 	
 	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(gutterWidth, -1, [thirdContentView bounds].size.width - gutterWidth, [thirdContentView bounds].size.height + 2)]; // +2 and -1 to remove extra line at the top and bottom
 	NSSize contentSize = [textScrollView contentSize];
@@ -259,13 +274,15 @@ static id sharedInstance = nil;
 	[textScrollView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
 	[[textScrollView contentView] setAutoresizesSubviews:YES];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
+	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] 
+											 selector:@selector(viewBoundsDidChange:) 
+												 name:NSViewBoundsDidChangeNotification 
+											   object:[textScrollView contentView]];
 	
-	LTTextView *textView;
+	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height) textContainer:container];
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
+		
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
@@ -273,8 +290,6 @@ static id sharedInstance = nil;
 	} 
 	else 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
 		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
@@ -317,7 +332,7 @@ static id sharedInstance = nil;
 	[textStorage addLayoutManager:layoutManager];
 	[[document valueForKey:@"syntaxColouring"] setFourthLayoutManager:layoutManager];
 	
-	NSInteger gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;
+	CGFloat gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;
 	
 	NSView *fourthContentView = [[LTAdvancedFindController sharedInstance] resultDocumentContentView];
 	
@@ -335,11 +350,9 @@ static id sharedInstance = nil;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	
-	LTTextView *textView;
+	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height) textContainer:container];;
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
@@ -347,12 +360,11 @@ static id sharedInstance = nil;
 	} 
 	else 
 	{
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
+		
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 		[[textView textContainer] setWidthTracksTextView:NO];
+		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 	}
 	[textView setDefaults];
 	
@@ -501,7 +513,6 @@ static id sharedInstance = nil;
 - (void)enterFullScreenForDocument:(id)document
 {
 	savedMainMenu = [NSApp mainMenu];
-#warning set max margins?
 	fullScreenRect = [[NSScreen mainScreen] frame];	
 	CGFloat width;
 	if ([LTMain singleDocumentWindowWasOpenBeforeEnteringFullScreen] == YES) {

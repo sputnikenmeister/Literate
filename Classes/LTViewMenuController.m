@@ -153,24 +153,26 @@ static id sharedInstance = nil;
 			}
 		}
 		NSRange selectedRange = [textView selectedRange];
+		NSString *string = [NSString stringWithString:[textView string]];
+		[textView setString:@""];
+
 		if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
 			[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 			[[textView textContainer] setWidthTracksTextView:NO];
 			[textView setHorizontallyResizable:YES];
 			[textScrollView setHasHorizontalScroller:YES];
 		} else {
-			NSString *string = [NSString stringWithString:[textView string]];
 			[textScrollView setHasHorizontalScroller:NO];
-			[textView setString:@""];
 			[[textView textContainer] setWidthTracksTextView:YES];
 			[[textView textContainer] setContainerSize:NSMakeSize([textScrollView contentSize].width, CGFLOAT_MAX)];
-			[textView setString:string]; // To reflow/rewrap the text
 			[textView setHorizontallyResizable:NO];
 		}
-		[textScrollView display]; // Otherwise -[LTMainController resizeViewsForDocument:] won't know if it has a scrollbar or not
-		
+		[textView setString:string]; // To reflow/rewrap the text
 		[textView setSelectedRange:selectedRange];
 		[textView scrollRangeToVisible:selectedRange];
+		[textScrollView setNeedsDisplay:YES];
+		//[textScrollView display]; // Otherwise -[LTMainController resizeViewsForDocument:] won't know if it has a scrollbar or not
+
 	}
 	
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {

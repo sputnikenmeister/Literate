@@ -184,7 +184,6 @@ static id sharedInstance = nil;
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"ShowStatusBar"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"ShowTabBar"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"HasInsertedDefaultSnippets"];
-	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"HasImportedFromVersion2"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"HasInsertedDefaultCommands3"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"UserHasBeenShownAlertHowToReturnFromFullScreen"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"UpdateDocumentAutomaticallyWithoutWarning"];
@@ -550,7 +549,6 @@ static id sharedInstance = nil;
 {
 	[[NSUserDefaultsController sharedUserDefaultsController] revertToInitialValues:nil];
 	[LTDefaults setValue:nil forKey:@"ChangedSyntaxDefinitions"];
-	[LTDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"HasImportedFromVersion2"];
 	[LTBasic removeAllObjectsForEntity:@"SyntaxDefinition"];
 	[LTVarious insertSyntaxDefinitions];
 }

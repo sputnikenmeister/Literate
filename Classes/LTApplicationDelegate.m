@@ -296,9 +296,7 @@ static id sharedInstance = nil;
 	[[LTToolsMenuController sharedInstance] buildInsertSnippetMenu];
 	[[LTToolsMenuController sharedInstance] buildRunCommandMenu];
 	
-	if ([[LTDefaults valueForKey:@"HasImportedFromVersion2"] boolValue] == NO) {
-		[self importFromVersion2];
-	}
+
 
 }
 

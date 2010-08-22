@@ -842,14 +842,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #pragma mark -
 #pragma mark Window delegates
 
--(void)windowDidResize:(NSNotification *)notification
-{
-	NSLog(@"textcontainer = %.0f, view = %.0f, scrollview = %.0f",
-		  [[[LTCurrentDocument valueForKey:@"secondTextView"] textContainer] containerSize].width,
-		  [[LTCurrentDocument valueForKey:@"secondTextView"] frame].size.width,
-		  [[LTCurrentDocument valueForKey:@"secondTextScrollView"] contentSize].width);
-}
-
 - (BOOL)windowShouldClose:(id)sender
 {	
 	if ([self areAllDocumentsSaved] == YES) { // Has the closing been stopped, by e.g. the user wanting to review a document

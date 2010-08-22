@@ -264,9 +264,6 @@ static id sharedInstance = nil;
 	CGFloat gutterWidth = [[document valueForKey:@"firstGutterScrollView"] bounds].size.width;	
 	
 	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(gutterWidth, -1, [thirdContentView bounds].size.width - gutterWidth, [thirdContentView bounds].size.height + 2)]; // +2 and -1 to remove extra line at the top and bottom
-	NSSize contentSize = [textScrollView contentSize];
-	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:contentSize];
-	[layoutManager addTextContainer:container];
 	
 	[textScrollView setBorderType:NSNoBorder];
 	[textScrollView setHasVerticalScroller:YES];
@@ -274,6 +271,10 @@ static id sharedInstance = nil;
 	[textScrollView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
 	[[textScrollView contentView] setAutoresizesSubviews:YES];
 	
+	NSSize contentSize = [textScrollView contentSize];
+	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:contentSize];
+	[layoutManager addTextContainer:container];
+		
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] 
 											 selector:@selector(viewBoundsDidChange:) 
 												 name:NSViewBoundsDidChangeNotification 
@@ -337,16 +338,16 @@ static id sharedInstance = nil;
 	NSView *fourthContentView = [[LTAdvancedFindController sharedInstance] resultDocumentContentView];
 	
 	NSScrollView *textScrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, [fourthContentView bounds].size.width - gutterWidth, [fourthContentView bounds].size.height)];
-	NSSize contentSize = [textScrollView contentSize];
-	
-	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:contentSize];
-	[layoutManager addTextContainer:container];
 	
 	[textScrollView setBorderType:NSNoBorder];
 	[textScrollView setHasVerticalScroller:YES];
 	[textScrollView setAutohidesScrollers:YES];
 	[textScrollView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
 	[[textScrollView contentView] setAutoresizesSubviews:YES];
+	
+	NSSize contentSize = [textScrollView contentSize];
+	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:contentSize];
+	[layoutManager addTextContainer:container];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	

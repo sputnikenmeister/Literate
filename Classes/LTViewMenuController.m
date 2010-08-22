@@ -148,24 +148,31 @@ static id sharedInstance = nil;
 			}
 		}
 		NSRange selectedRange = [textView selectedRange];
+		NSString *string = [NSString stringWithString:[textView string]];
+		[textView setString:@""];
+
 		if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
 			[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
 			[[textView textContainer] setWidthTracksTextView:NO];
 			[textView setHorizontallyResizable:YES];
 			[textScrollView setHasHorizontalScroller:YES];
 		} else {
-			NSString *string = [NSString stringWithString:[textView string]];
 			[textScrollView setHasHorizontalScroller:NO];
-			[textView setString:@""];
 			[[textView textContainer] setWidthTracksTextView:YES];
+<<<<<<< HEAD
 			[[textView textContainer] setContainerSize:NSMakeSize([textScrollView contentSize].width, FLT_MAX)];
 			[textView setString:string]; // To reflow/rewrap the text
+=======
+			[[textView textContainer] setContainerSize:NSMakeSize([textScrollView contentSize].width, CGFLOAT_MAX)];
+>>>>>>> 1ef8d95... Fix text container width bug for first and second views
 			[textView setHorizontallyResizable:NO];
 		}
-		[textScrollView display]; // Otherwise -[LTMainController resizeViewsForDocument:] won't know if it has a scrollbar or not
-		
+		[textView setString:string]; // To reflow/rewrap the text
 		[textView setSelectedRange:selectedRange];
 		[textView scrollRangeToVisible:selectedRange];
+		[textScrollView setNeedsDisplay:YES];
+		//[textScrollView display]; // Otherwise -[LTMainController resizeViewsForDocument:] won't know if it has a scrollbar or not
+
 	}
 	
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {

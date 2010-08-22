@@ -270,7 +270,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (void)resizeViewsForDocument:(id)document
 {	
-	if ([self areThereAnyDocuments] == YES) {		
+	if ([self areThereAnyDocuments] == YES) 
+	{		
 		NSInteger gutterWidth;
 		CGFloat subtractFromY; // To remove extra "ugly" pixel row in singleDocumentWindow
 		CGFloat subtractFromHeight = 0;
@@ -305,18 +306,25 @@ Unless required by applicable law or agreed to in writing, software distributed 
 					continue;
 				}
 			}
-			if ([[document valueForKey:@"showLineNumberGutter"] boolValue] == YES) {
-				if (![[view subviews] containsObject:gutterScrollView]) {
+			if ([[document valueForKey:@"showLineNumberGutter"] boolValue] == YES) 
+			{
+				if (![[view subviews] containsObject:gutterScrollView]) 
+				{
 					[view addSubview:gutterScrollView];
 				}
 				gutterWidth = [[document valueForKey:@"gutterWidth"] integerValue];
 				[gutterScrollView setFrame:NSMakeRect(0, 0 - subtractFromY, gutterWidth, [view bounds].size.height + extraHeight - subtractFromHeight)];
-			} else {
+			} 
+			else 
+			{
 				gutterWidth = 0;
 				[gutterScrollView removeFromSuperviewWithoutNeedingDisplay];
 			}
 
-			[textScrollView setFrame:NSMakeRect(gutterWidth, 0 - subtractFromY, [view bounds].size.width - gutterWidth, [view bounds].size.height + extraHeight - subtractFromHeight)];
+			[textScrollView setFrame:NSMakeRect(gutterWidth, 
+												0 - subtractFromY, 
+												[view bounds].size.width - gutterWidth, 
+												[view bounds].size.height + extraHeight - subtractFromHeight)];
 		}
 		
 		[[document valueForKey:@"lineNumbers"] updateLineNumbersCheckWidth:YES recolour:YES];
@@ -833,6 +841,14 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #pragma mark -
 #pragma mark Window delegates
+
+-(void)windowDidResize:(NSNotification *)notification
+{
+	NSLog(@"textcontainer = %.0f, view = %.0f, scrollview = %.0f",
+		  [[[LTCurrentDocument valueForKey:@"secondTextView"] textContainer] containerSize].width,
+		  [[LTCurrentDocument valueForKey:@"secondTextView"] frame].size.width,
+		  [[LTCurrentDocument valueForKey:@"secondTextScrollView"] contentSize].width);
+}
 
 - (BOOL)windowShouldClose:(id)sender
 {	

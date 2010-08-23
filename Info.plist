@@ -134,7 +134,7 @@
 	<key>CFBundleSignature</key>
 	<string>LTRT</string>
 	<key>CFBundleVersion</key>
-	<string>0.0.1</string>
+	<string>0.1</string>
 	<key>ExcludeSyncKeys</key>
 	<array>
 		<string>PreferencesGeneralViewSavedFrame</string>
@@ -223,5 +223,9 @@
 			</dict>
 		</dict>
 	</array>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
+	<key>SUFeedURL</key>
+	<string></string>
 </dict>
 </plist>

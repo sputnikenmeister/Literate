@@ -101,7 +101,6 @@ static id sharedInstance = nil;
 	[dictionary setValue:[NSNumber numberWithInteger:5] forKey:@"StatusBarLastSavedFormatPopUp"];
 	[dictionary setValue:[NSNumber numberWithInteger:32] forKey:@"ViewSize"];
 	[dictionary setValue:[NSNumber numberWithInteger:LTListView] forKey:@"View"];
-	[dictionary setValue:[NSNumber numberWithInteger:LTCheckForUpdatesNever] forKey:@"CheckForUpdatesInterval"];
 	[dictionary setValue:[NSNumber numberWithInteger:LTPreviewHTML] forKey:@"PreviewParser"];
 	[dictionary setValue:[NSNumber numberWithInteger:LTCurrentDocumentScope] forKey:@"AdvancedFindScope"];
 	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"AutosaveEnabled"];
@@ -523,19 +522,6 @@ static id sharedInstance = nil;
 	[fontManager setSelectedFont:[NSUnarchiver unarchiveObjectWithData:[LTDefaults valueForKey:@"TextFont"]] isMultiple:NO];
 	[fontManager orderFrontFontPanel:nil];
 }
-
-
-- (IBAction)checkNowAction:(id)sender
-{
-	[[LTMainController	sharedInstance] checkForUpdate];
-}
-
-
-- (NSTextField *)noUpdateAvailableTextField
-{
-    return noUpdateAvailableTextField; 
-}
-
 
 - (void)changeFont:(id)sender
 {

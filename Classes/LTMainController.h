@@ -20,8 +20,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 @interface LTMainController : NSObject
 {
-	NSTimer *checkForUpdateTimer;
-	NSTimer *hideNoUpdateAvailableTextFieldTimer;
 	NSTimer *_autosaveTimer;
 
 	BOOL isInFullScreenMode;
@@ -36,9 +34,4 @@ Unless required by applicable law or agreed to in writing, software distributed 
 @property (readonly) NSOperationQueue *operationQueue;
 
 + (LTMainController *)sharedInstance;
-
-- (void)checkForUpdate;
-- (void)checkForUpdateInSeparateThread;
-- (void)updateInterfaceOnMainThreadAfterCheckForUpdateFoundNewUpdate:(id)sender;
-- (void)hideNoUpdateAvailableTextField;
 @end

@@ -71,15 +71,6 @@ enum {
 typedef NSUInteger LTWhatKindOfProject;
 
 enum {
-	LTCheckForUpdatesNever = 0,
-	LTCheckForUpdatesDaily = 1,
-	LTCheckForUpdatesWeekly = 2,
-	LTCheckForUpdatesMonthly = 3
-};
-typedef NSUInteger LTCheckForUpdatesInterval;
-
-
-enum {
 	LTPreviewHTML = 0,
 	LTPreviewMarkdown = 1,
 	LTPreviewMultiMarkdown = 2,

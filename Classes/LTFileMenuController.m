@@ -358,7 +358,8 @@ static id sharedInstance = nil;
 
 -(IBAction)autosaveAllAction:(id)sender
 {
-	NSArray *array = [LTCurrentProject documents];
+	NSArray *array = [LTBasic fetchAll:@"Document"];
+//	NSArray *array = [LTCurrentProject documents];
 	for (id item in array) 
 	{
 		if ([[item valueForKey:@"isEdited"] boolValue] == YES && 

@@ -115,61 +115,6 @@ static id sharedInstance = nil;
 	[self setAutosaveTimerForTimeInterval:interval];
 }
 
-
-- (void)checkForUpdate
-{	
-	if (checkForUpdateTimer != nil) {
-		[checkForUpdateTimer invalidate];
-		checkForUpdateTimer = nil;
-	}
-	
-	[NSThread detachNewThreadSelector:@selector(checkForUpdateInSeparateThread) toTarget:self withObject:nil];
-}
-
-
-- (void)checkForUpdateInSeparateThread
-{
-
-}
-
-
-- (void)updateInterfaceOnMainThreadAfterCheckForUpdateFoundNewUpdate:(id)sender
-{
-	if (sender != nil && [sender isKindOfClass:[NSDictionary class]])
-	{
-		NSInteger returnCode = [LTVarious alertWithMessage:[NSString stringWithFormat:NSLocalizedString(@"A newer version (%@) is available. Do you want to download it?", @"A newer version (%@) is available. Do you want to download it? in checkForUpdate"), [sender valueForKey:@"latestVersionString"]] informativeText:@"" defaultButton:NSLocalizedString(@"Download", @"Download") alternateButton:CANCEL_BUTTON otherButton:nil];
-		if (returnCode == NSAlertFirstButtonReturn) 
-		{
-			[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[sender valueForKey:@"url"]]];
-		}
-		
-	}
-	else 
-	{
-		if ([[[LTPreferencesController sharedInstance] preferencesWindow] isVisible] == YES)
-		{
-			[[[LTPreferencesController sharedInstance] noUpdateAvailableTextField] setHidden:NO];
-			hideNoUpdateAvailableTextFieldTimer = [NSTimer scheduledTimerWithTimeInterval:30 
-																				   target:self 
-																				 selector:@selector(hideNoUpdateAvailableTextField) 
-																				 userInfo:nil 
-																				  repeats:NO];
-		}
-	}
-	
-}
-
-
-- (void)hideNoUpdateAvailableTextField
-{
-	if (hideNoUpdateAvailableTextFieldTimer) {
-		[hideNoUpdateAvailableTextFieldTimer invalidate];
-		hideNoUpdateAvailableTextFieldTimer = nil;
-	}
-	
-	[[[LTPreferencesController sharedInstance] noUpdateAvailableTextField] setHidden:YES];
-}
-
 #pragma mark -
 #pragma mark Autosave
 

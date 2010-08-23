@@ -66,6 +66,7 @@ typedef enum {
 	LTPermantProject = 1
 } LTWhatKindOfProject;
 
+<<<<<<< HEAD
 typedef enum {
 	LTCheckForUpdatesNever = 0,
 	LTCheckForUpdatesDaily = 1,
@@ -74,6 +75,9 @@ typedef enum {
 } LTCheckForUpdatesInterval;
 
 typedef enum {
+=======
+enum {
+>>>>>>> f0a6e00... Add Sparkle, 0.1 release
 	LTPreviewHTML = 0,
 	LTPreviewMarkdown = 1,
 	LTPreviewMultiMarkdown = 2,

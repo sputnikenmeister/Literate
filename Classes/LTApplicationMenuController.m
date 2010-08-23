@@ -19,6 +19,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #import "LTApplicationMenuController.h"
 #import "LTPreferencesController.h"
+#import <Sparkle/SUUpdater.h>
 
 @implementation LTApplicationMenuController
 
@@ -26,6 +27,11 @@ Unless required by applicable law or agreed to in writing, software distributed 
 - (IBAction)showPreferencesWindowAction:(id)sender
 {
 	[[LTPreferencesController sharedInstance] showPreferencesWindow];
+}
+
+-(IBAction)checkForUpdatesAction:(id)sender
+{
+	[[SUUpdater sharedUpdater] checkForUpdates:sender];
 }
 
 

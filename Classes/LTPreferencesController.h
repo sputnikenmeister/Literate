@@ -59,9 +59,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 - (CGFloat)toolbarHeight;
 
 - (IBAction)setFontAction:(id)sender;
-- (IBAction)checkNowAction:(id)sender;
-
-- (NSTextField *)noUpdateAvailableTextField;
 
 - (IBAction)revertToStandardSettingsAction:(id)sender;
 - (void)buildEncodingsMenu;

@@ -134,6 +134,9 @@
 		8D15AC310486D014006FF6A4 /* LTProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* LTProject.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		948C848512220F5F004AEF8D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C848412220F5F004AEF8D /* Sparkle.framework */; };
+		948C848F1222102D004AEF8D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 948C848412220F5F004AEF8D /* Sparkle.framework */; };
+		948C84B412221266004AEF8D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 948C84B312221266004AEF8D /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +156,16 @@
 			dstPath = ../Library/Spotlight;
 			dstSubfolderSpec = 7;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		948C849C12221030004AEF8D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				948C848F1222102D004AEF8D /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +378,8 @@
 		7FD53F120D91A8F30071054F /* Literate-Manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Literate-Manual.pdf"; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Literate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Literate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		948C848412220F5F004AEF8D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		948C84B312221266004AEF8D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +403,7 @@
 				7F6C9C680B75F23000531EF9 /* libicucore.dylib in Frameworks */,
 				7F51225C0BA72E7E00183863 /* QuartzCore.framework in Frameworks */,
 				7FBDDF360CF79C7D003BAFB5 /* QuickLook.framework in Frameworks */,
+				948C848512220F5F004AEF8D /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +413,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				948C848412220F5F004AEF8D /* Sparkle.framework */,
 				7FBDDF350CF79C7D003BAFB5 /* QuickLook.framework */,
 				7F1DE27C0BD1985B00AD5707 /* CoreServices.framework */,
 				7F1DE27A0BD1984700AD5707 /* CoreFoundation.framework */,
@@ -478,6 +495,7 @@
 				7F5C24D90B73BCF200D2EDDC /* Xibs */,
 				7F9809B40B73B4C8000A9140 /* Graphics */,
 				2FEC50CD0B96DB8D000CF1AD /* Other */,
+				948C84B312221266004AEF8D /* dsa_pub.pem */,
 				7F980A930B73B660000A9140 /* SyntaxDefinitions.plist */,
 				7F9809E70B73B4F4000A9140 /* Syntax Definitions */,
 				7F980A940B73B660000A9140 /* DefaultSnippets.plist */,
@@ -898,6 +916,8 @@
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 				7F1DE28F0BD198FA00AD5707 /* CopyFiles */,
+				948C849C12221030004AEF8D /* CopyFiles */,
+				948C84BF122213D8004AEF8D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -996,10 +1016,28 @@
 				7FB91169101E622B008DB1DA /* LTSnippets.xib in Resources */,
 				7F5097710D95A65500D62D67 /* LTDefaultUnsavedIcon.png in Resources */,
 				7F5097720D95A65500D62D67 /* LTDefaultIcon.png in Resources */,
+				948C84B412221266004AEF8D /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		948C84BF122213D8004AEF8D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /usr/bin/ruby;
+			shellScript = "# Xcode auto-versioning script for git\n#\n# Based on original Perl script by Marcus S. Zarra and Matt Long at\n#   (http://www.cimgf.com/2008/04/13/git-and-xcode-a-git-build-number-script/)\n\n# Fail if not run from Xcode\nraise \"Must be run from Xcode\" unless ENV['XCODE_VERSION_ACTUAL']\n\ninfo_plist = \"#{ENV['BUILT_PRODUCTS_DIR']}/#{ENV['INFOPLIST_PATH']}\"\n\n# Get the current git revision hash\nrevision = `/usr/local/bin/git rev-parse --short HEAD`.chomp!\n\n# Open Info.plist and set the CFBundleVersion value to the revision hash\nlines = IO.readlines(info_plist).join\nlines.gsub! /(<key>CFBundleVersion<\\/key>\\n\\t<string>).*?(<\\/string>)/, \"\\\\1#{revision}\\\\2\"\n\n# Overwrite the original Info.plist file with our updated version\nFile.open(info_plist, 'w') {|f| f.puts lines}\n\n# Report to the user\nputs \"CFBundleVersion in #{info_plist} set to '#{revision}'\"";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7F5C26620B73BF2200D2EDDC /* Sources */ = {
@@ -1133,7 +1171,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -1153,6 +1194,7 @@
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../LiterateSource\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)\"";

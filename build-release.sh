@@ -28,7 +28,7 @@ fi
 echo "Fetching tag $tag"
 git pull github master
 git fetch github --tags
-git checkout "Tag for $tag"
+git checkout "$tag"
  
 echo "Updating version"
 sed -i "" 's/__VERSION__/'$tag'/g' Info.plist

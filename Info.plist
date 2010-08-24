@@ -134,7 +134,7 @@
 	<key>CFBundleSignature</key>
 	<string>LTRT</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>4</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.1</string>
 	<key>LSMinimumSystemVersion</key>
@@ -221,6 +221,6 @@
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURL</key>
-	<string></string>
+	<string>http://dl.dropbox.com/u/8420975/LiterateAppcast.xml</string>
 </dict>
 </plist>

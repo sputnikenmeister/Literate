@@ -134,14 +134,9 @@
 	<key>CFBundleSignature</key>
 	<string>LTRT</string>
 	<key>CFBundleVersion</key>
-	<string>0.1</string>
-	<key>ExcludeSyncKeys</key>
-	<array>
-		<string>PreferencesGeneralViewSavedFrame</string>
-		<string>HasInsertedDefaultSnippets</string>
-		<string>HasImportedFromVersion2</string>
-		<string>HasInsertedDefaultCommands3</string>
-	</array>
+	<string>2</string>
+	<key>CFBundleShortVersionString</key>
+	<string>__VERSION__</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.6</string>
 	<key>NSAppleScriptEnabled</key>

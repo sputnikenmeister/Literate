@@ -1,46 +1,40 @@
 #!/bin/bash
- 
-upload=0
-tweet=""
- 
-while getopts ":t:up:w:" Option
+
+project=Literate  
+  
+while getopts ":t:" Option
 do
   case $Option in
-    w ) tweet=$OPTARG;;
-    u ) upload=1;;
-    p ) project=$OPTARG;;
-    t ) tag=$OPTARG;;
+      t ) tag=$OPTARG;;
   esac
 done
 shift $(($OPTIND - 1))
- 
-if [ "$project" == "" ]; then
-	echo "No project specified"
-	exit
-fi
- 
+  
 if [ "$tag" == "" ]; then
 	echo "No tag specified"
 	exit
 fi
  
 # Configuration
-final_builds=../Releases
-build_folder=./build
-keys_folder=../Private\ Keys
+final_builds=~/Develop/$project/Releases
+code_folder=~/Develop/$project/Desktop
+build_folder=~/Develop/$code_folder/build
+keys_folder=~/Develop/$project/PrivateKeys
  
 if [ ! -d  $final_builds ]; then
 	mkdir $final_builds
 fi
    
-git pull origin master
-git pull --tags
-git checkout $tag
+echo "Fetching tag $tag"
+git pull github master
+git fetch github --tags
+git checkout "Tag for $tag"
  
+echo "Updating version"
 sed -i "" 's/__VERSION__/'$tag'/g' Info.plist
  
-echo "building project..."
-xcodebuild -target Literate -configuration Release OBJROOT=$build_folder SYMROOT=$build_folder OTHER_CFLAGS=""
+echo "Building $project..."
+xcodebuild -target $project -configuration Release OBJROOT=$build_folder SYMROOT=$build_folder OTHER_CFLAGS=""
  
 if [ $? != 0 ]; then
 	echo "Bad build for $project"
@@ -55,7 +49,7 @@ else
 	rm -rf $project.app
  
 	# get values for appcast
-	dsasignature=`$keys_folder/sign_update.rb $final_builds/$project-$tag.zip $keys_folder/$project\_dsa_priv.pem`
+	dsasignature=`$keys_folder/sign_update.rb $final_builds/$project-$tag.zip $keys_folder/dsa_priv.pem`
 	filesize=`stat -f %z $final_builds/$project-$tag.zip`
 	pubdate=`date "+%a, %d %h %Y %T %z"`
  
@@ -65,7 +59,7 @@ else
  
 	#output appcast item
 	echo
-	echo Put the following text in your appcast
+	echo "Put the following text in your appcast"
 	echo "<item>"
 	echo "<title>Version $tag</title>"
 	echo "<sparkle:releaseNotesLink>"
@@ -79,9 +73,9 @@ else
 	echo "length=\"$filesize\""
 	echo "type=\"application/octet-stream\" />"
 	echo "</item>"
- 
+	
 	open $final_builds 
 fi
  
-cd ~/Develop/Literate
+cd $code_folder
 git checkout Info.plist

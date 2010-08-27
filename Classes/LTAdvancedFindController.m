@@ -41,8 +41,8 @@ static id sharedInstance = nil;
 	
 	return sharedInstance;
 } 
-
-
+#warning disabled
+#if 0
 - (id)init 
 {
     if (sharedInstance == nil) {
@@ -366,7 +366,6 @@ static id sharedInstance = nil;
 	}
 }
 
-
 - (void)performNumberOfReplaces:(NSInteger)numberOfReplaces
 {
 	NSString *searchString = [findSearchField stringValue];
@@ -678,6 +677,7 @@ static id sharedInstance = nil;
 {
 	[[LTExtraInterfaceController sharedInstance] showRegularExpressionsHelpPanel];
 }
+#endif
 
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item

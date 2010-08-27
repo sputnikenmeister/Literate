@@ -618,12 +618,14 @@ static id sharedInstance = nil;
 		return [NSArray array];
 	}
 	
-	ICUPattern *pattern = [[ICUPattern alloc] initWithString:functionDefinition flags:(ICUCaseInsensitiveMatching | ICUMultiline)];
-	ICUMatcher *matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:text];
-
+//	ICUPattern *pattern = [[ICUPattern alloc] initWithString:functionDefinition flags:(ICUCaseInsensitiveMatching | ICUMultiline)];
+//	ICUMatcher *matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:text];
+#warning disabled 
 	NSInteger index = 0;
 	NSInteger lineNumber = 0;
 	NSMutableArray *returnArray = [NSMutableArray array];
+#if 0
+
 	NSArray *keys = [[NSArray alloc] initWithObjects:@"lineNumber", @"name", nil];
 	while ([matcher findNext]) {
 		NSRange matchRange = [matcher rangeOfMatch];
@@ -651,7 +653,7 @@ static id sharedInstance = nil;
 		
 		[returnArray addObject:dictionary];
 	}
-	
+#endif
 	return (NSArray *)returnArray;	
 }
 

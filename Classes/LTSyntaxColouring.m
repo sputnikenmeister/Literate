@@ -31,6 +31,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTLineNumbers.h"
 #import "LTProject.h"
 
+#import "RegexKitLite.h"
+
 @implementation LTSyntaxColouring
 
 @synthesize reactToChanges, functionDefinition, removeFromFunction, secondLayoutManager, thirdLayoutManager, fourthLayoutManager, undoManager;
@@ -718,58 +720,50 @@ beginInstruction:@"";
 	}	
 
 	
-	// Second string, first pass
-	if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
-	{
-		__block NSUInteger  line         = 0UL;
-		
-		DLog(@"searchString: '%@'", searchString);
-		DLog(@"regexString : '%@'", regexString);
-		
-		[searchString enumerateStringsMatchedByRegex:regexString
-										  usingBlock:
-		 ^(NSInteger captureCount,
-		   NSString * const capturedStrings[captureCount],
-		   const NSRange capturedRanges[captureCount],
-		   volatile BOOL * const stop) {
-			 NSLog(@"%lu: %lu '%@'", ++line, [capturedStrings[0] length], capturedStrings[0]);
-		 }];
-		
-		[pool release];
-		return(0);
-		
-		@try {
-			secondStringMatcher = [[ICUMatcher alloc] initWithPattern:secondStringPattern overString:searchString];
+		// Second string, first pass
+		if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
+		{
+			DLog(@"searchString: '%@'", searchString);
+			DLog(@"regexString : '%@'", secondString);
+			
+			__block UInt32 i;
+			[searchString enumerateStringsMatchedByRegex:secondString
+											  usingBlock:
+			 ^(NSInteger captureCount,
+			   NSString * const capturedStrings[captureCount],
+			   const NSRange capturedRanges[captureCount],
+			   volatile BOOL * const stop) 
+			 {
+				 for (i=0; i<captureCount; i++) 
+				 {
+					 DLog(@"%lu: %lu '%@'", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
+					 [self setColour:stringsColour range:capturedRanges[i]];			
+				 }
+			 }];
 		}
-		@catch (NSException *exception) {
-			return;
-		}
-
-		while ([secondStringMatcher findNext]) {
-			foundRange = [secondStringMatcher rangeOfMatch];
-			[self setColour:stringsColour range:NSMakeRange(foundRange.location + rangeLocation + 1, foundRange.length - 1)];
-		}
-	}
 	
-	
-	// First string
-	if (![firstString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) {
-		@try {
-			firstStringMatcher = [[ICUMatcher alloc] initWithPattern:firstStringPattern overString:searchString];
-		}
-		@catch (NSException *exception) {
-			return;
+		// Second string, first pass
+		if (![firstString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
+		{
+			DLog(@"searchString: '%@'", searchString);
+			DLog(@"regexString : '%@'", firstString);
+			
+			__block UInt32 i;
+			[searchString enumerateStringsMatchedByRegex:firstString
+											  usingBlock:
+			 ^(NSInteger captureCount,
+			   NSString * const capturedStrings[captureCount],
+			   const NSRange capturedRanges[captureCount],
+			   volatile BOOL * const stop) 
+			 {
+				 for (i=0; i<captureCount; i++) 
+				 {
+					 DLog(@"%lu: %lu '%@'", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
+					 [self setColour:stringsColour range:capturedRanges[i]];			
+				 }
+			 }];
 		}
 		
-		while ([firstStringMatcher findNext]) {
-			foundRange = [firstStringMatcher rangeOfMatch];
-			if ([[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation effectiveRange:NULL] isEqualToDictionary:stringsColour]) {
-				continue;
-			}
-			[self setColour:stringsColour range:NSMakeRange(foundRange.location + rangeLocation + 1, foundRange.length - 1)];
-		}
-	}
-	
 	
 	// Attributes
 	if ([[LTDefaults valueForKey:@"ColourAttributes"] boolValue] == YES) {
@@ -1007,25 +1001,35 @@ beginInstruction:@"";
 		}
 	}
 	
-	
-	// Second string, second pass
-	if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) {
-		@try {
-			[secondStringMatcher reset];
+		// Second string, first pass
+		if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
+		{
+			DLog(@"searchString: '%@'", searchString);
+			DLog(@"regexString : '%@'", secondString);
+			
+			__block UInt32 i;
+			[searchString enumerateStringsMatchedByRegex:secondString
+											  usingBlock:
+			 ^(NSInteger captureCount,
+			   NSString * const capturedStrings[captureCount],
+			   const NSRange capturedRanges[captureCount],
+			   volatile BOOL * const stop) 
+			 {
+				 for (i=0; i<captureCount; i++) 
+				 {
+					 DLog(@"%lu: %lu '%@'", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
+					 if ([[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation 
+																   effectiveRange:NULL]  isEqualToDictionary:stringsColour] || 
+						 [[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation 
+																   effectiveRange:NULL] isEqualToDictionary:commentsColour]) 
+					 {
+						 continue;
+					 }
+					 //[self setColour:stringsColour range:NSMakeRange(foundRange.location + rangeLocation + 1, foundRange.length - 1)];
+					 [self setColour:stringsColour range:capturedRanges[i]];			
+				 }
+			 }];
 		}
-		@catch (NSException *exception) {
-			return;
-		}
-		
-		while ([secondStringMatcher findNext]) {
-			foundRange = [secondStringMatcher rangeOfMatch];
-			if ([[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation effectiveRange:NULL] isEqualToDictionary:stringsColour] || [[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation effectiveRange:NULL] isEqualToDictionary:commentsColour]) {
-				continue;
-			}
-			[self setColour:stringsColour range:NSMakeRange(foundRange.location + rangeLocation + 1, foundRange.length - 1)];
-		}
-	}
-
 	}
 	@catch (NSException *exception) {
 		//Log(exception);

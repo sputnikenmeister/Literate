@@ -366,8 +366,9 @@ static id sharedInstance = nil;
 		}
 	}
 	
-	if (![string canBeConvertedToEncoding:[[document valueForKey:@"encoding"] integerValue]]) {
-		NSError *error = [NSError errorWithDomain:SMULTRON_ERROR_DOMAIN code:LiterateSaveErrorEncodingInapplicable userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:NSLocalizedStringFromTable(@"This document can no longer be saved using its original %@ encoding.", @"Localizable3", @"Title of alert panel informing user that the file's string encoding needs to be changed."), [NSString localizedNameOfStringEncoding:[[document valueForKey:@"encoding"] integerValue]]], NSLocalizedDescriptionKey, NSLocalizedStringFromTable(@"Please choose another encoding (such as UTF-8).", @"Localizable3", @"Subtitle of alert panel informing user that the file's string encoding needs to be changed"), NSLocalizedRecoverySuggestionErrorKey, nil]];
+	if (![string canBeConvertedToEncoding:[[document valueForKey:@"encoding"] integerValue]]) 
+	{
+		NSError *error = [NSError errorWithDomain:LITERATE_ERROR_DOMAIN code:LiterateSaveErrorEncodingInapplicable userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:NSLocalizedStringFromTable(@"This document can no longer be saved using its original %@ encoding.", @"Localizable3", @"Title of alert panel informing user that the file's string encoding needs to be changed."), [NSString localizedNameOfStringEncoding:[[document valueForKey:@"encoding"] integerValue]]], NSLocalizedDescriptionKey, NSLocalizedStringFromTable(@"Please choose another encoding (such as UTF-8).", @"Localizable3", @"Subtitle of alert panel informing user that the file's string encoding needs to be changed"), NSLocalizedRecoverySuggestionErrorKey, nil]];
 		[LTCurrentProject presentError:error modalForWindow:LTCurrentWindow delegate:self didPresentSelector:nil contextInfo:NULL];
 		return;
 	}
@@ -437,7 +438,7 @@ static id sharedInstance = nil;
 			}
 			
 			if ([[LTDefaults valueForKey:@"AssignDocumentToLiterateWhenSaving"] boolValue] == YES || [[document valueForKey:@"isNewDocument"] boolValue]) {
-				[attributes setValue:[NSNumber numberWithUnsignedLong:'SMUL'] forKey:@"NSFileHFSCreatorCode"];
+				[attributes setValue:[NSNumber numberWithUnsignedLong:'LTRT'] forKey:@"NSFileHFSCreatorCode"];
 				[attributes setValue:[NSNumber numberWithUnsignedLong:'LTd'] forKey:@"NSFileHFSTypeCode"];
 			}
 			

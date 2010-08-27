@@ -159,12 +159,7 @@ static id sharedInstance = nil;
 		} else {
 			[textScrollView setHasHorizontalScroller:NO];
 			[[textView textContainer] setWidthTracksTextView:YES];
-<<<<<<< HEAD
-			[[textView textContainer] setContainerSize:NSMakeSize([textScrollView contentSize].width, FLT_MAX)];
-			[textView setString:string]; // To reflow/rewrap the text
-=======
 			[[textView textContainer] setContainerSize:NSMakeSize([textScrollView contentSize].width, CGFLOAT_MAX)];
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 			[textView setHorizontallyResizable:NO];
 		}
 		[textView setString:string]; // To reflow/rewrap the text

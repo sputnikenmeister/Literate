@@ -99,37 +99,20 @@ static id sharedInstance = nil;
 	[[NSNotificationCenter defaultCenter] addObserver:lineNumbers selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	[document setValue:lineNumbers forKey:@"lineNumbers"];
 	
-<<<<<<< HEAD
-	LTTextView *textView;
-	if ([[LTDefaults valueForKey:@"LineWrapNewDocuments"] boolValue] == YES) {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, contentSize.width, contentSize.height)];
-		[textView setMinSize:contentSize];
-=======
 	NSSize contentSize = [textScrollView contentSize];
 	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height)];
 	
 	if ([[LTDefaults valueForKey:@"LineWrapNewDocuments"] boolValue] == YES) 
 	{
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
 		[[textView textContainer] setWidthTracksTextView:YES];
-<<<<<<< HEAD
 		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect([[LTDefaults valueForKey:@"GutterWidth"] integerValue], 0, contentSize.width, contentSize.height)];
-		[textView setMinSize:contentSize];
-		[textScrollView setHasHorizontalScroller:YES];
-		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-=======
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, CGFLOAT_MAX)];		 
-	} 
+	}
 	else 
 	{
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 		[[textView textContainer] setWidthTracksTextView:NO];
 		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 	}
@@ -195,38 +178,17 @@ static id sharedInstance = nil;
 	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height) 
 											   textContainer:container];
 	
-<<<<<<< HEAD
-	LTTextView *textView;
-	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width - 2, contentSize.height) textContainer:container]; // - 2 to remove slight movement left and right
-		[textView setMinSize:contentSize];
-=======
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
 	{
-		//textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width/* - 2*/, contentSize.height) 
-		//							   textContainer:container]; // - 2 to remove slight movement left and right
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 		[textScrollView setHasHorizontalScroller:NO];
 		[textView setHorizontallyResizable:NO];
-		NSLog(@"%.0f w", [textScrollView contentSize].width);
 		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width/* - 2*/, CGFLOAT_MAX)];		 
 		[[textView textContainer] setWidthTracksTextView:YES];
-<<<<<<< HEAD
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
-		[textScrollView setHasHorizontalScroller:YES];
-		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-=======
-		NSLog(@"%.0f w", [[textView textContainer] containerSize].width);
 	} 
 	else 
 	{
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 		[[textView textContainer] setWidthTracksTextView:NO];
 		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 	}
@@ -314,19 +276,6 @@ static id sharedInstance = nil;
 												 name:NSViewBoundsDidChangeNotification 
 											   object:[textScrollView contentView]];
 	
-<<<<<<< HEAD
-	LTTextView *textView;
-	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
-		[textScrollView setHasHorizontalScroller:NO];
-		[textView setHorizontallyResizable:NO];
-		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
-=======
 	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height) textContainer:container];
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
 	{
@@ -338,7 +287,6 @@ static id sharedInstance = nil;
 	} 
 	else 
 	{
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
 		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
@@ -399,22 +347,6 @@ static id sharedInstance = nil;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:[document valueForKey:@"lineNumbers"] selector:@selector(viewBoundsDidChange:) name:NSViewBoundsDidChangeNotification object:[textScrollView contentView]];
 	
-<<<<<<< HEAD
-	LTTextView *textView;
-	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
-		[textScrollView setHasHorizontalScroller:NO];
-		[textView setHorizontallyResizable:NO];
-		[[textView textContainer] setWidthTracksTextView:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(contentSize.width, FLT_MAX)];		 
-	} else {
-		textView = [[LTTextView alloc] initWithFrame:NSMakeRect(gutterWidth, 0, contentSize.width, contentSize.height) textContainer:container];
-		[textView setMinSize:contentSize];
-		[textScrollView setHasHorizontalScroller:YES];
-		[textView setHorizontallyResizable:YES];
-		[[textView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
-=======
 	LTTextView *textView = [[LTTextView alloc] initWithFrame:NSMakeRect(0, 0, contentSize.width, contentSize.height) textContainer:container];;
 	if ([[document valueForKey:@"isLineWrapped"] boolValue] == YES) 
 	{
@@ -425,10 +357,8 @@ static id sharedInstance = nil;
 	} 
 	else 
 	{
-		
 		[textScrollView setHasHorizontalScroller:YES];
 		[textView setHorizontallyResizable:YES];
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 		[[textView textContainer] setWidthTracksTextView:NO];
 		[[textView textContainer] setContainerSize:NSMakeSize(CGFLOAT_MAX, CGFLOAT_MAX)];
 	}
@@ -579,10 +509,6 @@ static id sharedInstance = nil;
 - (void)enterFullScreenForDocument:(id)document
 {
 	savedMainMenu = [NSApp mainMenu];
-<<<<<<< HEAD
-	
-=======
->>>>>>> 1ef8d95... Fix text container width bug for first and second views
 	fullScreenRect = [[NSScreen mainScreen] frame];	
 	CGFloat width;
 	if ([LTMain singleDocumentWindowWasOpenBeforeEnteringFullScreen] == YES) {

@@ -26,9 +26,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	#define Pos NSLog(@"File=%s line=%d proc=%s", strrchr("/" __FILE__,'/')+1, __LINE__, __PRETTY_FUNCTION__)
 #endif
 
-<<<<<<< HEAD
-=======
-#define SMULTRON_ERROR_DOMAIN @"org.TestToast.Literate.ErrorDomain"
+#define LITERATE_ERROR_DOMAIN @"org.TestToast.Literate.ErrorDomain"
 
 #import <Cocoa/Cocoa.h>
 #warning Carbon
@@ -40,7 +38,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import <QuickLook/QuickLook.h>
 
 #import <unistd.h>
->>>>>>> 51db2d5... Remove obselete code, XeTeX actions
 
 typedef enum {
 	LTDefaultsLineEndings = 0,
@@ -66,18 +63,8 @@ typedef enum {
 	LTPermantProject = 1
 } LTWhatKindOfProject;
 
-<<<<<<< HEAD
-typedef enum {
-	LTCheckForUpdatesNever = 0,
-	LTCheckForUpdatesDaily = 1,
-	LTCheckForUpdatesWeekly = 2,
-	LTCheckForUpdatesMonthly = 3
-} LTCheckForUpdatesInterval;
 
 typedef enum {
-=======
-enum {
->>>>>>> f0a6e00... Add Sparkle, 0.1 release
 	LTPreviewHTML = 0,
 	LTPreviewMarkdown = 1,
 	LTPreviewMultiMarkdown = 2,
@@ -101,25 +88,6 @@ typedef struct _AppleEventSelectionRange {
 typedef enum {
     LiterateSaveErrorEncodingInapplicable = 1,
 } LTErrors;
-
-#define SMULTRON_ERROR_DOMAIN @"org.smultron.Literate.ErrorDomain"
-
-#import <Cocoa/Cocoa.h>
-#import <Carbon/Carbon.h>
-
-#import <SystemConfiguration/SCNetwork.h>
-
-#import <ApplicationServices/ApplicationServices.h>
-
-#import <WebKit/WebKit.h>
-
-#import <QuartzCore/QuartzCore.h>
-
-#import <QuickLook/QuickLook.h>
-
-
-
-#import <unistd.h>
 
 #import <unistd.h>
 #import <sys/param.h>
@@ -179,10 +147,6 @@ typedef enum {
 #define LTCurrentTextView [[LTProjectsController sharedDocumentController] currentTextView]
 #define LTCurrentText [[LTProjectsController sharedDocumentController] currentText]
 #define LTCurrentWindow [[[LTCurrentProject windowControllers] objectAtIndex:0] window]
-
-
-
-
 
 @interface LTStandardHeader : NSObject
 {

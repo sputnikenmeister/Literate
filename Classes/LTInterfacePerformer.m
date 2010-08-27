@@ -32,11 +32,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTSyntaxColouring.h"
 #import "LTFullScreenWindow.h"
 
-#import "ICUPattern.h"
-#import "ICUMatcher.h"
-#import "NSStringICUAdditions.h"
-
-
 @implementation LTInterfacePerformer
 
 @synthesize fullScreenWindow, fullScreenDocument, defaultIcon, defaultUnsavedIcon;

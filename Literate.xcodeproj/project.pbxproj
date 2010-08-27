@@ -11,7 +11,6 @@
 		2F6CF2E20B848515008B0386 /* DefaultCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6CF2E10B848515008B0386 /* DefaultCommands.plist */; };
 		2F7040F90BBBE07F00D43CAF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2F7040F80BBBE07F00D43CAF /* Credits.rtf */; };
 		2F8C9F030B8054E100C6502F /* LTDummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C9F020B8054E100C6502F /* LTDummyView.m */; };
-		2F8CCC130BA8158E00BA791C /* NSStringICUAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8CCC110BA8158E00BA791C /* NSStringICUAdditions.m */; };
 		2FC46AFE0BD608C500F209AA /* LTCommandsIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2FC46AFC0BD608C500F209AA /* LTCommandsIcon.icns */; };
 		2FC46AFF0BD608C500F209AA /* LTSnippetsIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2FC46AFD0BD608C500F209AA /* LTSnippetsIcon.icns */; };
 		2FCFEBC20B820D0F00E635EE /* LTCommandCollectionManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEBC10B820D0F00E635EE /* LTCommandCollectionManagedObject.m */; };
@@ -34,7 +33,6 @@
 		7F5C26B90B73C06D00D2EDDC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F5C26B80B73C06D00D2EDDC /* SystemConfiguration.framework */; };
 		7F5C287A0B73C49700D2EDDC /* LTBasicPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C28780B73C49700D2EDDC /* LTBasicPerformer.m */; };
 		7F5C287E0B73C4AA00D2EDDC /* LTInterfacePerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C287C0B73C4AA00D2EDDC /* LTInterfacePerformer.m */; };
-		7F6C9C680B75F23000531EF9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6C9C670B75F23000531EF9 /* libicucore.dylib */; };
 		7F7444C90CF8DDEC00C947C1 /* LTAdvancedFindPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7444C80CF8DDEC00C947C1 /* LTAdvancedFindPanel.m */; };
 		7F79EE370D93D5500034017B /* NSString+Literate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F79EE360D93D5500034017B /* NSString+Literate.m */; };
 		7F79EE3A0D93D5760034017B /* NSImage+Literate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F79EE390D93D5760034017B /* NSImage+Literate.m */; };
@@ -100,8 +98,6 @@
 		7F980B370B73B6A2000A9140 /* LTToolsMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B040B73B6A2000A9140 /* LTToolsMenuController.m */; };
 		7F980B380B73B6A2000A9140 /* LTVariousPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B060B73B6A2000A9140 /* LTVariousPerformer.m */; };
 		7F980B390B73B6A2000A9140 /* LTViewMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F980B080B73B6A2000A9140 /* LTViewMenuController.m */; };
-		7FA2666E0B7796BE00AEA870 /* ICUMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA266690B7796BE00AEA870 /* ICUMatcher.m */; };
-		7FA2666F0B7796BE00AEA870 /* ICUPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA2666B0B7796BE00AEA870 /* ICUPattern.m */; };
 		7FAD46800D9E43A600ECD508 /* LTPrintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD467F0D9E43A600ECD508 /* LTPrintViewController.m */; };
 		7FB41E060B7A2A43006ADB1E /* LTOpenSavePerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB41E050B7A2A43006ADB1E /* LTOpenSavePerformer.m */; };
 		7FB91155101E61B6008DB1DA /* LTAdvancedFind.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5168D7C20D9276DF005225AB /* LTAdvancedFind.xib */; };
@@ -137,6 +133,8 @@
 		948C848512220F5F004AEF8D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948C848412220F5F004AEF8D /* Sparkle.framework */; };
 		948C848F1222102D004AEF8D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 948C848412220F5F004AEF8D /* Sparkle.framework */; };
 		948C84B412221266004AEF8D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 948C84B312221266004AEF8D /* dsa_pub.pem */; };
+		94FEFA331227B97400F4C376 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FEFA321227B97400F4C376 /* libicucore.dylib */; };
+		94FEFA4F1227C16D00F4C376 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FEFA4D1227C16D00F4C376 /* RegexKitLite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,8 +176,6 @@
 		2F7040F80BBBE07F00D43CAF /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Other/Credits.rtf; sourceTree = "<group>"; };
 		2F8C9F010B8054E100C6502F /* LTDummyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTDummyView.h; path = Classes/LTDummyView.h; sourceTree = "<group>"; };
 		2F8C9F020B8054E100C6502F /* LTDummyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTDummyView.m; path = Classes/LTDummyView.m; sourceTree = "<group>"; };
-		2F8CCC110BA8158E00BA791C /* NSStringICUAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringICUAdditions.m; path = ICU/NSStringICUAdditions.m; sourceTree = "<group>"; };
-		2F8CCC120BA8158E00BA791C /* NSStringICUAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringICUAdditions.h; path = ICU/NSStringICUAdditions.h; sourceTree = "<group>"; };
 		2FC46AFC0BD608C500F209AA /* LTCommandsIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTCommandsIcon.icns; path = Graphics/LTCommandsIcon.icns; sourceTree = "<group>"; };
 		2FC46AFD0BD608C500F209AA /* LTSnippetsIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = LTSnippetsIcon.icns; path = Graphics/LTSnippetsIcon.icns; sourceTree = "<group>"; };
 		2FCFEBC00B820D0F00E635EE /* LTCommandCollectionManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTCommandCollectionManagedObject.h; path = Classes/LTCommandCollectionManagedObject.h; sourceTree = "<group>"; };
@@ -231,7 +227,6 @@
 		7F5C28780B73C49700D2EDDC /* LTBasicPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTBasicPerformer.m; path = Classes/LTBasicPerformer.m; sourceTree = "<group>"; };
 		7F5C287B0B73C4AA00D2EDDC /* LTInterfacePerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTInterfacePerformer.h; path = Classes/LTInterfacePerformer.h; sourceTree = "<group>"; };
 		7F5C287C0B73C4AA00D2EDDC /* LTInterfacePerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTInterfacePerformer.m; path = Classes/LTInterfacePerformer.m; sourceTree = "<group>"; };
-		7F6C9C670B75F23000531EF9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
 		7F7357180D91D2F800F1398B /* LTProject.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTProject.xib; sourceTree = "<group>"; };
 		7F7444C70CF8DDEC00C947C1 /* LTAdvancedFindPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTAdvancedFindPanel.h; path = Classes/LTAdvancedFindPanel.h; sourceTree = "<group>"; };
 		7F7444C80CF8DDEC00C947C1 /* LTAdvancedFindPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTAdvancedFindPanel.m; path = Classes/LTAdvancedFindPanel.m; sourceTree = "<group>"; };
@@ -355,10 +350,6 @@
 		7F980B060B73B6A2000A9140 /* LTVariousPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTVariousPerformer.m; path = Classes/LTVariousPerformer.m; sourceTree = "<group>"; };
 		7F980B070B73B6A2000A9140 /* LTViewMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTViewMenuController.h; path = Classes/LTViewMenuController.h; sourceTree = "<group>"; };
 		7F980B080B73B6A2000A9140 /* LTViewMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTViewMenuController.m; path = Classes/LTViewMenuController.m; sourceTree = "<group>"; };
-		7FA266680B7796BE00AEA870 /* ICUMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICUMatcher.h; path = ICU/ICUMatcher.h; sourceTree = "<group>"; };
-		7FA266690B7796BE00AEA870 /* ICUMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUMatcher.m; path = ICU/ICUMatcher.m; sourceTree = "<group>"; };
-		7FA2666A0B7796BE00AEA870 /* ICUPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICUPattern.h; path = ICU/ICUPattern.h; sourceTree = "<group>"; };
-		7FA2666B0B7796BE00AEA870 /* ICUPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICUPattern.m; path = ICU/ICUPattern.m; sourceTree = "<group>"; };
 		7FAD467E0D9E43A600ECD508 /* LTPrintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTPrintViewController.h; path = Classes/LTPrintViewController.h; sourceTree = "<group>"; };
 		7FAD467F0D9E43A600ECD508 /* LTPrintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTPrintViewController.m; path = Classes/LTPrintViewController.m; sourceTree = "<group>"; };
 		7FB41E040B7A2A43006ADB1E /* LTOpenSavePerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTOpenSavePerformer.h; path = Classes/LTOpenSavePerformer.h; sourceTree = "<group>"; };
@@ -371,6 +362,9 @@
 		8D15AC370486D014006FF6A4 /* Literate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Literate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948C848412220F5F004AEF8D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		948C84B312221266004AEF8D /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		94FEFA321227B97400F4C376 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		94FEFA4C1227C16D00F4C376 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		94FEFA4D1227C16D00F4C376 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,10 +385,10 @@
 				7F5C26B30B73C04800D2EDDC /* ApplicationServices.framework in Frameworks */,
 				7F5C26B50B73C05100D2EDDC /* WebKit.framework in Frameworks */,
 				7F5C26B90B73C06D00D2EDDC /* SystemConfiguration.framework in Frameworks */,
-				7F6C9C680B75F23000531EF9 /* libicucore.dylib in Frameworks */,
 				7F51225C0BA72E7E00183863 /* QuartzCore.framework in Frameworks */,
 				7FBDDF360CF79C7D003BAFB5 /* QuickLook.framework in Frameworks */,
 				948C848512220F5F004AEF8D /* Sparkle.framework in Frameworks */,
+				94FEFA331227B97400F4C376 /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,12 +403,12 @@
 				7F1DE27C0BD1985B00AD5707 /* CoreServices.framework */,
 				7F1DE27A0BD1984700AD5707 /* CoreFoundation.framework */,
 				7F51225B0BA72E7E00183863 /* QuartzCore.framework */,
-				7F6C9C670B75F23000531EF9 /* libicucore.dylib */,
 				7F5C26B80B73C06D00D2EDDC /* SystemConfiguration.framework */,
 				7F5C26B40B73C05100D2EDDC /* WebKit.framework */,
 				7F5C26B20B73C04800D2EDDC /* ApplicationServices.framework */,
 				7F5C26B00B73C03A00D2EDDC /* Carbon.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+				94FEFA321227B97400F4C376 /* libicucore.dylib */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -471,10 +465,10 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				94FEFA4A1227C16D00F4C376 /* RegexKitLite */,
 				7F980A860B73B619000A9140 /* Command Line Utility */,
 				7F980A8F0B73B641000A9140 /* ODBEditorSuite.h */,
 				7F81FEDD0BA9DDE100549CDB /* PSMTabBar */,
-				7FD7C3CE0B76561A0097747A /* ICU */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -867,17 +861,13 @@
 			name = Headers;
 			sourceTree = "<group>";
 		};
-		7FD7C3CE0B76561A0097747A /* ICU */ = {
+		94FEFA4A1227C16D00F4C376 /* RegexKitLite */ = {
 			isa = PBXGroup;
 			children = (
-				7FA266680B7796BE00AEA870 /* ICUMatcher.h */,
-				7FA266690B7796BE00AEA870 /* ICUMatcher.m */,
-				7FA2666A0B7796BE00AEA870 /* ICUPattern.h */,
-				7FA2666B0B7796BE00AEA870 /* ICUPattern.m */,
-				2F8CCC120BA8158E00BA791C /* NSStringICUAdditions.h */,
-				2F8CCC110BA8158E00BA791C /* NSStringICUAdditions.m */,
+				94FEFA4C1227C16D00F4C376 /* RegexKitLite.h */,
+				94FEFA4D1227C16D00F4C376 /* RegexKitLite.m */,
 			);
-			name = ICU;
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1066,8 +1056,6 @@
 				7F5C287A0B73C49700D2EDDC /* LTBasicPerformer.m in Sources */,
 				7F5C287E0B73C4AA00D2EDDC /* LTInterfacePerformer.m in Sources */,
 				7F3443260B74CC3500790653 /* LTDocumentManagedObject.m in Sources */,
-				7FA2666E0B7796BE00AEA870 /* ICUMatcher.m in Sources */,
-				7FA2666F0B7796BE00AEA870 /* ICUPattern.m in Sources */,
 				7F08532F0B77B55D009544AD /* LTExtraInterfaceController.m in Sources */,
 				7FB41E060B7A2A43006ADB1E /* LTOpenSavePerformer.m in Sources */,
 				7F961E950B7A7CE1001E9189 /* LTEncodingManagedObject.m in Sources */,
@@ -1080,7 +1068,6 @@
 				2FCFEBC20B820D0F00E635EE /* LTCommandCollectionManagedObject.m in Sources */,
 				2FE2F8400B985D0500ADCF8A /* LTProject+DocumentViewsController.m in Sources */,
 				2FF0FC2D0BA6C8FF00B21D83 /* LTGradientBackgroundView.m in Sources */,
-				2F8CCC130BA8158E00BA791C /* NSStringICUAdditions.m in Sources */,
 				7F81FF030BA9DDF600549CDB /* PSMOverflowPopUpButton.m in Sources */,
 				7F81FF050BA9DDF600549CDB /* PSMRolloverButton.m in Sources */,
 				7F81FF060BA9DDF600549CDB /* PSMTabBarCell.m in Sources */,
@@ -1096,6 +1083,7 @@
 				7F79EE3D0D93D58C0034017B /* NSToolbarItem+Literate.m in Sources */,
 				7F2B7E330D9463A100C60435 /* LTSearchField.m in Sources */,
 				7FAD46800D9E43A600ECD508 /* LTPrintViewController.m in Sources */,
+				94FEFA4F1227C16D00F4C376 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

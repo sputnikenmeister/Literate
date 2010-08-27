@@ -31,10 +31,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTLineNumbers.h"
 #import "LTProject.h"
 
-#import "ICUPattern.h"
-#import "ICUMatcher.h"
-#import "NSStringICUAdditions.h"
-
 @implementation LTSyntaxColouring
 
 @synthesize reactToChanges, functionDefinition, removeFromFunction, secondLayoutManager, thirdLayoutManager, fourthLayoutManager, undoManager;
@@ -419,15 +415,14 @@ beginInstruction:@"";
 
 - (void)prepareRegularExpressions
 {
-	if ([[LTDefaults valueForKey:@"ColourMultiLineStrings"] boolValue] == NO) {
-		firstStringPattern = [[ICUPattern alloc] initWithString:[NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\\\r\\n]*+)*+%@", firstString, firstString, firstString, firstString]];
-		
-		secondStringPattern = [[ICUPattern alloc] initWithString:[NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", secondString, secondString, secondString, secondString]];
+	if ([[LTDefaults valueForKey:@"ColourMultiLineStrings"] boolValue] == NO) 
+	{
+		firstStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\\\r\\n]*+)*+%@", firstString, firstString, firstString, firstString];
+		secondStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", secondString, secondString, secondString, secondString];
 
 	} else {
-		firstStringPattern = [[ICUPattern alloc] initWithString:[NSString stringWithFormat:@"\\W%@[^%@\\\\]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", firstString, firstString, firstString, firstString]];
-		
-		secondStringPattern = [[ICUPattern alloc] initWithString:[NSString stringWithFormat:@"\\W%@[^%@\\\\]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", secondString, secondString, secondString, secondString]];
+		firstStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", firstString, firstString, firstString, firstString];
+		secondStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", secondString, secondString, secondString, secondString];
 	}
 }
 
@@ -724,7 +719,25 @@ beginInstruction:@"";
 
 	
 	// Second string, first pass
-	if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) {
+	if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
+	{
+		__block NSUInteger  line         = 0UL;
+		
+		DLog(@"searchString: '%@'", searchString);
+		DLog(@"regexString : '%@'", regexString);
+		
+		[searchString enumerateStringsMatchedByRegex:regexString
+										  usingBlock:
+		 ^(NSInteger captureCount,
+		   NSString * const capturedStrings[captureCount],
+		   const NSRange capturedRanges[captureCount],
+		   volatile BOOL * const stop) {
+			 NSLog(@"%lu: %lu '%@'", ++line, [capturedStrings[0] length], capturedStrings[0]);
+		 }];
+		
+		[pool release];
+		return(0);
+		
 		@try {
 			secondStringMatcher = [[ICUMatcher alloc] initWithPattern:secondStringPattern overString:searchString];
 		}

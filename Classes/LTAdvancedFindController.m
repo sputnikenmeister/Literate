@@ -18,10 +18,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTStandardHeader.h"
 
 #import "LTAdvancedFindController.h"
-
-#import "ICUPattern.h"
-#import "ICUMatcher.h"
-#import "NSStringICUAdditions.h"
 #import "LTExtraInterfaceController.h"
 #import "LTProjectsController.h"
 #import "LTBasicPerformer.h"

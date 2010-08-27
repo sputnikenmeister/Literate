@@ -19,8 +19,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 @class LTTextView;
 @class LTLayoutManager;
-@class ICUPattern;
-@class ICUMatcher;
 
 @interface LTSyntaxColouring : NSObject <NSTextStorageDelegate> {
 	
@@ -90,12 +88,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	
 	NSCharacterSet *attributesCharacterSet;
 	
-	ICUPattern *firstStringPattern;
-	ICUPattern *secondStringPattern;
-	
-	ICUMatcher *firstStringMatcher;
-	ICUMatcher *secondStringMatcher;
-	
+	NSString *firstStringPattern;
+	NSString *secondStringPattern;
 	NSRange foundRange;
 	
 	NSTimer *liveUpdatePreviewTimer;

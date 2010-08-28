@@ -627,12 +627,12 @@ static id sharedInstance = nil;
 
 	NSArray *keys = [[NSArray alloc] initWithObjects:@"lineNumber", @"name", nil];
 	
-	[text enumerateStringsSeparatedByRegex:functionDefinition
-								   options:(RKLCaseless | RKLMultiline) 
-								   inRange:NSMakeRange(0, [text length]-1)  
-									 error:nil
-						enumerationOptions:RKLRegexEnumerationNoOptions 
-								usingBlock:
+	[text enumerateStringsMatchedByRegex:functionDefinition
+								 options:(RKLCaseless | RKLMultiline) 
+								 inRange:NSMakeRange(0, [text length]-1)  
+								   error:nil
+					  enumerationOptions:RKLRegexEnumerationNoOptions 
+							  usingBlock:
 	 ^(NSInteger captureCount,
 	   NSString * const capturedStrings[captureCount],
 	   const NSRange capturedRanges[captureCount],

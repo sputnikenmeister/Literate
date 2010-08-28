@@ -27,6 +27,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTProject.h"
 #import "LTTextPerformer.h"
 
+#import "RegexKitLite.h"
+
 @implementation LTAdvancedFindController
 
 @synthesize currentlyDisplayedDocumentInAdvancedFind, advancedFindWindow, findResultsOutlineView;
@@ -41,8 +43,7 @@ static id sharedInstance = nil;
 	
 	return sharedInstance;
 } 
-#warning disabled
-#if 0
+
 - (id)init 
 {
     if (sharedInstance == nil) {
@@ -51,7 +52,7 @@ static id sharedInstance = nil;
     return sharedInstance;
 }
 
-
+#warning needs refactoring for victory
 - (IBAction)findAction:(id)sender
 {
 	NSString *searchString = [findSearchField stringValue];
@@ -76,27 +77,26 @@ static id sharedInstance = nil;
 		NSBeep();
 		return;
 	}
-	
-	NSString *completeString;
-	NSInteger completeStringLength; 
-	NSInteger startLocation;
-	NSInteger resultsInThisDocument = 0;
-	NSInteger lineNumber;
-	NSInteger index;
+
+	__block NSInteger resultLineNumber;
+	__block NSInteger resultsInThisDocument = 0;
 	NSInteger numberOfResults = 0;
 	NSRange foundRange;
-	NSRange searchRange;
 	NSIndexPath *folderIndexPath;
 	NSMutableDictionary *node;
 	
 	NSEnumerator *enumerator = [self scopeEnumerator];
 
 	NSInteger documentIndex = 0;
-	for (id document in enumerator) {
+	for (id document in enumerator) 
+	{
 		node = [NSMutableDictionary dictionary];
-		if ([[LTDefaults valueForKey:@"ShowFullPathInWindowTitle"] boolValue] == YES) {
+		if ([[LTDefaults valueForKey:@"ShowFullPathInWindowTitle"] boolValue] == YES) 
+		{
 			[node setValue:[document valueForKey:@"nameWithPath"] forKey:@"displayString"];
-		} else {
+		}
+		else 
+		{
 			[node setValue:[document valueForKey:@"name"] forKey:@"displayString"];
 		}
 		[node setValue:[NSNumber numberWithBool:NO] forKey:@"isLeaf"];
@@ -106,61 +106,75 @@ static id sharedInstance = nil;
 		
 		documentIndex++;
 		
-		completeString = [[document valueForKey:@"firstTextView"] string];
-		searchRange = [[document valueForKey:@"firstTextView"] selectedRange];
-		completeStringLength = [completeString length];
-		if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) {
+		NSString *completeString = [[document valueForKey:@"firstTextView"] string];
+		NSUInteger completeStringLength = [completeString length];
+		
+		NSRange searchRange;
+		BOOL searchInSelection = ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == YES && searchRange.length > 0);
+				
+		if (searchInSelection) 
+		{
+			searchRange = [[document valueForKey:@"firstTextView"] selectedRange];
+		}
+		else
+		{
 			searchRange = NSMakeRange(0, completeStringLength);
 		}
-		startLocation = searchRange.location;
-		resultsInThisDocument = 0;
 		
-		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) {
-			ICUPattern *pattern;
-			@try {
-				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
-					pattern = [[ICUPattern alloc] initWithString:searchString flags:(ICUCaseInsensitiveMatching | ICUMultiline)];
-				} else {
-					pattern = [[ICUPattern alloc] initWithString:searchString flags:ICUMultiline];
-				}
-			}
-			@catch (NSException *exception) {
+		NSInteger startLocation = searchRange.location;
+		resultsInThisDocument = 0;
+
+		__block UInt32 index, i;
+		
+		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) 
+		{
+			if ([searchString isRegexValidWithOptions:RKLMultiline error:nil] == NO)
+			{
 				[self alertThatThisIsNotAValidRegularExpression:searchString];
 				return;
 			}
-			@finally {
-			}
 			
-			if ([completeString length] > 0) { // Otherwise ICU throws an exception
-				ICUMatcher *matcher;
-				if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) {
-					matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:completeString];
-				} else {
-					matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:[completeString substringWithRange:searchRange]];
-				}
-				
-				NSInteger indexTemp;
-				while ([matcher findNext]) {
-					NSInteger foundLocation = [matcher rangeOfMatch].location + startLocation;
-					for (index = 0, lineNumber = 0; index <= foundLocation; lineNumber++) {
-						indexTemp = index;
-						index = NSMaxRange([completeString lineRangeForRange:NSMakeRange(index, 0)]);
-						if (indexTemp == index) {
-							index++; // Make sure it moves forward if it is stuck when searching e.g. for [ \t\n]*
-						}
-					}
-					
-					NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-					NSRange rangeMatch = NSMakeRange([matcher rangeOfMatch].location + searchRange.location, [matcher rangeOfMatch].length);
-					[findResultsTreeController insertObject:[self preparedResultDictionaryFromString:completeString searchStringLength:searchStringLength range:rangeMatch lineNumber:lineNumber document:document] atArrangedObjectIndexPath:[folderIndexPath indexPathByAddingIndex:resultsInThisDocument]];
-					[pool drain];
-					
-					resultsInThisDocument++;
-				}
-			}
-			
-		} else {			
-			while (startLocation < completeStringLength) {
+			[completeString enumerateStringsMatchedByRegex:searchString
+												   options:(RKLCaseless | RKLMultiline) 
+												   inRange:searchRange 
+													 error:nil
+										enumerationOptions:RKLRegexEnumerationNoOptions 
+												usingBlock:
+			 ^(NSInteger captureCount,
+			   NSString * const capturedStrings[captureCount],
+			   const NSRange capturedRanges[captureCount],
+			   volatile BOOL * const stop) 
+			 {
+				 //NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+				 
+				 for (i=0; i<captureCount; i++)
+				 {
+					 NSInteger foundLocation = capturedRanges[i].location + startLocation;
+					 
+					 for (index = 0, resultLineNumber = 0; index <= foundLocation; resultLineNumber++) 
+					 {
+						 index = NSMaxRange([completeString lineRangeForRange:NSMakeRange(index, 0)]);
+					 }
+					 
+					 NSRange rangeMatch = NSMakeRange(capturedRanges[i].location + searchRange.location, capturedRanges[i].length);
+					 [findResultsTreeController insertObject:[self preparedResultDictionaryFromString:completeString 
+																				   searchStringLength:searchStringLength 
+																								range:rangeMatch 
+																						   lineNumber:resultLineNumber 
+																							 document:document] 
+								   atArrangedObjectIndexPath:[folderIndexPath indexPathByAddingIndex:resultsInThisDocument]];
+					 
+					 resultsInThisDocument++;
+				 }
+				 //[pool drain];
+				 
+				 
+			 }];
+		}
+		else 
+		{			
+			while (startLocation < completeStringLength) 
+			{
 				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
 					foundRange = [completeString rangeOfString:searchString options:NSCaseInsensitiveSearch range:NSMakeRange(startLocation, NSMaxRange(searchRange) - startLocation)];
 				} else {
@@ -170,12 +184,17 @@ static id sharedInstance = nil;
 				if (foundRange.location == NSNotFound) {
 					break;
 				}
-				for (index = 0, lineNumber = 0; index <= foundRange.location; lineNumber++) {
+				for (index = 0, resultLineNumber = 0; index <= foundRange.location; resultLineNumber++) {
 					index = NSMaxRange([completeString lineRangeForRange:NSMakeRange(index, 0)]);	
 				}
 			
 				NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-				[findResultsTreeController insertObject:[self preparedResultDictionaryFromString:completeString searchStringLength:searchStringLength range:foundRange lineNumber:lineNumber document:document] atArrangedObjectIndexPath:[folderIndexPath indexPathByAddingIndex:resultsInThisDocument]];
+				[findResultsTreeController insertObject:[self preparedResultDictionaryFromString:completeString 
+																			  searchStringLength:searchStringLength 
+																						   range:foundRange 
+																					  lineNumber:resultLineNumber 
+																						document:document] 
+							  atArrangedObjectIndexPath:[folderIndexPath indexPathByAddingIndex:resultsInThisDocument]];
 				[pool drain];
 				
 				resultsInThisDocument++;
@@ -192,11 +211,16 @@ static id sharedInstance = nil;
 	}
 	
 	NSString *searchResultString;
-	if (numberOfResults == 0) {
+	if (numberOfResults == 0) 
+	{
 		searchResultString = [NSString stringWithFormat:NSLocalizedString(@"Could not find a match for search-string %@", @"Could not find a match for search-string %@ in Advanced Find"), searchString];
-	} else if (numberOfResults == 1) {
+	} 
+	else if (numberOfResults == 1) 
+	{
 		searchResultString = [NSString stringWithFormat:NSLocalizedString(@"Found one match for search-string %@", @"Found one match for search-string %@ in Advanced Find"), searchString];
-	} else {
+	}
+	else 
+	{
 		searchResultString = [NSString stringWithFormat:NSLocalizedString(@"Found %i matches for search-string %@", @"Found %i matches for search-string %@ in Advanced Find"), numberOfResults, searchString];
 	}
 	
@@ -212,9 +236,9 @@ static id sharedInstance = nil;
 	[[NSGarbageCollector defaultCollector] collectIfNeeded];
 }
 
-
 - (IBAction)replaceAction:(id)sender
 {	
+#if 0
 	NSString *searchString = [findSearchField stringValue];
 	NSString *replaceString = [replaceSearchField stringValue];
 	
@@ -355,6 +379,7 @@ static id sharedInstance = nil;
 						  (void *)numberOfResults,
 						  NSLocalizedString(@"Remember that you can always Undo any changes", @"Remember that you can always Undo any changes in ask-if-sure-you-want-to-replace-in-advanced-find-sheet"));
 	}
+#endif
 }
 
 
@@ -383,6 +408,8 @@ static id sharedInstance = nil;
 		}
 		
 		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) {		
+#warning disabled
+#if 0
 			ICUPattern *pattern;
 			@try {
 				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
@@ -414,7 +441,7 @@ static id sharedInstance = nil;
 			} else {
 				[completeString replaceCharactersInRange:searchRange withString:[matcher replaceAllWithString:regularExpressionReplaceString]];
 			}
-			
+#endif
 
 		} else {
 			
@@ -677,7 +704,6 @@ static id sharedInstance = nil;
 {
 	[[LTExtraInterfaceController sharedInstance] showRegularExpressionsHelpPanel];
 }
-#endif
 
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item

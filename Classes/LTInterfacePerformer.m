@@ -629,7 +629,7 @@ static id sharedInstance = nil;
 	
 	[text enumerateStringsSeparatedByRegex:functionDefinition
 								   options:(RKLCaseless | RKLMultiline) 
-								   inRange:NSMakeRange(0, [text length])  
+								   inRange:NSMakeRange(0, [text length]-1)  
 									 error:nil
 						enumerationOptions:RKLRegexEnumerationNoOptions 
 								usingBlock:

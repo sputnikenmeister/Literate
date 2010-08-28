@@ -97,12 +97,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	NSRange lastLineHighlightRange;
 }
 
-//@property ICUPattern *firstStringPattern;
-//@property ICUPattern *secondStringPattern;
-//
-//@property ICUMatcher *firstStringMatcher;
-//@property ICUMatcher *secondStringMatcher;
-
 //@property NSSet *keywords;
 //@property NSSet *autocompleteWords;
 //@property NSArray *keywordsAndAutocompleteWords;

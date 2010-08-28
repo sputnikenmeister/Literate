@@ -31,6 +31,9 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #import "PSMTabBarControl.h"
 
+#import <Carbon/Carbon.h>
+
+
 @implementation LTViewMenuController
 
 static id sharedInstance = nil;
@@ -65,7 +68,7 @@ static id sharedInstance = nil;
 		NSRect firstViewFrame = [[[splitView subviews] objectAtIndex:0] frame];
 		NSRect secondViewFrame = [[[splitView subviews] objectAtIndex:1] frame];
 		
-		BOOL optionKeyDown = ((GetCurrentKeyModifiers() & (optionKey | rightOptionKey)) != 0) ? YES : NO;
+		BOOL optionKeyDown = ((GetCurrentEventKeyModifiers() & (optionKey | rightOptionKey)) != 0) ? YES : NO;
 		if (optionKeyDown == NO) {
 			[splitView setVertical:NO];
 		} else {

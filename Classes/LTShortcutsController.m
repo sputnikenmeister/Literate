@@ -19,7 +19,9 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #import "LTShortcutsController.h"
 #import "LTCommandsController.h"
-#import "LTSnippetsController.H"
+#import "LTSnippetsController.h"
+
+#import <Carbon/Carbon.h>
 
 @implementation LTShortcutsController
 

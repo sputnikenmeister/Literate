@@ -46,7 +46,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 - (void)enterFullScreen
 {	
-	SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+	[NSApp setPresentationOptions:(NSApplicationPresentationAutoHideDock | NSApplicationPresentationAutoHideMenuBar)];
 	fullScreenTimer = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(fadeIn) userInfo:nil repeats:YES];
 }
 

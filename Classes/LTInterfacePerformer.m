@@ -545,7 +545,7 @@ static id sharedInstance = nil;
 
 - (void)returnFromFullScreen
 {	
-	SetSystemUIMode(kUIModeNormal, 0);
+	[NSApp setPresentationOptions:(NSApplicationPresentationDefault)];
 	[NSApp setMainMenu:savedMainMenu];
 	
 	[[fullScreenDocument valueForKey:@"singleDocumentWindow"] setContentView:[fullScreenWindow contentView]];

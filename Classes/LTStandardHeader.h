@@ -29,8 +29,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #define LITERATE_ERROR_DOMAIN @"org.TestToast.Literate.ErrorDomain"
 
 #import <Cocoa/Cocoa.h>
-#warning Carbon
-#import <Carbon/Carbon.h>
 #import <SystemConfiguration/SCNetwork.h>
 #import <ApplicationServices/ApplicationServices.h>
 #import <WebKit/WebKit.h>

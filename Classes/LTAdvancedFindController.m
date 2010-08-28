@@ -699,12 +699,10 @@ static id sharedInstance = nil;
 	}	
 }
 
-
-- (IBAction)showRegularExpressionsHelpPanelAction:(id)sender
+-(IBAction)showRegularExpressionsHelpPanelAction:(id)sender
 {
 	[[LTExtraInterfaceController sharedInstance] showRegularExpressionsHelpPanel];
 }
-
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isGroupItem:(id)item
 {

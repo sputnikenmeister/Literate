@@ -26,6 +26,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTToolsMenuController.h"
 #import "LTProject.h"
 #import "LTVariousPerformer.h"
+#import "LTFileMenuController.h"
 
 #import "ODBEditorSuite.h"
 
@@ -141,9 +142,14 @@ static id sharedInstance = nil;
  
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
+	// autosave all documents with URLs
+	[[LTFileMenuController sharedInstance] autosaveAllAction:self];
+	
+#warning doesnt work if not in project
 	id item;
 	NSArray *array = [[LTProjectsController sharedDocumentController] documents];
-	for (item in array) {
+	for (item in array) 
+	{
 		[item autosave];
 		if ([item areAllDocumentsSaved] == NO) {
 			return NSTerminateCancel;

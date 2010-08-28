@@ -31,6 +31,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTApplicationDelegate.h"
 #import "LTProject.h"
 #import "NSToolbarItem+Literate.h"
+#import <Sparkle/SUUpdater.h>
 
 @implementation LTPreferencesController
 
@@ -600,7 +601,6 @@ static id sharedInstance = nil;
 		[LTDefaults setValue:[[sheet filename] stringByAbbreviatingWithTildeInPath] forKey:@"SaveAsAlwaysUseTextField"];
 	}
 }
-
 
 - (NSManagedObjectContext *)managedObjectContext
 {

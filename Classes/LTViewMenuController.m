@@ -33,7 +33,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #import <Carbon/Carbon.h>
 
-
 @implementation LTViewMenuController
 
 static id sharedInstance = nil;

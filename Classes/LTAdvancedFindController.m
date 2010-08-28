@@ -109,14 +109,10 @@ static id sharedInstance = nil;
 		NSString *completeString = [[document valueForKey:@"firstTextView"] string];
 		NSUInteger completeStringLength = [completeString length];
 		
-		NSRange searchRange;
+		NSRange searchRange = [[document valueForKey:@"firstTextView"] selectedRange];
 		BOOL searchInSelection = ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == YES && searchRange.length > 0);
 				
-		if (searchInSelection) 
-		{
-			searchRange = [[document valueForKey:@"firstTextView"] selectedRange];
-		}
-		else
+		if (!searchInSelection) 
 		{
 			searchRange = NSMakeRange(0, completeStringLength);
 		}
@@ -134,8 +130,18 @@ static id sharedInstance = nil;
 				return;
 			}
 			
+			RKLRegexOptions options;
+			if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) 
+			{
+				options = (RKLCaseless | RKLMultiline);
+			}
+			else 
+			{
+				options = RKLMultiline;
+			}
+			
 			[completeString enumerateStringsMatchedByRegex:searchString
-												   options:(RKLCaseless | RKLMultiline) 
+												   options:options 
 												   inRange:searchRange 
 													 error:nil
 										enumerationOptions:RKLRegexEnumerationNoOptions 
@@ -145,7 +151,8 @@ static id sharedInstance = nil;
 			   const NSRange capturedRanges[captureCount],
 			   volatile BOOL * const stop) 
 			 {
-				 //NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+#warning why autorelease pool
+				 NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 				 
 				 for (i=0; i<captureCount; i++)
 				 {
@@ -166,7 +173,7 @@ static id sharedInstance = nil;
 					 
 					 resultsInThisDocument++;
 				 }
-				 //[pool drain];
+				 [pool drain];
 				 
 				 
 			 }];
@@ -238,7 +245,6 @@ static id sharedInstance = nil;
 
 - (IBAction)replaceAction:(id)sender
 {	
-#if 0
 	NSString *searchString = [findSearchField stringValue];
 	NSString *replaceString = [replaceSearchField stringValue];
 	
@@ -271,67 +277,87 @@ static id sharedInstance = nil;
 	NSString *completeString;
 	NSInteger completeStringLength; 
 	NSInteger startLocation;
-	NSInteger resultsInThisDocument = 0;
+	__block NSInteger resultsInThisDocument = 0;
 	NSInteger numberOfResults = 0;
 	NSRange foundRange;
 	NSRange searchRange;
 	
 	NSEnumerator *enumerator = [self scopeEnumerator];
-	for (id document in enumerator) {
+	for (id document in enumerator) 
+	{
 		completeString = [[[document valueForKey:@"firstTextScrollView"] documentView] string];
-		searchRange = [[[document valueForKey:@"firstTextScrollView"] documentView] selectedRange];
 		completeStringLength = [completeString length];
-		if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) {
+		searchRange = [[[document valueForKey:@"firstTextScrollView"] documentView] selectedRange];
+
+		BOOL searchInSelection = ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == YES && searchRange.length > 0);
+
+		if (!searchInSelection)
+		{
 			searchRange = NSMakeRange(0, completeStringLength);
 		}
 		
 		startLocation = searchRange.location;
 		resultsInThisDocument = 0;
 		
-		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) {
-			ICUPattern *pattern;
-			@try { 
-				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
-					pattern = [[ICUPattern alloc] initWithString:searchString flags:(ICUCaseInsensitiveMatching | ICUMultiline)];
-				} else {
-					pattern = [[ICUPattern alloc] initWithString:searchString flags:ICUMultiline];
-				}
-			}
-			@catch (NSException *exception) {
+		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) 
+		{
+			if ([searchString isRegexValidWithOptions:RKLMultiline error:nil] == NO)
+			{
 				[self alertThatThisIsNotAValidRegularExpression:searchString];
 				return;
 			}
-			@finally {
-			}
 			
-			ICUMatcher *matcher;
-			if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) {
-				matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:completeString];
-			} else {
-				matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:[completeString substringWithRange:searchRange]];
+			RKLRegexOptions options;
+			if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) 
+			{
+				options = (RKLCaseless | RKLMultiline);
 			}
-			
+			else 
+			{
+				options = RKLMultiline;
+			}
 
-			while ([matcher findNext]) {
-				resultsInThisDocument++;
-			}
-	
-			
-		} else {
+			[completeString enumerateStringsMatchedByRegex:searchString
+												   options:options 
+												   inRange:searchRange 
+													 error:nil
+										enumerationOptions:RKLRegexEnumerationNoOptions 
+												usingBlock:
+			 ^(NSInteger captureCount,
+			   NSString * const capturedStrings[captureCount],
+			   const NSRange capturedRanges[captureCount],
+			   volatile BOOL * const stop) 
+			 {
+				  resultsInThisDocument += captureCount;
+			 }];
+		}
+		
+		else 
+		{
 			NSInteger searchLength;
-			if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) {
+			if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) 
+			{
 				searchLength = completeStringLength;
-			} else {
+			} else 
+			{
 				searchLength = NSMaxRange(searchRange);
 			}
-			while (startLocation < searchLength) {
-				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
-					foundRange = [completeString rangeOfString:searchString options:NSCaseInsensitiveSearch range:NSMakeRange(startLocation, NSMaxRange(searchRange) - startLocation)];
+			
+			while (startLocation < searchLength) 
+			{
+				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) 
+				{
+					foundRange = [completeString rangeOfString:searchString 
+													   options:NSCaseInsensitiveSearch 
+														 range:NSMakeRange(startLocation, NSMaxRange(searchRange) - startLocation)];
 				} else {
-					foundRange = [completeString rangeOfString:searchString options:NSLiteralSearch range:NSMakeRange(startLocation, NSMaxRange(searchRange) - startLocation)];
+					foundRange = [completeString rangeOfString:searchString 
+													   options:NSLiteralSearch 
+														 range:NSMakeRange(startLocation, NSMaxRange(searchRange) - startLocation)];
 				}
 				
-				if (foundRange.location == NSNotFound) {
+				if (foundRange.location == NSNotFound) 
+				{
 					break;
 				}
 				resultsInThisDocument++;
@@ -379,7 +405,6 @@ static id sharedInstance = nil;
 						  (void *)numberOfResults,
 						  NSLocalizedString(@"Remember that you can always Undo any changes", @"Remember that you can always Undo any changes in ask-if-sure-you-want-to-replace-in-advanced-find-sheet"));
 	}
-#endif
 }
 
 
@@ -398,52 +423,38 @@ static id sharedInstance = nil;
 	NSRange searchRange;
 	
 	NSEnumerator *enumerator = [self scopeEnumerator];
-	for (id document in enumerator) {
+	for (id document in enumerator) 
+	{
 		NSTextView *textView = [[document valueForKey:@"firstTextScrollView"] documentView];
 		NSString *originalString = [NSString stringWithString:[textView string]];
 		NSMutableString *completeString = [NSMutableString stringWithString:[textView string]];
 		searchRange = [[[document valueForKey:@"firstTextScrollView"] documentView] selectedRange];
-		if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO || searchRange.length == 0) {
+		
+		
+		BOOL searchInSelection = ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == YES && searchRange.length > 0);
+		
+		if (!searchInSelection)
+		{
 			searchRange = NSMakeRange(0, [[[[document valueForKey:@"firstTextScrollView"] documentView] string] length]);
 		}
 		
-		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) {		
-#warning disabled
-#if 0
-			ICUPattern *pattern;
-			@try {
-				if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
-					pattern = [[ICUPattern alloc] initWithString:searchString flags:(ICUCaseInsensitiveMatching | ICUMultiline)];
-				} else {
-					pattern = [[ICUPattern alloc] initWithString:searchString flags:ICUMultiline];
-				}
+		if ([[LTDefaults valueForKey:@"UseRegularExpressionsAdvancedFind"] boolValue] == YES) 
+		{	
+			RKLRegexOptions options = RKLMultiline;
+			if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES)
+			{
+				options |= RKLCaseless;
 			}
-			@catch (NSException *exception) {
-				[self alertThatThisIsNotAValidRegularExpression:searchString];
-				return;
-			}
-			@finally {
-			}
-			ICUMatcher *matcher;
-			if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO) {
-				matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:completeString];
-			} else {
-				matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:[completeString substringWithRange:searchRange]];
-			}
+					
+			[completeString replaceOccurrencesOfRegex:searchString
+										   withString:replaceString
+											  options:options 
+												range:searchRange 
+												error:nil];
 
-			NSMutableString *regularExpressionReplaceString = [NSMutableString stringWithString:replaceString];
-			[regularExpressionReplaceString replaceOccurrencesOfString:@"\\n" withString:[NSString stringWithFormat:@"%C", 0x000A] options:NSLiteralSearch range:NSMakeRange(0, [regularExpressionReplaceString length])]; // It doesn't seem to work without this workaround
-			[regularExpressionReplaceString replaceOccurrencesOfString:@"\\r" withString:[NSString stringWithFormat:@"%C", 0x000D] options:NSLiteralSearch range:NSMakeRange(0, [regularExpressionReplaceString length])];
-			[regularExpressionReplaceString replaceOccurrencesOfString:@"\\t" withString:[NSString stringWithFormat:@"%C", 0x0009] options:NSLiteralSearch range:NSMakeRange(0, [regularExpressionReplaceString length])];
-			
-			if ([[LTDefaults valueForKey:@"OnlyInSelectionAdvancedFind"] boolValue] == NO) {
-				[completeString setString:[matcher replaceAllWithString:regularExpressionReplaceString]];
-			} else {
-				[completeString replaceCharactersInRange:searchRange withString:[matcher replaceAllWithString:regularExpressionReplaceString]];
-			}
-#endif
-
-		} else {
+		}
+		else
+		{
 			
 			if ([[LTDefaults valueForKey:@"IgnoreCaseAdvancedFind"] boolValue] == YES) {
 				[completeString replaceOccurrencesOfString:searchString withString:replaceString options:NSCaseInsensitiveSearch range:searchRange];
@@ -453,19 +464,20 @@ static id sharedInstance = nil;
 		}
 		
 		NSRange selectedRange = [textView selectedRange];
-		if (![originalString isEqualToString:completeString] && [originalString length] != 0) {
-			if ([textView shouldChangeTextInRange:NSMakeRange(0, [[textView string] length]) replacementString:completeString]) { // Do it this way to mark it as an Undo
+		
+		if (![originalString isEqualToString:completeString] && [originalString length] != 0) 
+		{
+			if ([textView shouldChangeTextInRange:NSMakeRange(0, [[textView string] length]) replacementString:completeString]) 
+			{ // Do it this way to mark it as an Undo
 				[textView replaceCharactersInRange:NSMakeRange(0, [[textView string] length]) withString:completeString];
 				[textView didChangeText];
 				[document setValue:[NSNumber numberWithBool:YES] forKey:@"isEdited"];
 			}
 		}		
-		
 		if (selectedRange.location <= [[textView string] length]) {
 			[textView setSelectedRange:NSMakeRange(selectedRange.location, 0)];
 		}
 	}
-	
 	if (numberOfReplaces != 1) {
 		[findResultTextField setObjectValue:[NSString stringWithFormat:NSLocalizedString(@"Replaced %i occurrences of %@ with %@", @"Indicate that we replaced %i occurrences of %@ with %@ in update-search-textField-after-replace"), numberOfReplaces, searchString, replaceString]];
 	} else {

@@ -419,8 +419,11 @@ beginInstruction:@"";
 {
 	if ([[LTDefaults valueForKey:@"ColourMultiLineStrings"] boolValue] == NO) 
 	{
-		firstStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\\\r\\n]*+)*+%@", firstString, firstString, firstString, firstString];
-		secondStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", secondString, secondString, secondString, secondString];
+		firstStringPattern = [NSString stringWithFormat:@"\%@(?:[^\%@\\\\]*+|\\\\.)*\%@", firstString, firstString, firstString];
+		secondStringPattern = [NSString stringWithFormat:@"\%@(?:[^\%@\\\\]*+|\\\\.)*\%@", firstString, firstString, firstString];
+
+		//firstStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\\\r\\n]*+)*+%@", firstString, firstString, firstString, firstString];
+		//secondStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\\\r\\n]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", secondString, secondString, secondString, secondString];
 
 	} else {
 		firstStringPattern = [NSString stringWithFormat:@"\\W%@[^%@\\\\]*+(?:\\\\(?:.|$)[^%@\\\\]*+)*+%@", firstString, firstString, firstString, firstString];
@@ -719,15 +722,15 @@ beginInstruction:@"";
 		}
 	}	
 
-	
+#if 0
 		// Second string, first pass
 		if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
 		{
 			DLog(@"searchString: '%@'", searchString);
-			DLog(@"regexString : '%@'", secondString);
+			DLog(@"regexString : '%@'", secondStringPattern);
 			
 			__block UInt32 i;
-			[searchString enumerateStringsMatchedByRegex:secondString
+			[searchString enumerateStringsMatchedByRegex:secondStringPattern
 											  usingBlock:
 			 ^(NSInteger captureCount,
 			   NSString * const capturedStrings[captureCount],
@@ -736,20 +739,18 @@ beginInstruction:@"";
 			 {
 				 for (i=0; i<captureCount; i++) 
 				 {
-					 DLog(@"%lu: %lu '%@'", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
-					 [self setColour:stringsColour range:capturedRanges[i]];			
+					 DLog(@"%lu: %lu %@", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
+					 [self setColour:stringsColour range:NSMakeRange(capturedRanges[i].location + rangeLocation + 1, capturedRanges[i].length - 1)];
 				 }
 			 }];
 		}
-	
-		// Second string, first pass
+#endif
+		// First string
 		if (![firstString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
 		{
-			DLog(@"searchString: '%@'", searchString);
-			DLog(@"regexString : '%@'", firstString);
-			
+
 			__block UInt32 i;
-			[searchString enumerateStringsMatchedByRegex:firstString
+			[searchString enumerateStringsMatchedByRegex:firstStringPattern
 											  usingBlock:
 			 ^(NSInteger captureCount,
 			   NSString * const capturedStrings[captureCount],
@@ -757,9 +758,18 @@ beginInstruction:@"";
 			   volatile BOOL * const stop) 
 			 {
 				 for (i=0; i<captureCount; i++) 
-				 {
-					 DLog(@"%lu: %lu '%@'", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
-					 [self setColour:stringsColour range:capturedRanges[i]];			
+				 {   
+					 //if ([[firstLayoutManager temporaryAttributesAtCharacterIndex:capturedRanges[i].location + rangeLocation 
+					//											   effectiveRange:NULL] isEqualToDictionary:stringsColour]) 
+					 //{
+					//	 continue;
+					// }
+					 if (capturedRanges[i].length > 0)
+					 {
+						 
+						 DLog(@"%lu, %lu:%@", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
+						 [self setColour:stringsColour range:NSMakeRange(capturedRanges[i].location + rangeLocation, capturedRanges[i].length)];
+					 }
 				 }
 			 }];
 		}
@@ -1000,15 +1010,12 @@ beginInstruction:@"";
 			beginLocationInMultiLine = [completeDocumentScanner scanLocation];
 		}
 	}
-	
-		// Second string, first pass
+#if 0
+		// Second string, second pass
 		if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
 		{
-			DLog(@"searchString: '%@'", searchString);
-			DLog(@"regexString : '%@'", secondString);
-			
 			__block UInt32 i;
-			[searchString enumerateStringsMatchedByRegex:secondString
+			[searchString enumerateStringsMatchedByRegex:secondStringPattern
 											  usingBlock:
 			 ^(NSInteger captureCount,
 			   NSString * const capturedStrings[captureCount],
@@ -1017,7 +1024,6 @@ beginInstruction:@"";
 			 {
 				 for (i=0; i<captureCount; i++) 
 				 {
-					 DLog(@"%lu: %lu '%@'", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
 					 if ([[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation 
 																   effectiveRange:NULL]  isEqualToDictionary:stringsColour] || 
 						 [[firstLayoutManager temporaryAttributesAtCharacterIndex:foundRange.location + rangeLocation 
@@ -1025,13 +1031,18 @@ beginInstruction:@"";
 					 {
 						 continue;
 					 }
-					 //[self setColour:stringsColour range:NSMakeRange(foundRange.location + rangeLocation + 1, foundRange.length - 1)];
-					 [self setColour:stringsColour range:capturedRanges[i]];			
+					 if (capturedRanges[i].length > 0)
+					 {
+						 DLog(@"%lu, %lu: %@", capturedRanges[i].location, capturedRanges[i].length, capturedStrings[i]);
+						 [self setColour:stringsColour range:NSMakeRange(capturedRanges[i].location + rangeLocation, capturedRanges[i].length)];
+					 }
 				 }
 			 }];
 		}
+#endif
 	}
-	@catch (NSException *exception) {
+	@catch (NSException *exception) 
+	{
 		//Log(exception);
 	}
 	

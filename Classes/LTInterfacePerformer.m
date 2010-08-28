@@ -32,6 +32,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 #import "LTSyntaxColouring.h"
 #import "LTFullScreenWindow.h"
 
+#import "RegexKitLite.h"
+
 @implementation LTInterfacePerformer
 
 @synthesize fullScreenWindow, fullScreenDocument, defaultIcon, defaultUnsavedIcon;
@@ -617,43 +619,55 @@ static id sharedInstance = nil;
 	if (text == nil || [text isEqualToString:@""]) {
 		return [NSArray array];
 	}
-	
-//	ICUPattern *pattern = [[ICUPattern alloc] initWithString:functionDefinition flags:(ICUCaseInsensitiveMatching | ICUMultiline)];
-//	ICUMatcher *matcher = [[ICUMatcher alloc] initWithPattern:pattern overString:text];
-#warning disabled 
-	NSInteger index = 0;
-	NSInteger lineNumber = 0;
-	NSMutableArray *returnArray = [NSMutableArray array];
-#if 0
+
+	__block UInt32 index = 0;
+	__block NSInteger lineNumber = 0;
+	__block NSMutableArray *returnArray = [NSMutableArray array];
+	__block UInt32 i;
 
 	NSArray *keys = [[NSArray alloc] initWithObjects:@"lineNumber", @"name", nil];
-	while ([matcher findNext]) {
-		NSRange matchRange = [matcher rangeOfMatch];
-		while (index <= matchRange.location + 1) {
-			index = NSMaxRange([text lineRangeForRange:NSMakeRange(index, 0)]);
-			lineNumber++;
-		}
-		
-		NSMutableString *name = [NSMutableString stringWithString:[text substringWithRange:matchRange]];
-		NSInteger nameIndex = -1;
-		NSInteger nameLength = [name length];
-		while (++nameIndex < nameLength && ([name characterAtIndex:nameIndex] == ' ' || [name characterAtIndex:nameIndex] == '\t' || [name characterAtIndex:nameIndex] == '\n' || [name characterAtIndex:nameIndex] == '\r')) {
-			[name replaceCharactersInRange:NSMakeRange(nameIndex, 1) withString:@""];
-			nameLength--;
-			nameIndex--; // Move it backwards as it, so to speak, has moved forwards by deleting one
-		}
-		
-		while (nameLength-- && ([name characterAtIndex:nameLength] == ' ' || [name characterAtIndex:nameLength] == '\t' || [name characterAtIndex:nameLength] == '{' || [name characterAtIndex:nameIndex] == '\n' || [name characterAtIndex:nameIndex] == '\r')) {
-			[name replaceCharactersInRange:NSMakeRange(nameLength, 1) withString:@""];
-		}
-		
-		[name replaceOccurrencesOfString:removeFromFunction withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [name length])];
-		
-		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInteger:lineNumber], name, nil] forKeys:keys];
-		
-		[returnArray addObject:dictionary];
-	}
-#endif
+	
+	[text enumerateStringsSeparatedByRegex:functionDefinition
+								   options:(RKLCaseless | RKLMultiline) 
+								   inRange:NSMakeRange(0, [text length])  
+									 error:nil
+						enumerationOptions:RKLRegexEnumerationNoOptions 
+								usingBlock:
+	 ^(NSInteger captureCount,
+	   NSString * const capturedStrings[captureCount],
+	   const NSRange capturedRanges[captureCount],
+	   volatile BOOL * const stop) 
+	 {
+		 for (i=0; i<captureCount; i++)
+		 {
+			 NSRange matchRange = capturedRanges[i];
+			 
+			 while (index <= matchRange.location + 1) 
+			 {
+				 index = NSMaxRange([text lineRangeForRange:NSMakeRange(index, 0)]);
+				 lineNumber++;
+			 }
+			 
+			 NSMutableString *name = [NSMutableString stringWithString:[text substringWithRange:matchRange]];
+			 NSInteger nameIndex = -1;
+			 NSInteger nameLength = [name length];
+			 while (++nameIndex < nameLength && ([name characterAtIndex:nameIndex] == ' ' || [name characterAtIndex:nameIndex] == '\t' || [name characterAtIndex:nameIndex] == '\n' || [name characterAtIndex:nameIndex] == '\r')) {
+				 [name replaceCharactersInRange:NSMakeRange(nameIndex, 1) withString:@""];
+				 nameLength--;
+				 nameIndex--; // Move it backwards as it, so to speak, has moved forwards by deleting one
+			 }
+			 
+			 while (nameLength-- && ([name characterAtIndex:nameLength] == ' ' || [name characterAtIndex:nameLength] == '\t' || [name characterAtIndex:nameLength] == '{' || [name characterAtIndex:nameIndex] == '\n' || [name characterAtIndex:nameIndex] == '\r')) {
+				 [name replaceCharactersInRange:NSMakeRange(nameLength, 1) withString:@""];
+			 }
+			 
+			 [name replaceOccurrencesOfString:removeFromFunction withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [name length])];
+			 
+			 NSDictionary *dictionary = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithInteger:lineNumber], name, nil] forKeys:keys];
+			 
+			 [returnArray addObject:dictionary];	
+		 }
+	 }];
 	return (NSArray *)returnArray;	
 }
 

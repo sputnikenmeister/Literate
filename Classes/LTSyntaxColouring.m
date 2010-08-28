@@ -722,13 +722,9 @@ beginInstruction:@"";
 		}
 	}	
 
-#if 0
 		// Second string, first pass
 		if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
 		{
-			DLog(@"searchString: '%@'", searchString);
-			DLog(@"regexString : '%@'", secondStringPattern);
-			
 			__block UInt32 i;
 			[searchString enumerateStringsMatchedByRegex:secondStringPattern
 											  usingBlock:
@@ -744,7 +740,6 @@ beginInstruction:@"";
 				 }
 			 }];
 		}
-#endif
 		// First string
 		if (![firstString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
 		{
@@ -1010,7 +1005,6 @@ beginInstruction:@"";
 			beginLocationInMultiLine = [completeDocumentScanner scanLocation];
 		}
 	}
-#if 0
 		// Second string, second pass
 		if (![secondString isEqualToString:@""] && [[LTDefaults valueForKey:@"ColourStrings"] boolValue] == YES) 
 		{
@@ -1039,7 +1033,6 @@ beginInstruction:@"";
 				 }
 			 }];
 		}
-#endif
 	}
 	@catch (NSException *exception) 
 	{
